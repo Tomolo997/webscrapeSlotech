@@ -9,8 +9,7 @@ const puppeteer = require("puppeteer");
   let programmingLanguages = [
     "python",
     "javascript",
-    "JS",
-    "Js",
+    "/\bjs\b/",
     "javaScript",
     "JAVASCRIPT",
     "Python",
@@ -26,6 +25,7 @@ const puppeteer = require("puppeteer");
     "Typescript",
     "typeScript",
     "/\bC\b/",
+    "/\bc\b/",
     "C#",
     "c#",
     "VueJS",
