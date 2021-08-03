@@ -66,7 +66,21 @@ const puppeteer = require("puppeteer");
   let jobNumberToStartWith = Math.max(...TextPage);
   let jobs = [];
 
-  for (var i = 100 - 1; i >= 0; i--) {
+  function extractEmails(text) {
+    let email = "";
+    if (text.match(/(https?:\/\/[^ ]*)/) !== null) {
+      email = text.match(/(https?:\/\/[^ ]*)/)[0];
+    } else {
+      if (text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/)) {
+        email = text.match(
+          /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/
+        )[0];
+      }
+    }
+    return email;
+  }
+
+  for (var i = 20 - 1; i >= 0; i--) {
     //current job number
     let delo = jobNumberToStartWith;
     let job = {
@@ -80,6 +94,7 @@ const puppeteer = require("puppeteer");
       kontakt: "",
       opisDelovnegaMesta: "",
       programmingLanguages: [],
+      email: "",
     };
     await page.goto(`https://slo-tech.com/delo/${delo - i}`);
 
@@ -203,6 +218,7 @@ const puppeteer = require("puppeteer");
     job.zahteve = zahteve;
     job.kontakt = kontakt;
     job.opisDelovnegaMesta = opisDelovnegaMesta;
+    job.email = extractEmails(kontakt);
     jobs.push(job);
   }
   console.log(jobs);
