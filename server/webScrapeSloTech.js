@@ -185,8 +185,6 @@ const puppeteer = require("puppeteer");
         date.getDate(),
         date.getFullYear(),
       ];
-      console.log(date);
-      console.log(month, day, year);
       const mothnArray = [
         "jan",
         "feb",
@@ -219,9 +217,9 @@ const puppeteer = require("puppeteer");
     job.kontakt = kontakt;
     job.opisDelovnegaMesta = opisDelovnegaMesta;
     job.email = extractEmails(kontakt);
+    console.log(job.email);
     jobs.push(job);
   }
-  console.log(jobs);
   console.log(jobs.length);
   await browser.close();
 })();
