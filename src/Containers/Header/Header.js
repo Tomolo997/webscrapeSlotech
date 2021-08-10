@@ -17,7 +17,10 @@ export default function Header() {
           </h1>
           <div className={styles.mainHeadingSearchDiv}>
             <button className={styles.searchButton}>
-              <img src="https://img.icons8.com/ios-filled/30/000000/search--v1.png" />
+              <img
+                className={styles.searchPicture}
+                src="https://img.icons8.com/ios-filled/30/000000/search--v1.png"
+              />
             </button>
             <input className={styles.searchInputJob} />
           </div>
