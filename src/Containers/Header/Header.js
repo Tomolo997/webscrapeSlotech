@@ -1,5 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import styles from "./Header.module.css";
+import Image from "react-image-webp";
+
 export default function Header() {
   return (
     <div className={styles.MainDiv}>
@@ -11,9 +13,12 @@ export default function Header() {
           <h1 className={styles.mainHeadingH2}>
             Salary, Programming language and employment level
             <br></br>
-            <br></br> Filter the bullshit!
+            <br></br> Filter through bullshit!
           </h1>
           <div className={styles.mainHeadingSearchDiv}>
+            <button className={styles.searchButton}>
+              <img src="https://img.icons8.com/ios-filled/30/000000/search--v1.png" />
+            </button>
             <input className={styles.searchInputJob} />
           </div>
         </div>
@@ -21,3 +26,16 @@ export default function Header() {
     </div>
   );
 }
+const ImgWithFallback = ({
+  src,
+  fallback,
+  type = "image/webp",
+  ...delegated
+}) => {
+  return (
+    <picture>
+      <source srcSet={src} type={type} />
+      <img src={fallback} {...delegated} />
+    </picture>
+  );
+};
