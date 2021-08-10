@@ -1,3 +1,73 @@
-.redButton {
-  background-color: #ff0000;
+.mainContainerDiv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Job {
+  width: 1200px;
+  height: 150px;
+  background-color: white;
+  margin: 1.5rem;
+
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.applyButton {
+  width: 150px;
+  height: 60px;
+  border: none;
+  margin-right: -1rem;
+  cursor: pointer;
+  background-color: red;
+  color: honeydew;
+  font-size: 1.4rem;
+  border-radius: 10px;
+}
+
+.basicDetails_Job {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.placiloInLokacija {
+  display: flex;
+  flex-direction: row;
+}
+.lokacija {
+  padding: 1rem;
+}
+.placilo {
+  padding: 1rem;
+}
+.programmingLanguages {
+  display: flex;
+  height: 80%;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.language {
+  padding: 0.4rem;
+  font-size: 0.7rem;
+  margin-right: 0.7rem;
+  border: 3px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.language:hover {
+  color: white;
+  background-color: black;
+  border: 3px solid white;
+}
+
+.jobPostedDate {
+  font-size: 0.8rem;
 }

@@ -20,9 +20,6 @@ const puppeteer = require("puppeteer");
     "angular",
     "ANGULAR",
     "Angular",
-    "TypeScript",
-    "typescript",
-    "Typescript",
     "typeScript",
     "/\bC\b/",
     "/\bc\b/",
@@ -220,6 +217,6 @@ const puppeteer = require("puppeteer");
     console.log(job.email);
     jobs.push(job);
   }
-  console.log(jobs.length);
+  console.log(jobs);
   await browser.close();
 })();
