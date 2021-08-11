@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer");
-
+const fs = require("fs");
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -217,6 +217,14 @@ const puppeteer = require("puppeteer");
     console.log(job.email);
     jobs.push(job);
   }
-  console.log(jobs);
+  const data = JSON.stringify(jobs);
+
+  // write JSON string to a file
+  fs.writeFile("jobs.json", data, (err) => {
+    if (err) {
+      throw err;
+    }
+    console.log("JSON data is saved.");
+  });
   await browser.close();
 })();

@@ -7,11 +7,10 @@
   align-items: center;
 }
 .Job {
-  width: 1200px;
+  width: 1100px;
   height: 150px;
   background-color: white;
-  margin: 1.5rem;
-
+  margin: 1rem;
   box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
   display: flex;
   justify-content: space-around;

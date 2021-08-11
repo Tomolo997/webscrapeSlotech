@@ -1,44 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../logo.svg";
-
+import JobsData from "./jobs.json";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
+  const [jobs, setJobs] = useState([]);
+
+  //load jobs as inital
+
+  const loadJobs = () => {
+    setJobs(JobsData);
+  };
+
+  useEffect(() => {
+    loadJobs();
+  }, []);
+
   return (
     <div className={styles.mainContainerDiv}>
-      <div className={styles.Job}>
-        <div className={styles.basicDetails_Job}>
-          <div>4FUTURE AGENCY</div>
-          <div>Backend developer</div>
-          <div className={styles.placiloInLokacija}>
-            <div className={styles.lokacija}>Ljubljana</div>
-            <div className={styles.placilo}>1800-2500 EUR / mesec</div>
+      {jobs.map((el) => (
+        <div className={styles.Job}>
+          <div className={styles.basicDetails_Job}>
+            <div>{el.employer}</div>
+            <div>{el.title}</div>
+            <div className={styles.placiloInLokacija}>
+              <div className={styles.lokacija}>{el.lokacija}</div>
+              <div className={styles.placilo}>{el.placilo}</div>
+            </div>
+          </div>
+          <div className={styles.programmingLanguages}>
+            {el.programmingLanguages.map((el2) => (
+              <div className={styles.language}>{el2}</div>
+            ))}
+          </div>
+          <div className={styles.jobPostedDate}>{el.dateFrom}</div>
+          <div>
+            {" "}
+            <button className={styles.applyButton}>Apply to job</button>{" "}
           </div>
         </div>
-        <div className={styles.programmingLanguages}>
-          <div className={styles.language}>JAVASCRIPT</div>
-          <div className={styles.language}>PYTHON</div>
-          <div className={styles.language}>PYTHON</div>
-          <div className={styles.language}>PYTHON</div>
-          <div className={styles.language}>PYTHON</div>
-          <div className={styles.language}>PYTHON</div>
-        </div>
-        <div className={styles.jobPostedDate}>⏰ 10. aug 2021 ob 08:45:06</div>
-        <div>
-          {" "}
-          <button className={styles.applyButton}>Apply to job</button>{" "}
-        </div>
-      </div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
-      <div className={styles.Job}></div>
+      ))}
     </div>
   );
 }
