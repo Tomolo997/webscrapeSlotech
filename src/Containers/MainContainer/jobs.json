@@ -1,136 +1,5 @@
 [
   {
-    "title": "Junior Marketing Automation Specialist ",
-    "numberOfJob": 4208,
-    "employer": " Agilcon d.o.o.",
-    "dateFrom": "29. jul 2021 ob 10:17:07",
-    "placilo": "od 1300 (bruto) dalje, odvisno od znanja in izkušenj EUR / mesec",
-    "lokacija": "Ljubljana in delo od doma",
-    "zahteve": "Ključne kompetence:\n- Poznavanje digitalnega marketinga (e-mail marketing, družabna omrežja, digitalno oglaševanje, analitika, lead generation in lead nurturing strategije)\n- Poznavanje sodobnih orodij za marketinško avtomatizacijo (načrtovanje customer journeys in audiences, priprava marketinških avtomatizacij)\n- Pripravljenost za učenje in spoznavanje novih tehnologij\n\nPrednost bodo imeli kandidati z osnovnim poznavanjem SQL, HTML in CSS\n\nZahtevane izkušnje:\n- Vsaj 1 leto izkušenj na področju digitalnega marketinga ali delo na področju CRM sistemov s perspektivo učenja v marketinški smeri\n\nPoleg zgoraj naštetega štejejo tudi:\n- Dobre analitične sposobnosti in samoiniciativnost pri reševanju problemov\n- Sposobnost dobrega upravljanja s časom in organiziranost\n- CIljna usmerjenost in sposobnost (so)delovanja v timu, odlične komunikacijske sposobnosti\n- Aktivno znanje angleškega jezika\n\nOdgovornosti:\n- Razvoj, testiranje in predaja v uporabo visoko prilagodljivih rešitev v marketinških orodjih\n- Tesno sodelovanje z ekipo produktnih vodij, programerjev in arhitektov pri razvoju novih funkcionalnosti\n- (Občasno) komuniciranje z naročniki",
-    "kontakt": "Če se prepoznate v opisu in menite, da vas moramo spoznati, oddajte svojo prijavo preko obrazca na spletni strani https://www.agilcon.com/sl/zaposlitev/junior-marketing-automation-specialist/ ali nas kontaktirajte na novi.izzivi@agilcon.si",
-    "opisDelovnegaMesta": "Oprezaš za novimi kariernimi izzivi? Poznaš zakonitosti marketinške avtomatizacije in sodobna orodja, ki se pri tem uporabljajo? Potem ne smeš zamuditi priložnosti za prijavo na prosto delovno mesto, ki je pred tabo!  V svojo ekipo vabimo sodelavca/ko, ki bo skrbel/a za testiranje in predajo v uporabo visoko prilagodljivih rešitev v marketinških orodjih. ",
-    "programmingLanguages": ["sql", "html", "css"],
-    "email": "https://www.agilcon.com/sl/zaposlitev/junior-marketing-automation-specialist/"
-  },
-  {
-    "title": "Flutter razvijalec/razvijalka ",
-    "numberOfJob": 4209,
-    "employer": " Kamino d.o.o.",
-    "dateFrom": "29. jul 2021 ob 12:33:54",
-    "placilo": "2500-4000€ bruto ali po dogovoru EUR / uro",
-    "lokacija": "Remote/Ljubljana",
-    "zahteve": "- Vsaj pol leta full-time izkušenj s Flutter razvojem.\n- Željo po dodatnem učenju in delitvi znanja.\n- Zmožnost planiranja na kratki in dolgi rok, ter proaktivnost.\n- Dobro poznavanje Flutter ekosistema.\n- Znanje angleščine in GIT-a.",
-    "kontakt": "Prijave pošljite na jobs@kamino.si",
-    "opisDelovnegaMesta": "V podjetju Kamino v Ljubljani smo sicer specializirani za razvoj native mobilnih aplikacij, tokrat pa iščemo Flutter razvijalce oz. razvijalke. Postali boste del novonastajajoče ekipe, saj želimo partnerjem ponuditi naše izkušnje s področja mobilnih aplikacij tudi ob izbiri cross-platform tehnologije. ",
-    "programmingLanguages": [],
-    "email": "jobs@kamino.si"
-  },
-  {
-    "title": "Digital marketing team member - SEO, Content, Socail ",
-    "numberOfJob": 4210,
-    "employer": " Spartan Digital",
-    "dateFrom": "2. avg 2021 ob 10:02:44",
-    "placilo": "5 EUR / uro",
-    "lokacija": "Ljubljana - BTC",
-    "zahteve": "Znanje in pretekle izkušnje na področjih:\n- SEO optimizacije\n- PPC marketing\n- Content marketing\n- Social media",
-    "kontakt": "Vse CV-je lahko pošljete na aljosa.jagodic@spartan.si",
-    "opisDelovnegaMesta": "Pri podjetju Spartan Digital širimo ekipo. Če bi koga zanimala kariera v digitalnem marketingu pri hitro rastočem podjetju, ga z veseljem povabimo na razgovor. Smo mlad kolektiv, stacionirani v Ljubljani -BTC, sodelujemo pa s podjetji iz različnih delov sveta in iz različnih področij (crypto, tech, e-commerce, finance, gambling, media itd.). Diplome nas ne zanimajo, zanima nas znanje o SEO optimizaciji, PPC-ju, žilica za pisanje contenta in dobro poznavanje socialnih omrežij. IN NE! Vse to ne pričakujemo od enega človeka. Smo realni, načeloma je tole potencialen oglas za več pozicij v podjetju.  ",
-    "programmingLanguages": [],
-    "email": "aljosa.jagodic@spartan.si"
-  },
-  {
-    "title": "Freelance .NET Developer (Ž/M) ",
-    "numberOfJob": 4211,
-    "employer": " Agitavit Solutions d.o.o.",
-    "dateFrom": "2. avg 2021 ob 15:13:55",
-    "placilo": "po dogovoru EUR / mesec",
-    "lokacija": "delo od doma/Ljubljana/Maribor",
-    "zahteve": "- izkušnje s programiranjem spletnih aplikacij \n- poznavanje konceptov večnivojskih arhitektur in načrtovanja relacijskih baz podatkov\n- poznavanje tehnologij in programskih jezikih, kot so WPF & MVVM, Windows Forms, GIT, C#, .NET Framework\n- osnovne izkušnje z SQL, Microsoft Access, PowerShell\n- dober občutek za design\n- tekoče sporazumevanje v angleškem jeziku\n- odgovornost do svojega dela\n",
-    "kontakt": "Če si se v opisu prepoznal in bi se nam želel pridružiti, te vabimo, da prijavo z življenjepisom oddaš na naši spletni strani https://www.agitavit.si/kdo-smo/zaposlitev/. Prej ko pošlješ prijavo, prej te povabimo na pogovor, sicer pa jih zbiramo do 15. avgusta 2021.",
-    "opisDelovnegaMesta": "V našo najštevilčnejšo ekipo, ki dela na obsežnem projektu razvoja po meri za mednarodnega naročnika, vabimo razvijalca ali razvijalko programske opreme. Pridružil se nam boš kot zunanji sodelavec, sklenili bomo pa dolgoročno sodelovanje. Po dogovoru je možna tudi redna zaposlitev.   Tvoje delo bo usmerjeno predvsem v nadgrajevanje ter vzdrževanje obstoječih aplikacij (spletna in več namiznih), ki jih uporabljajo uporabniki po vsem svetu. Delo izvajamo po ogrodju Scrum, za organizacijo dela pa uporabljamo orodji Jira in GitLab.  Delo boš opravljal od doma, pridružiš pa se nam lahko v pisarni v Ljubljani ali Mariboru. ",
-    "programmingLanguages": ["c#", "sql"],
-    "email": "https://www.agitavit.si/kdo-smo/zaposlitev/."
-  },
-  {
-    "title": "Senior Full Stack Software Engineer - Review team ",
-    "numberOfJob": 4212,
-    "employer": " Celtra d.o.o.",
-    "dateFrom": "3. avg 2021 ob 10:44:51",
-    "placilo": "3000 - 4000 EUR gross per month + 13% -15% bonus (fixed) for mid-level and 4000 - 5000 EUR gross per month for senior engineers + bonus 15%-17% EUR / mesec",
-    "lokacija": "LJUBLJANA",
-    "zahteve": "1. Expectations\n- You care about clean code. You write high-quality, maintainable code and are aware of industry best practices and trends. You proactively identify possible technical issues before it turns into long-term problems, and you encourage others to do the same. We always do code reviews to provide feedback and ensure code quality.\n- You have a product mindset. We are not a feature factory. We have cross-functional teams with engineers, product managers, and product designers who are crafting a solution for a problem since day one. There is a lot of fun in this phase, requiring a lot of ingenuity, hacking, and validating.\n- You have strong troubleshooting skills. You are not afraid to parse logs, look at machine metrics or go deep into the code to understand what went wrong. You do not jump to conclusions, but act based on facts and evidence.\n- You are a team player. You work well in the team, are willing to share the knowledge, and want to help others as you know only a strong team can succeed.\n\n2. What would be your responsibilities?\n- Create performant interfaces that are a joy to use\n- Contribute to the technical direction of our modules, define them and execute on them\n- Help define and improve the architecture\n- Code, review other people's code, ensure code quality, be a good boy scout, etc.\n- Work with the Products, Customer support, and other internal teams to solve challenges\n- Teach and help junior/mid-level developers grow\n- Help plan and transfer old parts of the codebase to the state of the art\n\n3. Qualifications:\n- 3+ years of experience in programming and following modern software development processes.\n- Have experience of building single-page applications using modern web technologies (Javascript / TypeScript / CSS / HTML) and frameworks (VueJS / React / Angular).\n- Have experience with server-side principles (scaling, concurrency, etc. and back-end technologies (PHP, Python, Golang, Ruby, etc.).\n- Have understanding and experience of relational databases (e.g., MySQL) or document databases (e.g., Mongo).\n- Have experience with writing a unit, integration, and end-to-end tests.\n- Willingness to learn, sharing our passion for constant improvement\n- Experience with complex business software and large codebases\n- Experience with developing and deploying performant frontend code\n- Show passion for learning, and help us learn too.\n- Be fluent in written and spoken English.\n\n4. We appreciate:\n- Experience with TDD & CI\n- A big plus is some interest in or experience with UX/UI\n- Understanding of various software paradigms and architecture styles (REST, OOP, functional programming, state management, etc.)\n- B.Sc. or higher in Computer Science or a related field\n- Be open to collaborating in the tech community",
-    "kontakt": "Apply via https://celtra.recruiterbox.com/jobs/fk0u2dt/",
-    "opisDelovnegaMesta": "Opis delovnega mesta 1. What is our team responsible for? Our clients are running global campaigns with 10k+ ads making it impossible to review and discuss ads one by one. Our team is making collaboration at scale possible with our purpose built preview tool facilitating overview of thousands of ads side-by-side, search capabilities, real-time commenting, annotations, and by tapping into existing communication channels such as Slack.  2. Who are we searching for? We are looking for senior Fullstack software engineers with an appreciation for Frontend technologies to join the journey of building the Creative Automation team (CA).  3. In the past we built Real-time collaborative commenting (like Google Docs) A pin dropping to mark specific ad details. High-performance infinite scroll of thousands of ads. Google Doc like sharing capabilities.  4. What are the challenges ahead? - Alternative ad overview layouts (grouping, sampling) - Integrating with existing client workflows - Slack app - Ad approvals - Comments with emojis and reactions - Continues scalability improvements both on backend and frontend - Notifications pipeline revamp  5. What kind of tech stack do we use? Our CA product is using NodeJs, PHP, MySQL, Redis and Python. For both products, on the front-end, we use Vue.js, NPM, Webpack and vanilla JavaScript when needed. Everything runs on the AWS cloud, and the Kubernetes cluster orchestrates it. ",
-    "programmingLanguages": [
-      "python",
-      "javascript",
-      "java",
-      "angular",
-      "typescript",
-      "vuejs",
-      "vue",
-      "react",
-      "sql",
-      "node",
-      "html",
-      "css",
-      "ruby",
-      "php"
-    ],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0u2dt/"
-  },
-  {
-    "title": "Full Stack Software Engineer (Junior/Mid) - E-commerce Team ",
-    "numberOfJob": 4213,
-    "employer": " Celtra d.o.o.",
-    "dateFrom": "3. avg 2021 ob 10:46:20",
-    "placilo": "2500 in 3000 EUR bruto + 10% bonus EUR / mesec",
-    "lokacija": "LJUBLJANA",
-    "zahteve": "- Have at least 2 years of experience in programming and following modern software development processes.\n- Have experience of building single-page applications using modern web technologies (Javascript, TypeScript, CSS, HTML) and frameworks (VueJS || React || Angular).\n- Have experience with server-side principles (scaling, concurrency) and back-end technologies (PHP || Python || Golang || Ruby, etc.).\n- Have understanding and experience of relational databases (e.g., MySQL) or No-SQL databases (e.g., Mongo).\n- Understanding of various software paradigms and architecture styles (REST, OOP, functional programming, state management).\n- Have good understanding about unit, integration and end-to-end tests.\n- Willingness to learn, and help us learn too.\n- Be fluent in written and spoken English.",
-    "kontakt": "Apply directly via: https://celtra.recruiterbox.com/jobs/fk0u2au?source=",
-    "opisDelovnegaMesta": "Join us on a mission building a new product solution from the ground zero where we are facing interesting challenges from the product and technical perspective.  We are looking for Fullstack software engineers with appreciation for Frontend technologies to join the journey of building Creative Automation team (CA). We are looking for a motivated, constantly-learning engineer who understands how browsers and their APIs work.  1. What is our team responsible for? The E-commerce team has a mission to find, validate and build product solutions for e-comm brands. It is widely known that user tracking is more and more difficult especially with recent policies introduced by Google and Apple. Therefore, we are focusing on building from scratch cookieless remarketing solutions for advertising on social platforms, such as FB, Google, Snapchat, etc. Besides that, we are discovering and validating content scaling challenges and product opportunities for advertising on eCommerce platforms, such as Amazon.  2. In the past we built We built a served remarketing solution which is used today by our top brands such as Adidas and Lululemon. This includes solving challenges such as user tracking, handling user's privacy (GDPR), building pipelines for processing and storing huge amounts of events in real-time, ...  3. What are the challenges ahead? - Automated processing and building of product catalogs with 50k assets every hour in real-time. - Providing seamless UI for importing, building, managing and previewing generated ads from product catalogs in real-time. - Building generic public API for bringing content/assets from external providers, such as Digital Asset Managers, ... - Building HTML ads and generation of product listing pages for the Amazon ecosystem.  4. What kind of tech stack do we use? Our CA product is using NodeJs, PHP, MySQL, Redis and Python. For both products, on the front-end, we use Vue.js, NPM, Webpack and vanilla JavaScript when needed. Everything runs on the AWS cloud, and the Kubernetes cluster orchestrates it. ",
-    "programmingLanguages": [
-      "python",
-      "javascript",
-      "java",
-      "angular",
-      "typescript",
-      "vuejs",
-      "vue",
-      "react",
-      "sql",
-      "node",
-      "html",
-      "css",
-      "ruby",
-      "php"
-    ],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0u2au?source="
-  },
-  {
-    "title": "Junior Software Developer - Custom Solutions Team ",
-    "numberOfJob": 4214,
-    "employer": " Celtra d.o.o.",
-    "dateFrom": "3. avg 2021 ob 10:48:05",
-    "placilo": "2500 in 3000 EUR bruto + 10% bonus EUR / mesec",
-    "lokacija": "LJUBLJANA",
-    "zahteve": "1. What do we expect?\n- Basic knowledge of modern web technologies, with a focus on Javascript, CSS, and HTML.\n- Good knowledge of server-side technologies (either PHP, Node.js, Ruby on Rails or Python) and VCS (Git).\n- Experience with relational databases.\n- Fluent written and spoken English - you will be using it every day.\n- Proficient in agency style development of smaller projects.\n- A patient, detail-oriented person with a good sense of urgency.\n- A continuous learner and a critical thinker.\n- Team player.\n\n2. What brings extra points?\n- Experience with Web Development for Mobile Devices\n- Knowledge of Heroku / Docker workflow to develop quick prototypes.\n- Knowledge of Symfony, Laravel frameworks.\n- Knowledge of other backend technologies, patterns, and principles (scaling, concurrency, etc.)\n- Familiar with support tickets and project tracking systems.\n- Good general programming knowledge and understanding of modern software development processes.",
-    "kontakt": "Apply directly via: https://celtra.recruiterbox.com/jobs/fk0uewv?source=",
-    "opisDelovnegaMesta": "We are looking for a passionate Junior to mid Full-Stack Software Developer to be part of our Custom Solutions team. Day to day work will include handling custom development cases and developing new prototypes for a bleeding-edge product in Ad-Tech for our top clients such as Spotify, Braun, Adidas, Twitter, etc… This also includes direct client communication. While doing so you will be collaborating with other engineers and various teams from product to design.  Your work matters! You will be responsible for: - Client support regarding custom development solutions. - Developing frontend or backend custom solutions and examples by also utilizing existing APIs and framework. - Reviewing clients concepts. ",
-    "programmingLanguages": [
-      "python",
-      "javascript",
-      "java",
-      "node.js",
-      "node",
-      "html",
-      "css",
-      "ruby",
-      "php"
-    ],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0uewv?source="
-  },
-  {
     "title": "Full Stack Software Engineer (various levels) - Creative Enablement Team ",
     "numberOfJob": 4215,
     "employer": " Celtra d.o.o.",
@@ -143,13 +12,16 @@
     "programmingLanguages": [
       "javascript",
       "java",
-      "sql",
-      "node",
+      "angular",
+      "typescript",
+      "vuejs",
+      "vue",
+      "react",
       "html",
-      "css",
-      "php"
+      "css"
     ],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0u2dd/"
+    "email": "https://celtra.recruiterbox.com/jobs/fk0u2dd/",
+    "yeaProgrammingLanguages": "Modern web technologies (Javascript / TypeScript / CSS / HTML) and frameworks (VueJS / React / Angular)\nnapredno znanje"
   },
   {
     "title": "Full-Stack Software Engineer (various levels) - Distribution Team ",
@@ -162,21 +34,18 @@
     "kontakt": "Apply via https://celtra.recruiterbox.com/jobs/fk0u25e/",
     "opisDelovnegaMesta": "1. What is our team responsible for? The distribution team owns scaling the creative production and distribution of ready creatives to 3rd party platforms. Our work begins once creative templates and content in the form of data feeds are ready. We take care of automagically creating thousands of creatives from a bunch of templates. Once all those creatives are generated and approved, our pipeline composes images and videos at scale as well as perfect HTML that works everywhere. The last step is ensuring seamless distribution of assets through the integrations with the biggest players in the ecosystem (Facebook, Google, Twitter, Snapchat, Pinterest, ...) and our very own publicly available async Creative Export API.  2. Who are we searching for? We are looking for Full Stack engineers to join us on the journey of building a scalable and intuitive Creative Automation product. We appreciate Full Stack engineers from both ends of the spectrum - more backend or frontend oriented ones. There’s a lot of interesting challenges to tackle on both ends! There’s also a lot of opportunities to get your hands dirty with more product-related work if that is what inspires you.  3. In the past we built - An async processing pipeline capable of generating thousands of creatives from scalable templates. - Homegrown solutions for a highly concurrent async processing pipeline with a built-in prioritization and caching system, smart conversion of HTML text elements into images for reducing ad size, conversion of animated HTML into MP4 files using puppeteer and FFmpeg. - Scalable & publically available Export API capable of delivering thousands of finalized creative assets.  4. What are the challenges ahead? - Reimagine the creative data model to increase creative generation speed by 100x, - next-generation of our headless Chromium-based rendering pipeline, - evolution and further adoption of our homegrown async processing pipeline solution, - staying on top of the evolving landscape by adding direct integrations with the newest players like TikTok.  5. What kind of tech stack do we use? Our CA product is using NodeJs, PHP, MySQL, Redis, and Python. We use Vue.js, Vue.js router & Vuex with npm, and Webpack on the frontend for both products. When needed (usually for performance reasons) we also resort to vanilla JavaScript. Everything runs on the AWS cloud, and the Kubernetes cluster orchestrates it. ",
     "programmingLanguages": [
-      "python",
       "javascript",
       "java",
       "angular",
       "typescript",
+      "vuejs",
       "vue",
       "react",
-      "sql",
-      "node",
       "html",
-      "css",
-      "ruby",
-      "php"
+      "css"
     ],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0u25e/"
+    "email": "https://celtra.recruiterbox.com/jobs/fk0u25e/",
+    "yeaProgrammingLanguages": "Modern web technologies (Javascript / TypeScript / CSS / HTML) and frameworks (VueJS / React / Angular\nnapredno znanje"
   },
   {
     "title": "DevOps Engineer ",
@@ -189,7 +58,8 @@
     "kontakt": "Apply here: https://celtra.recruiterbox.com/jobs/fk0uasp/ ",
     "opisDelovnegaMesta": "We are looking for an infrastructure engineer (DevOps / SRE) to help us manage, grow and scale our infrastructure for both (CA and CE) products. We are looking for a motivated, constantly-learning engineer who understands how modern cloud native infrastructure works.  1. What would be your responsibilities?  You will be part of our DevOps team, which is responsible for our product’s availability, latency, performance, efficiency, monitoring, emergency response and capacity planning. Your responsibility will be:  - Design, develop and maintain software that handles deploying, scaling and monitoring of our products. Establish design patterns and best practices for building new product features in a scalable and reliable way. - Verify and help developers apply those patterns and participate in early stages of feature design, when needed. - On-call a portion of your time to get your hands dirty and gain experience. - Production environment is something you care about and willing to share with developers to diagnose issues and hunt down elusive bugs. - SLA is your law, uptime objectives are met by participating in controlling the risks and rate of change in collaboration with the QA team.   2. What are the challenges ahead?  We are facing many tech challenges ahead. Our application is a giant beast which is deployed multiple times per week. We are working towards having multiple deploys per day, basically for every code change landing in the master branch.   Besides that we want our developers to be productive and spend more time on features and less on hitting infrastructure caused roadblock. Currently, our DevOps team is responsible for our software that is up and running under provided SLA constraints. As software complexity grows, handling incidents becomes harder because of lack of domain knowledge. We are working towards delegating ownership to individual dev teams who will become responsible and capable of handling incident and customer facing issues in production at any time.  3. What kind of infrastructure stack do we have?  We are full on Kubernetes (k8s) and are running our infrastructure in AWS cloud. Our application is containerized in Docker and deployed on k8s cluster. Our application mainly consist of:  - Hundreds of services scaled automatically, - tens of real-time services handling hundreds of millions requests every minute, - tens of different databases, like MySQL, MongoDB, DynamoDB, PostgresDB, …, - monitoring services, like Prometheus, Grafana, ... - our infrastructure is mostly templatized using Terraform and AWS CloudFormation. Some parts of infrastructure and custom scripts are also written in Python. ",
     "programmingLanguages": ["python", "sql", "php"],
-    "email": "https://celtra.recruiterbox.com/jobs/fk0uasp/"
+    "email": "https://celtra.recruiterbox.com/jobs/fk0uasp/",
+    "yeaProgrammingLanguages": "experience with one of OOP languages such as, PHP, Python, Golang, etc\nzačetnik\nexperience with relational databases (e.g., MySQL) or No-SQL databases (e.g., Mongo)\nzačetnik"
   },
   {
     "title": "Frontend Developer (m/ž) ",
@@ -201,16 +71,9 @@
     "zahteve": "- 3 leta izkušenj na področju frontend razvoja.\n- Poznavanje tehnologij HTML/CSS, Javascript, Sass, Bootstrap, REST...\n- Izkušnje z GitHub procesi.\n- Poznavanje principov uporabniške izkušnje.\n- Poznavanje principov agilnega razvoja.\n- Tekoče sporazumevanje in pisanje v angleškem jeziku.\n- Zaželjeno znanje novih tehnologij (Angular, React, Vue...).\n\nIzkušnje so vedno dobrodošle, vendar k sodelovanju vabimo tudi tiste, ki so še bolj na začetku kariere. Važna sta vztrajnost in pozitivna energija.",
     "kontakt": "Prijave zainteresiranih kandidatov sprejemamo preko spletnega obrazca: https://www.creatim.com/kariera/frontend-developer-jun21",
     "opisDelovnegaMesta": "Creatim išče izkušenega FE razvijalca za delo na večjih spletnih trgovinah in mednarodnih projektih. Za novega člana ekipe smo pripravili program vpeljave, kjer se bo spoznal z ekipo, načinom dela in aktualnimi projekti.  Poleg starih mačkov v ekipo vabimo tudi juniorje, ki si želijo ob izkušenih mentorjih nabrati novih znanj. ",
-    "programmingLanguages": [
-      "javascript",
-      "java",
-      "angular",
-      "vue",
-      "react",
-      "html",
-      "css"
-    ],
-    "email": "https://www.creatim.com/kariera/frontend-developer-jun21"
+    "programmingLanguages": ["javascript", "java", "html", "css"],
+    "email": "https://www.creatim.com/kariera/frontend-developer-jun21",
+    "yeaProgrammingLanguages": "HTML/CSS\nnapredno znanje\nJavascript\nnapredno znanje\nGitHub\nnapredno znanje"
   },
   {
     "title": "Magento Developer (m/ž) ",
@@ -223,7 +86,8 @@
     "kontakt": "Možne so različne oblike sodelovanja (zaposlitev, študentsko delo, pogodbeno delo).\nPrijave zainteresiranih kandidatov sprejemamo preko spletnega obrazca: https://www.creatim.com/kariera/magento-developer-jun21",
     "opisDelovnegaMesta": "Creatim je trenutno v fazi širitve poslovanja. Iščemo Magento razvijalca, ki želi sooblikovati razširjen razvojni tim in v tem vidi priložnost za osebnostno rast. Si izkušen Magento razvijalec, ki išče nove izzive? Izkoristi priložnost in postani pomemben član e-commerce ekipe in rasti z nami! ",
     "programmingLanguages": ["javascript", "java", "sql", "html", "css", "php"],
-    "email": "https://www.creatim.com/kariera/magento-developer-jun21"
+    "email": "https://www.creatim.com/kariera/magento-developer-jun21",
+    "yeaProgrammingLanguages": "Magentom (PHP/MySQL)\nnapredno znanje\nPoznavanje enega PHP framework-a na mvc arhitekturi (Laravel, Symfony)\nnapredno znanje\nHTML5, CSS3 in Javascript (jQuery)\nnapredno znanje\nPoznavanje načinov integracij (SOAP, REST, API, Web Services, ...)\nnapredno znanje"
   },
   {
     "title": "Backend Developer (m/ž) ",
@@ -235,8 +99,9 @@
     "zahteve": "Zahtevamo:\n- Poznavanje, razumevanje in izkušnje z dobrimi praksami objektnega programiranja (design patterns, SOLID principles,...).\n- Izkušnje z razvojem spletnih aplikacij in poznavanje MVC patterna.\n- Vsaj osnovno poznavanje dela z GIT repozitorijem.\n- Poznavanje in modeliranje podatkovnih baz.\n- Izkušnje z ORM orodji.\n\nPrednost imajo kandidati, ki imajo:\n- Izkušnje s Symfony in/ali Sylius ogrodjem.\n- Izkušnje z e-commerce arhitekturo.\n- PHP izkušnje.",
     "kontakt": "Prijave zainteresiranih kandidatov sprejemamo preko spletnega obrazca: https://www.creatim.com/kariera/backend-developer-jun21",
     "opisDelovnegaMesta": "Creatim sestavlja ekipo za razvoj aplikacij s Symfony ogrodjem. Smo v fazi uvajanja nove e-commerce platforme na osnovi Symfony.  Iščemo programerja z dobrim razumevanjem principov objektnega programiranja. ",
-    "programmingLanguages": ["php"],
-    "email": "https://www.creatim.com/kariera/backend-developer-jun21"
+    "programmingLanguages": [],
+    "email": "https://www.creatim.com/kariera/backend-developer-jun21",
+    "yeaProgrammingLanguages": "Izkušnje z dobrimi praksami objektnega programiranja (design patterns, SOLID principles,...)\nnapredno znanje\nIzkušnje z razvojem spletnih aplikacij in poznavanje MVC patterna\nnapredno znanje"
   },
   {
     "title": "HTML/CSS razvijalci (m/ž) - LJ, MB, CE ali NM ali remote ",
@@ -248,8 +113,9 @@
     "zahteve": "Od kandidatov pričakujemo:\n- Dobro poznavanje HTML-ja in CSS-a\n- Osnovno poznavanje knjižnice jQuery\n- Osnovno znanje PHP-ja\n- Natančnost in doslednost\n- Zmožnost komuniciranja v angleščini\n\nZaželene izkušnje:\n- Razvoj Drupal tem\n- LESS ali SASS\n- Git ali SVN\n- Linux / SSH",
     "kontakt": "Agiledrop d.o.o.\nStegne 11a\n1000 Ljubljana\nOdgovorna oseba: Marko Bahor\nzaposlitev@agiledrop.si\n\nVeč informacij in prijava na:\nhttps://www.agiledrop.si/st/html-css",
     "opisDelovnegaMesta": "Naša hitro rastoča ekipa išče nove moči! Agiledrop v svoje vrste vabi nove HTML/CSS razvijalce in razvijalke, ki bi se pridružili dobro utečeni ekipi. Na globalnem trgu ustvarjamo uspešne zgodbe in soustvarjamo digitalno prihodnost. Pridruži se nam! Tvoja naloga bo, da spremeniš grafični dizajn v privlačno spletno stran.  Ponujamo ti redno zaposlitev za nedoločen čas, fleksibilen urnik in hibridno obliko dela: delaš lahko v pisarni, ki ti je najbližje (LJ, MB, CE, NM) ali od doma. Vestno skrbimo za ravnovesje med delom in prostim časom, delovno okolje = mirno + nestresno, plačane nadure so velika izjema in ne pravilo. Izobraževanja in napredovanja: absolutno! S sodelavci in šefi se zabavaš na neobveznih druženjih, novo znanje pridobivaš na internih izobraževanjih.  Več informacij in prijava ",
-    "programmingLanguages": ["java", "html", "css", "php"],
-    "email": "https://www.agiledrop.si/st/html-css"
+    "programmingLanguages": ["html", "css", "php"],
+    "email": "https://www.agiledrop.si/st/html-css",
+    "yeaProgrammingLanguages": "HTML\nnapredno znanje\nCSS\nnapredno znanje\nPHP\nzačetnik"
   },
   {
     "title": "PHP razvijalci (m/ž) - LJ, MB, CE, NM ali remote ",
@@ -261,8 +127,9 @@
     "zahteve": "Od kandidatov pričakujemo:\n- Dobro poznavanje PHP-ja\n- Objektno orientirano programiranje\n- Natančnost in doslednost\n- Zmožnost komuniciranja v angleščini\n\nZaželene izkušnje:\n- Poznavanje PHP frameworka (Zend, Laravel, Symfony, CodeIgniter)\n- HTML in CSS\n- Git ali SVN\n- Linux / SSH",
     "kontakt": "AGILEDROP d.o.o.\nStegne 11a\n1000 Ljubljana\nOdgovorna oseba: Marko Bahor\nKontakt: zaposlitev@agiledrop.si\n\nVeč informacij in prijava na:\nhttps://www.agiledrop.si/st/php",
     "opisDelovnegaMesta": "Naša hitro rastoča ekipa išče nove moči! Agiledrop v svoje vrste vabi nove PHP razvijalce in razvijalke, ki bi se pridružili dobro utečeni ekipi. Na globalnem trgu ustvarjamo uspešne zgodbe in soustvarjamo digitalno prihodnost. Pridruži se nam! Tvoje naloge bodo vključevale izdelavo modulov in razširitev obstoječih funkcionalnosti Drupala ter drugih (odprtokodnih) tehnologij.  Ponujamo ti redno zaposlitev za nedoločen čas, fleksibilen urnik in hibridno obliko dela: delaš lahko v pisarni, ki ti je najbližje (LJ, MB, CE, NM), ali od doma. Vestno skrbimo za ravnovesje med delom in prostim časom, delovno okolje = mirno + nestresno, plačane nadure so velika izjema in ne pravilo. Izobraževanja in napredovanja: absolutno! S sodelavci in šefi se zabavaš na neobveznih druženjih, novo znanje pridobivaš na internih izobraževanjih.  Več informacij in prijava ",
-    "programmingLanguages": ["java", "html", "css", "php"],
-    "email": "https://www.agiledrop.si/st/php"
+    "programmingLanguages": ["php"],
+    "email": "https://www.agiledrop.si/st/php",
+    "yeaProgrammingLanguages": "PHP\nnapredno znanje"
   },
   {
     "title": "Dobrodošel v naši ekipi spletne rešitve Sloway! ",
@@ -274,8 +141,9 @@
     "zahteve": "Od novega sodelavca pričakujemo, da dobro obvlada spletno programiranje (ali pa to želi doseči). Iščemo nekoga, ki bi prinesel nove ideje v naš team. Iščemo nekoga s katerim bomo šli lahko tudi na kavo in v petek na pivo :)",
     "kontakt": "Še nekaj o nas. Smo ekipa štirih, ki nam je ta trenutek obstoječa količina dela rahlo zrasla čez meje obvladljivega. Radi delamo in vestno skrbimo za vse naše stranke, vendar je prišel čas, ko moramo spustiti v našo ekipo novo (po)moč. S strankami sklepamo dolgoročna partnerstva in sklepamo fair-play dogovore. Skrbno izbiramo stranke, tiste ki so pripravljene konstruktivno sodelovati, se angažirati in postavljati jasne in realne zahteve. Mi pa se potrudimo najbolje razumeti njihove želje in jih osmisliti v učinkovit in uspešen spletni projekt. Ne bojimo se predlagati druge rešitve, če vemo da bo to za stranko dobro. Stremimo k temu, da združujemo vrhunski izgled, dobro uporabniško izkušnjo in usmerjenost v rezultate.\n\nPišite na: info(afna)sloway.com",
     "opisDelovnegaMesta": "Najlepša hvala ker si si vzel-a čas za naš oglas za delo. V naši agenciji za spletne rešitve iščemo novega sodelavca, ki se bo v naši ekipi počutil dobro in bo svoje delo opravljal z veseljem. To pomeni, da bo z radovednostjo sprejemal nove izzive, vestno opravljal zanimive in malo manj zanimive naloge, pomagal drugim in bil pripravljen sprejeti pomoč, jasno predstavil svoja pričakovanja in vestno izpolnil svoje obveznosti. Kot ekipa smo najmočnejši kadar zares in iskreno sodelujemo. Takrat ni noben projekt nedosegljiv. Prosim razmisli in se oglasi na informativni sestanek. Spoznajmo se, morda se ujamemo. ",
-    "programmingLanguages": [],
-    "email": ""
+    "programmingLanguages": ["sql", "html", "css", "php"],
+    "email": "",
+    "yeaProgrammingLanguages": "PHP\nnapredno znanje\nHtml/Css\nnapredno znanje\nMySql\nnapredno znanje\nJs\nzačetnik"
   },
   {
     "title": "Frontend developer (Angular) ",
@@ -287,8 +155,9 @@
     "zahteve": "+ obvladovanje ogrodja Angular\n+ beckend poznavanje (PHP Python)\n+ sposobnost samostojnega dela, inovativni odnos do reševanja problemov, konsistentnost pri zagotavljanju rezultatov\n+ zmožnost učinkovite komunikacije in dela na daljavo s (email, Skype, task managing apps, GitHub etc.)\n+ database izkušnje so dobrodošle in ne obvezne (PostgreSQL, mySQL)\n+ osnovno znanje oz. izkušnje pri delu s strežniki (Linux) \n+ tekoče znanje angleškeg jezika",
     "kontakt": "email: alen@mediabiz.com\ntel   +41 764-374",
     "opisDelovnegaMesta": "Smo ameriško podjetje z ekipo v Ljubljani in Celju. Vabimo k sodelovanju front-end programerja/ko z dobrim znanjem Angular, vsaj delnim poznavanjem dela na back-endu (PHP - Python). Delujemo na globalnem trgu kjer sodelujemo z največjimi blagovnimi znamkami na področju video vsebin na zahtevo (Netflix, A&E, Warner Media, Hulu,Disney+..) Razen občasnih usklajevanj, delo večinoma poteka od doma. Podjetje da veliko na sproščeno delovno vzdušje in kreativnost. Plačilo je stvar dogovora. ",
-    "programmingLanguages": ["python", "angular", "sql", "php"],
-    "email": "alen@mediabiz.com"
+    "programmingLanguages": ["python", "angular", "php"],
+    "email": "alen@mediabiz.com",
+    "yeaProgrammingLanguages": "Angular\nnapredno znanje\nPHP, Python\nzačetnik\nLinux\nnapredno znanje"
   },
   {
     "title": "Frontend developer ",
@@ -301,7 +170,8 @@
     "kontakt": "https://outfit7.com/job-position/Frontend-Developer/4368487003 -> Apply now\nor send an email to jon.premik@outfit7.com",
     "opisDelovnegaMesta": "-Design and develop internal dashboards and tools for multiple departments (marketing, game teams, localizations, etc.). -Drive improvements and propose new solutions for our existing dashboards. -Constantly learn about and try new technologies. -Work effectively and efficiently as part of a team of developers. -Cooperate closely with other departments in the company. ",
     "programmingLanguages": ["angular"],
-    "email": "https://outfit7.com/job-position/Frontend-Developer/4368487003"
+    "email": "https://outfit7.com/job-position/Frontend-Developer/4368487003",
+    "yeaProgrammingLanguages": "angular\nnapredno znanje"
   },
   {
     "title": "Strokovni sodelavec na področju IT podpore (M/Ž) ",
@@ -314,19 +184,105 @@
     "kontakt": "Če se prepoznate v opisu, oddajte življenjepis in motivacijsko pismo na https://www.lotric.si/si/podjetje/zaposlitev ali nas kontaktirajte na info@lotric.si.",
     "opisDelovnegaMesta": "- Pomoč zaposlenim in strankam pri uporabi informacijske opreme. - Vzdrževanje in servisiranje strojne in programske opreme. - Sodelovanje pri zagotavljanju brezhibnega in nemotenega delovanja IT infrastrukture in sistemov. - Sodelovanje pri vpeljavi novih IT rešitev. ",
     "programmingLanguages": [],
-    "email": "https://www.lotric.si/si/podjetje/zaposlitev"
+    "email": "https://www.lotric.si/si/podjetje/zaposlitev",
+    "yeaProgrammingLanguages": "Podpora uporabnikom\nnapredno znanje\nWindows\nzačetnik\nActive directory\nzačetnik\nMicrosoft 365\nzačetnik\nLAN\nzačetnik"
   },
   {
     "title": "Backend developer ",
     "numberOfJob": 4227,
     "employer": " 4FUTURE AGENCY",
-    "dateFrom": "včeraj ob 08:45:06",
+    "dateFrom": "10. avg 2021 ob 08:45:06",
     "placilo": "1800-2500 EUR / mesec",
     "lokacija": "Ljubljana",
     "zahteve": "- Izkušnje s programiranjem v Wordpresu in zmožnost samostojnega pisanja tehnično dovršene kode\n- Načrtovanje digitalnega produkta in optimizacija UX uporabniške izkušnje.\n- Razvoj digitalnega produkta s pomočjo PHP, Laravel, MySQL in/ali WordPress sistemom.\n- Tehnična optimizacija digitalnih produktov (po navodilih oz. v sodelovanju s sodelavci).\n- Odgovornost, samoiniciativnost in natančnost\n- Vsaj dve leti aktivnega razvoja na raznovrstnih digitalnih produktih \n",
     "kontakt": "Če se najdeš v zgornjem opisu, nam na maja.tomsic@4futureagency.si pošlji prijavo s CV-jem. Z veseljem te povabimo na kavo in klepet, da se spoznamo!",
     "opisDelovnegaMesta": "Pri 4FUTURE AGENCY iščemo junior backend programerja/ko, ki ima tudi osnovne izkušnje v Front-End-u => PHP, MySQL, WordPress, Laravel   ",
     "programmingLanguages": ["sql", "php", "wordpress"],
-    "email": "maja.tomsic@4futureagency.si"
+    "email": "maja.tomsic@4futureagency.si",
+    "yeaProgrammingLanguages": "PHP, MySQL, WordPress, Laravel\nzačetnik\noptimizacija UX uporabniške izkušnje.\nzačetnik\nTehnična optimizacija digitalnih produktov\nzačetnik"
+  },
+  {
+    "title": "QA engineer ",
+    "numberOfJob": 4228,
+    "employer": " Visionect",
+    "dateFrom": "12. aug 2021  ob 07:49:11",
+    "placilo": "from 2000 to 3000 gross EUR / mesec",
+    "lokacija": "Ljubljana",
+    "zahteve": "- Development and maintenance of automated test system\n- Development and assembly of new automated test system units\n- Supporting firmware development team with debugging\n- Supporting production team with the development of automated tests\n- Test system result analysis and issue tracking\n- Writing documentation\n- Excellent knowledge of Python programming language.\n- Good knowledge of embedded system test automation, testing, and debugging\n- Basic knowledge of Javascript programming language.\n- Revision control system knowledge (SVN, CVS, GIT).\n- At least 2 years of working experience in QA.\n- Detail-oriented with good communication skills.\n- Ability to achieve goals in agreed deadlines.\n- Proficient English skills.\n- Proactivity, responsibility, being a team player.",
+    "kontakt": "Apply for the job at https://apply.workable.com/visionect/j/1B51E2A3A4/ or send an email to jobs@visionect.com",
+    "opisDelovnegaMesta": "Apply and join our Hardware and Firmware Team as a QA Developer.  As a QA developer, your primary focus and task will be test automation and quality control for the for the next generation of ultra-low power digital signage outdoor and indoor systems.  We're fully aware that the first couple of months on your new job can be stressful and there is a lot of new information to process. But don't worry, there will always be a team to support you and answer your questions - not just during the onboarding process but always. We believe that providing feedback is crucial for growth and so we appreciate it to go both ways.  Daily work  You will be given tasks that will, in time, progress in complexity and therefore give you the opportunity to get to know your work, the team and its processes. Our expectations are that you will gradually become independent and be able to work without additional guidance. ",
+    "programmingLanguages": ["python"],
+    "email": "https://apply.workable.com/visionect/j/1B51E2A3A4/",
+    "yeaProgrammingLanguages": "Python\nnapredno znanje\nembedded programming\npredhodno znanje ni potrebno\ndocker\nzačetnik\ntesting and automation\nnapredno znanje"
+  },
+  {
+    "title": "QA engineer ",
+    "numberOfJob": 4229,
+    "employer": " Abrantix d.o.o",
+    "dateFrom": "12. aug 2021  ob 08:57:21",
+    "placilo": "1000 - 1500 (neto) EUR / mesec",
+    "lokacija": "Koper",
+    "zahteve": "Kot zanimiv kandidat boš znal\n- Brati dokumentacije in specifikacije, razumel njihovo vsebino ter to pretvoril v smiselne testne sklope\n- Dopolnjevati specifikacije in definirati scenarije, ki niso omenjeni, se pa vendar lahko pripetijo\n- Se rokovati z različnimi operacijskimi sistemi (Windows, linux, Android, MacOs)\n- Uporabljati orodja za dostop do naprav (telnet, ssh, adb, ...)\n- Uporabljati orodja za nadzor izvorne kode (GIT, SVN ali podobno)\n- Pisati in brati razne markup language-e (XML, HTML, MD, ...)\n- Razumel osnove programiranja\n- Uporabljati specializiranega robota kot pomočnika, ki je bil narejen pri nas.\n\n\nHkrati pričakujemo da boš samoiniciativen ter imel željo obstoječe procese izboljšati, avtomatizirati.",
+    "kontakt": "Vse ponudbe pošljite na jobs@abrantix.com, priložite še CV v angleščini.",
+    "opisDelovnegaMesta": "Kot QA inženir, boš zadolžen za pisanje testnih sklopov, avtomatizacijo ter za samo izvedbo testiranja. Zadolžen boš tudi za garantiranje kvalitete izdelane programske opreme. Testiral boš plačilne terminale, ki tečejo na različnih strojnih opremah v spregi z blagajnami ali brez. ",
+    "programmingLanguages": [],
+    "email": "jobs@abrantix.com",
+    "yeaProgrammingLanguages": "xml\nnapredno znanje\ngit\nzačetnik"
+  },
+  {
+    "title": "Senior Backend Developer - Computer Vision ",
+    "numberOfJob": 4231,
+    "employer": " Sportradar d.o.o.",
+    "dateFrom": "12. aug 2021  ob 11:59:43",
+    "placilo": "2.500 - 5.000 gross with bonus 5% - 10% (depends on experience) EUR / mesec",
+    "lokacija": "Ljubljana",
+    "zahteve": "- Advanced knowledge of programming in Python with a minimum of 3 years of hands-on experience.\n- Experience with Java programming.\n- DevOps experience (hands-on experience with the design, set-up, and administration of build and deployment pipelines and infrastructure)\n- Hands-on experience with containers and container orchestration frameworks (Docker, Kubernetes).\n- Understanding of machine learning / deep learning concepts and some hands-on experience with machine learning or computer vision using deep learning frameworks (e.g., Keras, PyTorch, Tensorflow, MXNet).\n- Must be comfortable with modern software development methodologies such as agile development, git, CI/CD, code review, etc...\n- Experience with cloud services such as AWS/Azure.\n- Bonus: Demonstrated experience with productization of CV/ML models.\n- Bonus: C++ and GPU programming experience.\n- Bonus: Experience with Apache NiFi or Kafka.\n- Bonus: Experience with development in Golang.\n- Bachelor of Science in Computer Science / Engineering, Mathematics / Statistics, or related field; equivalent experience acceptable.\n- Fluent in English (written and spoken).\n- Autonomous, rigorous, creative, and a team player",
+    "kontakt": "Apply directly:\n\n- Senior Backend Developer &#8211; Computer Vision:\nhttps://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Senior-Back-end-Developer---Computer-Vision_JREQ2328\n\n- Backend Developer &#8211; Computer Vision: https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Back-end-Developer---Computer-Vision_JREQ2300\n\nor send an email to tina.strus@sportradar.com",
+    "opisDelovnegaMesta": "Make the team that changes the way the world experiences sport.  At Sportradar, we are building a world-class, cloud-native, low latency computer vision inference pipeline to bring computer vision workloads to production as one of the core technologies powering Sportradar's sports data collection.   We are looking for a back-end developer to join our computer vision and AI team, which is developing innovative computer vision systems as well as Sportradar's data lake and data analytics platform.   Sportradar is a global leader in understanding and leveraging the power of sports data for hundreds of business customers around the world, in turn entertaining millions of sports enthusiasts.   THE CHALLENGE: - Research, design, implementation, deployment, and management of systems for real-time, low latency computer vision processing hosted in AWS. - Optimisation of computer vision models to reduce latency and inference costs in production applications. - Actively participate and contribute to computer vision model development projects. - Present technical architectures, ideas, and solutions to fellow engineers in a clear and understandable way contribute to the evolution of our technology stack. - Support Sportradar's future computer vision and machine learning initiatives by working with a growing team of talented data scientists and data engineers already dedicated to this mission.  About Sportradar: Sportradar is on a journey! We've adopted the Spotify model to empower our people; we value local decision-making. Tribes have defined tech stacks and ways of working however with continuous improvement in our DNA we've created \"make it better time\"; where you get to shape our future stack and ways of working, as well as work on the problems you care about it or improve your own skills.  We are actively adopting test-driven development as it matches our engineering principle \"if it's not tested, its broken\". We follow a cloud native strategy; managed services enable us to focus on the problems that interest us most, and we invest in our people with AWS training as we recognize the skills modern developers need to succeed. We've a preference for modern lightweight microservices; we leverage the right tools for the job. If this sounds interesting, we should talk. ",
+    "programmingLanguages": ["python", "java"],
+    "email": "https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Senior-Back-end-Developer---Computer-Vision_JREQ2328\n\n-",
+    "yeaProgrammingLanguages": "Python\nnapredno znanje\nComputer Vision\nnapredno znanje\nMachine Learning\nnapredno znanje\nDeep Learning\nnapredno znanje\nJava\nnapredno znanje\nAWS\nnapredno znanje"
+  },
+  {
+    "title": "Mid/Experienced iOS Developer ",
+    "numberOfJob": 4232,
+    "employer": " Sportradar d.o.o.",
+    "dateFrom": "12. aug 2021  ob 14:34:56",
+    "placilo": "2.500 - 5.000 gross with bonus 5% - 10% (depends on experience) EUR / mesec",
+    "lokacija": "Ljubljana",
+    "zahteve": "Professional Requirements:\n- You have at least two years of experience with native iOS development\n- You understand basic development standards and concepts\n- You are always on the look for new technologies and are eager to try them out\n- You are fluent in English\n\nPersonality requirements:\n- Team character and communication skills.\n- Willingness to learn new technologies and a positive, can-do attitude.\n- A creative thinker, keen to further refine the system and process.\n- Commitment to upholding the highest professional work standards and ethics.\n- Excellent knowledge of English (written and spoken)",
+    "kontakt": "Apply directly via: https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/iOS-Developer_JREQ544\nor send an email to tina.strus@sportradar.com",
+    "opisDelovnegaMesta": "Make the team that changes the way the world experiences sport.  Sportradar is the leading global provider of sports data and information. Since 2001, Sportradar has occupied a unique position at the intersection of the sports, media, and betting industries; providing sports federations, news media, consumer platforms and sports betting operators with a range of solutions to help grow their business.  Our Mobile team in Ljubljana develops applications with superior UX for sports fans worldwide. They also work on projects that contribute to the integrity of sport. Their recent achievement is Remote Testing App that enables to collect doping control samples remotely, resulting in benefits to both athletes and sporting bodies. More about their achievement can be read here: https://www.sportradar.com/news-archive...  As iOS developer in Sportradar's Mobile Unit, you’ll have an opportunity to develop iOS Mobile applications with superior UX for sports fans worldwide.  THE CHALLENGE: • Develop state-of-the-art iOS mobile applications leveraging Sportradar’s data • Use and develop Sportradar’s Mobile Development Platform for mobile-friendly data access • Use the newest development principles and frameworks recommended • Cooperate with designers, testers, and other developers to meet the required goals  About Sportradar: Sportradar is on a journey! We’ve adopted the Spotify model to empower our people; we value local decision making. Tribes have defined tech stacks and ways of working however with continuous improvement in our DNA we’ve created ‘make it better time’ where you get to shape our future stack and ways of working, as well as work on the problems you care about it or improve your own skills.  We are actively adopting test-driven development as it matches our engineering principle ‘if it’s not tested, its broken’. We follow a cloud-native strategy; managed services enable us to focus on the problems that interest us most – and we invest in our people with AWS training as we recognize the skills modern developers need to succeed. We’ve a preference for modern lightweight microservices; we leverage the right tools for the job. If this sounds interesting, we should talk. ",
+    "programmingLanguages": [],
+    "email": "https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/iOS-Developer_JREQ544\nor",
+    "yeaProgrammingLanguages": "native iOS development\nnapredno znanje"
+  },
+  {
+    "title": "Frontend Engineer - Data Visualisation ",
+    "numberOfJob": 4233,
+    "employer": " Sportradar d.o.o.",
+    "dateFrom": "12. aug 2021  ob 14:52:49",
+    "placilo": "2.500 - 5.000 gross with bonus 5% - 10% (depends on experience) EUR / uro",
+    "lokacija": "Ljubljana",
+    "zahteve": "Professional Requirements:\n- More than 2 years of experience as a Frontend or Web Developer. \n- Proficient knowledge of HTML/CSS. \n- Good understanding of JavaScript language and web development principles.\n- Experience with at least one client-side JavaScript library or framework, ideally ReactJS.\n- Understanding of version control, branching, and merging.\n- Any experience with web design and web design software is a plus.\n- Fluent in English.\n- Ability to work in a dynamic international environment.\n- A very keen eye for the details.\n- Proactivity and willingness to learn new technologies.\n\nPersonality requirements:\n- Team character and communication skills.\n- Willingness to learn new technologies and a positive, can-do attitude.\n- A creative thinker, keen to further refine the system and process.\n- Committment to upholding the highest professional work standards and ethics.\n- Excellent knowledge of English (written and spoken)",
+    "kontakt": "Apply directly via: https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Front-end-Engineer_JREQ2191\nor send an email to tina.strus@sportradar.com",
+    "opisDelovnegaMesta": "Make the team that changes the way the world experiences sport.  From Gaelic Hurling to Finnish Bandliiga. From the Guatemalan Liga Nacional to ESports Counterstrike coverage of the ESEA Premier Division. Whatever your sport, you’ve felt the sting of the losses and the exhilarating glory of the wins. Sports provide people with a common connection and the potential to share special moments with complete strangers. And ever since odds were laid on chariot racing in Ancient Rome, fans of sport need complete information and they need it quickly.   Sportradar provides the source code for sport. Over 1,000 companies worldwide rely on Sportradar’s data depth and quality. With over 300M odds changes published every month and 30TB of metrics observed we rely on our squads to deliver this data reliably and accurately.  We’re looking to expand our Betting Entertainment Tools team in Ljubljana with a Frontend Engineer. You’ll be joining a dedicated and closely connected team that specializes in market leading betting solutions integrated by more than 400 clients and reaching hundreds of millions of sport fans and punters globally.  As a Front-end Engineer, you’ll work together with a team of experienced designers, product owners, and senior engineers to develop innovative and intuitive products. Ease of customisation, polished design, following the latest industry trends, and abundance of data are key areas that make our solutions stand out from the rest.   THE CHALLENGE: - Design and implement client-side components using Sportradar’s proprietary frontend framework based on ReactJS. - Slicing designs into pixel-perfect HTML/CSS layouts and spice them up with animations. - Implement new functionalities based on specifications and work on stabilisation of existing applications.  About Sportradar: Sportradar is on a journey! We’ve adopted the Spotify model to empower our people; we value local decision making. Tribes have defined tech stacks and ways of working however with continuous improvement in our DNA we’ve created ‘make it better time’ where you get to shape our future stack and ways of working, as well as work on the problems you care about it or improve your own skills.  We are actively adopting test-driven development as it matches our engineering principle ‘if it’s not tested, its broken’. We follow a cloud native strategy; managed services enable us to focus on the problems that interest us most – and we invest in our people with AWS training as we recognize the skills modern developers need to succeed. We’ve a preference for modern lightweight microservices; we leverage the right tools for the job. If this sounds interesting, we should talk. ",
+    "programmingLanguages": ["javascript", "java", "react", "html", "css"],
+    "email": "https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Front-end-Engineer_JREQ2191\nor",
+    "yeaProgrammingLanguages": "Javascript\nnapredno znanje\nReact.js\nnapredno znanje\nHTML/CSS\nnapredno znanje"
+  },
+  {
+    "title": "Senior Java Engineer ",
+    "numberOfJob": 4234,
+    "employer": " Sportradar d.o.o.",
+    "dateFrom": "12. aug 2021  ob 14:58:49",
+    "placilo": "2.500 - 5.000 gross with bonus 5% - 10% (depends on experience) EUR / mesec",
+    "lokacija": "Ljubljana",
+    "zahteve": "Professional Requirements:\n- More than 5 years of experience as a Java developer\n- Excellent understanding of computer science fundamentals: algorithms, data structures, design patterns.\n- Good understanding of Java concurrency and multithreading, functional and reactive programming, performance analysis, security.\n- Experience with software engineering best practices (TDD, CI, SOLID, etc.).\n- Experience building large-scale and fault-tolerant distributed systems is a plus.\n- Experience with AWS cloud services is a plus (Document DB, Dynamo DB, Aurora, Elasticache, Elasticsearch, MSK)\n- Experience with automated deployments and containerized application management (k8s)\n- Degree in computer science or software engineering (or equivalent work experience).\n- Team character and communication skills.\n\nPersonality requirements:\n- Willingness to learn new technologies.\n- Creative thinker, keen to further refine the system and process.\n- Committed to upholding the highest professional work standards and ethics.\n- Positive, can-do attitude.\n- Fluent in English (written and spoken).",
+    "kontakt": "Apply directly via: https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Senior-Java-Engineer_JREQ2472\nor send an email to tina.strus@sportradar.com",
+    "opisDelovnegaMesta": "Make the team that changes the way the world experiences sport.  We are looking for a dedicated Senior Java Engineer interested in sports and betting for the expansion of our Managed Trading Services in Ljubljana/Slovenia.  THE CHALLENGE: - Build and improve backend micro-services of a larger distributed system.  - Improve the reliability and performance of our backend stack and help with migration to cloud-native architecture. - Lead your services through complete delivery pipeline, from design, development all the way to deployment and monitoring it in production. - Definition of backend team member goals and objectives, planning and monitoring team member’s personal growth, mentoring.  Sportradar is the leading global provider of sports betting and sports entertainment products and services. Since 2001, Sportradar has occupied a unique position at the intersection of the sports, media and betting industries; providing sports federations, news media, consumer platforms and sports betting operators with a range of solutions to help grow their business.  Managed Trading Services (MTS) is a holistic solution that enables bookmakers to future-proof their business. The MTS team comprise the company’s Trading Unit as part of a 100+ strong team of industry-experienced personnel, supported by Betradar’s own trading and risk technology. They are responsible for providing bookmaker and platform provider clients of all sizes across the world with all the tools required to differentiate from the competition, improve efficiency and increase profit margins, whilst future proofing their business and securing it from risk. The MTS team offers a suite of fully flexible turnkey solutions from providing fixtures to compiling odds, monitoring liabilities, through to resulting and settlement.  MTS Key Facts, 170 bookmakers active on MTS, Multiple brands in excess of 300, 40+ geographical markets, 3.5+ million active unique players per month.   To find out more about our Managed Trading Services, please visit https://www.betradar.com/managed-tradin... ",
+    "programmingLanguages": ["java"],
+    "email": "https://sportradar.wd3.myworkdayjobs.com/en-US/sportradar_careers/job/Ljubljana/Senior-Java-Engineer_JREQ2472\nor",
+    "yeaProgrammingLanguages": "Java\nekspert\nAWS or similar\nnapredno znanje"
   }
 ]

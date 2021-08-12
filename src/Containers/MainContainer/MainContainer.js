@@ -35,7 +35,9 @@ export default function MainContainer() {
           <div className={styles.jobPostedDate}>{el.dateFrom}</div>
           <div>
             {" "}
-            <button className={styles.applyButton}>Apply to job</button>{" "}
+            <button className={styles.applyButton}>
+              <a href={el.email}>Apply to job</a>
+            </button>{" "}
           </div>
         </div>
       ))}

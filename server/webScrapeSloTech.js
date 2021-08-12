@@ -19,6 +19,7 @@ const fs = require("fs");
     "java",
     "angular",
     "ANGULAR",
+    "Microsoft 365",
     "Angular",
     "typeScript",
     "/\bC\b/",
@@ -30,8 +31,10 @@ const fs = require("fs");
     "vue",
     "React",
     "react",
+    "Laravel",
     "SQL",
     "Sql",
+    "jQuery",
     "REACT native",
     "node.js",
     "node",
@@ -42,7 +45,13 @@ const fs = require("fs");
     "RUBY",
     "SWIFT",
     "PHP",
+    "xml",
     "Wordpress",
+    "AWS",
+    "iOS",
+    "mobile",
+    "android",
+    "flutter",
   ];
 
   //get the latest delo
@@ -50,6 +59,10 @@ const fs = require("fs");
 
   let TextPage = [];
   for (let i = 1; i < 10; i++) {
+    //html/body/div[2]/div[5]/dl[4]
+    //html/body/div[2]/div[5]/dl[4]
+    //*[@id="content"]/dl[4]
+    //*[@id="content"]/dl[4]/dt[1]
     let [getTextIconXPath] = await page.$x(
       `//*[@id="content"]/table/tbody/tr[${i}]/td[2]/h3/a`
     );
@@ -92,6 +105,7 @@ const fs = require("fs");
       opisDelovnegaMesta: "",
       programmingLanguages: [],
       email: "",
+      yeaProgrammingLanguages: [],
     };
     await page.goto(`https://slo-tech.com/delo/${delo - i}`);
 
@@ -105,6 +119,18 @@ const fs = require("fs");
     let [zahteveXpath] = await page.$x("//*[@id='content']/p[2]");
     let [kontaktXpath] = await page.$x(" //*[@id='content']/p[4]");
     let [opisDelovnegaMestaXpath] = await page.$x("//*[@id='content']/p[1]");
+    let [programming] = await page.$x("//*[@id='content']/dl[4]");
+    let progggggggramingLang = await page.evaluate(
+      (name) => name.innerText,
+      programming
+    );
+
+    //*[@id="content"]/dl[4]
+    // get the programming languages
+    // for (let j = 1; j < 10; j + 2) {
+
+    //   console.log(progggggggramingLang);
+    // }
     //*[@id="content"]/p[1]
     //evaluating
 
@@ -145,19 +171,19 @@ const fs = require("fs");
     for (let i = 0; i < programmingLanguages.length; i++) {
       const element = programmingLanguages[i];
       if (element == "GO") {
-        if (zahteve.includes(element)) {
+        if (progggggggramingLang.includes(element)) {
           temporaryProgrammingLanugages.push(element);
           continue;
         }
-        if (opisDelovnegaMesta.includes(element)) {
+        if (progggggggramingLang.includes(element)) {
           temporaryProgrammingLanugages.push(element);
         }
         continue;
       }
-      if (zahteve.toLowerCase().includes(element.toLowerCase())) {
+      if (progggggggramingLang.toLowerCase().includes(element.toLowerCase())) {
         temporaryProgrammingLanugages.push(element.toLowerCase());
       }
-      if (opisDelovnegaMesta.toLowerCase().includes(element.toLowerCase())) {
+      if (progggggggramingLang.toLowerCase().includes(element.toLowerCase())) {
         temporaryProgrammingLanugages.push(element.toLowerCase());
       }
     }
@@ -214,7 +240,7 @@ const fs = require("fs");
     job.kontakt = kontakt;
     job.opisDelovnegaMesta = opisDelovnegaMesta;
     job.email = extractEmails(kontakt);
-    console.log(job.email);
+    job.yeaProgrammingLanguages = progggggggramingLang;
     jobs.push(job);
   }
   const data = JSON.stringify(jobs);
