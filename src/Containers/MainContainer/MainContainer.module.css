@@ -70,3 +70,7 @@
 .jobPostedDate {
   font-size: 0.8rem;
 }
+.linkButton {
+  color: white;
+  text-decoration: none;
+}

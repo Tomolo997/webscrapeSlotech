@@ -90,7 +90,20 @@ const fs = require("fs");
     return email;
   }
 
-  for (var i = 20 - 1; i >= 0; i--) {
+  function extractSalary(text) {
+    let salary = "";
+    console.log("TEXTTTT ==> " + text);
+    if (text.match(/([0-9]+)/)) {
+      salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
+    }
+    if (text.includes("dogovor")) {
+      salary = "Po dogovoru";
+    }
+
+    console.log("SALARY ====> " + salary);
+  }
+
+  for (var i = 100 - 1; i >= 0; i--) {
     //current job number
     let delo = jobNumberToStartWith;
     let job = {
@@ -165,6 +178,8 @@ const fs = require("fs");
       (name) => name.textContent,
       kontaktXpath
     );
+
+    extractSalary(placilo);
 
     let temporaryProgrammingLanugages = [];
 

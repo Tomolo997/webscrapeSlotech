@@ -4,4 +4,9 @@ title should be the position
     fullstack
     .NET
     software engineer
-    
+
+To do 
+    [x] - adapt salary range
+    [x] - limit the Programming languages
+    [x] - specify the position
+

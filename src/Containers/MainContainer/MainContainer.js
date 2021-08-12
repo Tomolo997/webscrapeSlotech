@@ -36,7 +36,9 @@ export default function MainContainer() {
           <div>
             {" "}
             <button className={styles.applyButton}>
-              <a href={el.email}>Apply to job</a>
+              <a className={styles.linkButton} href={el.email}>
+                Apply to job
+              </a>
             </button>{" "}
           </div>
         </div>
