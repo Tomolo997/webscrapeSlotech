@@ -15,6 +15,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  transition: 0.2s all;
+}
+.Job:hover {
+  background-color: #ddd;
 }
 .applyButton {
   width: 150px;
@@ -29,8 +33,10 @@
 }
 
 .basicDetails_Job {
-  height: 100px;
+  height: 90%;
   display: flex;
+  width: 300px;
+  text-align: center;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -40,14 +46,19 @@
   flex-direction: row;
 }
 .lokacija {
-  padding: 1rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+  background-color: #ddd;
 }
 .placilo {
-  padding: 1rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+  margin-left: 1rem;
+  background-color: #ddd;
 }
 .programmingLanguages {
   display: flex;
-  height: 80%;
+  height: 100%;
   width: 300px;
   justify-content: center;
   align-items: center;
@@ -64,13 +75,20 @@
 .language:hover {
   color: white;
   background-color: black;
-  border: 3px solid white;
+  border: 3px solid #ddd;
 }
-
 .jobPostedDate {
   font-size: 0.8rem;
 }
 .linkButton {
   color: white;
+  border-radius: 10px;
+  background-color: red;
+  font-size: 1.4rem;
+  padding: 1rem 2rem 1rem 2rem;
   text-decoration: none;
+}
+.linkButton:hover {
+  background-color: white;
+  color: black;
 }

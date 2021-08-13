@@ -23,8 +23,8 @@ export default function MainContainer() {
             <div>{el.employer}</div>
             <div>{el.title}</div>
             <div className={styles.placiloInLokacija}>
-              <div className={styles.lokacija}>{el.lokacija}</div>
-              <div className={styles.placilo}>{el.placilo}</div>
+              <div className={styles.lokacija}>📍 {el.lokacija}</div>
+              <div className={styles.placilo}>💶 {el.placilo}</div>
             </div>
           </div>
           <div className={styles.programmingLanguages}>
@@ -32,14 +32,12 @@ export default function MainContainer() {
               <div className={styles.language}>{el2}</div>
             ))}
           </div>
-          <div className={styles.jobPostedDate}>{el.dateFrom}</div>
+          <div className={styles.jobPostedDate}>⏰ {el.dateFrom}</div>
           <div>
             {" "}
-            <button className={styles.applyButton}>
-              <a className={styles.linkButton} href={el.email}>
-                Apply to job
-              </a>
-            </button>{" "}
+            <a className={styles.linkButton} href={el.email}>
+              Apply
+            </a>
           </div>
         </div>
       ))}

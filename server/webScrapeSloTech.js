@@ -260,7 +260,7 @@ const fs = require("fs");
     job.yeaProgrammingLanguages = progggggggramingLang;
     jobs.push(job);
   }
-  const data = JSON.stringify(jobs);
+  const data = JSON.stringify(jobs.reverse());
 
   // write JSON string to a file
   fs.writeFile("jobs.json", data, (err) => {
