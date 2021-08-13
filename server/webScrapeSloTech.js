@@ -93,14 +93,18 @@ const fs = require("fs");
   function extractSalary(text) {
     let salary = "";
     console.log("TEXTTTT ==> " + text);
-    if (text.match(/([0-9]+)/)) {
-      salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
+    salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
+    let array = [salary.slice(0, 4), salary.slice(4, 8)];
+    if (array[1] === "") {
+      salary = array[0] + " Eur/mon";
+    } else {
+      salary = array[0] + " - " + array[1] + " Eur/mon";
     }
     if (text.includes("dogovor")) {
       salary = "Po dogovoru";
     }
 
-    console.log("SALARY ====> " + salary);
+    return salary;
   }
 
   for (var i = 100 - 1; i >= 0; i--) {
@@ -179,8 +183,6 @@ const fs = require("fs");
       kontaktXpath
     );
 
-    extractSalary(placilo);
-
     let temporaryProgrammingLanugages = [];
 
     for (let i = 0; i < programmingLanguages.length; i++) {
@@ -249,7 +251,7 @@ const fs = require("fs");
 
     job.title = title;
     job.employer = employer;
-    job.placilo = placilo;
+    job.placilo = extractSalary(placilo);
     job.lokacija = lokacija;
     job.zahteve = zahteve;
     job.kontakt = kontakt;
