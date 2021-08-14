@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../logo.svg";
 import JobsData from "./jobs.json";
+import jobsDataSorted from "./jobsSorted.json";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
@@ -11,12 +12,27 @@ export default function MainContainer() {
     setJobs(JobsData);
   };
 
+  function compare(a, b) {
+    if (a.maximumPlacilo < b.maximumPlacilo) {
+      return -1;
+    }
+    if (a.maximumPlacilo > b.maximumPlacilo) {
+      return 1;
+    }
+    return 0;
+  }
+
+  const sortbyPlacilo = () => {
+    setJobs(jobsDataSorted);
+  };
   useEffect(() => {
+    console.log("yeaa");
     loadJobs();
   }, []);
 
   return (
     <div className={styles.mainContainerDiv}>
+      <button onClick={sortbyPlacilo}> sort by placilo</button>
       {jobs.map((el) => (
         <div className={styles.Job}>
           <div className={styles.basicDetails_Job}>

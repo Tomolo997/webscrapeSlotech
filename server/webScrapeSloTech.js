@@ -106,6 +106,22 @@ const fs = require("fs");
 
     return salary;
   }
+  function extractMaximuNumber(text) {
+    let maximumPay = "";
+    console.log("TEXTTTT ==> " + text);
+    maximumPay = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
+    let array = [maximumPay.slice(0, 4), maximumPay.slice(4, 8)];
+    if (array[1] === "") {
+      maximumPay = Number(array[0]);
+    } else {
+      maximumPay = Number(array[1]);
+    }
+    if (text.includes("dogovor")) {
+      maximumPay = 0;
+    }
+
+    return maximumPay;
+  }
 
   for (var i = 100 - 1; i >= 0; i--) {
     //current job number
@@ -119,6 +135,7 @@ const fs = require("fs");
       lokacija: "",
       zahteve: "",
       kontakt: "",
+      maximumPlacilo: "",
       opisDelovnegaMesta: "",
       programmingLanguages: [],
       email: "",
@@ -252,6 +269,7 @@ const fs = require("fs");
     job.title = title;
     job.employer = employer;
     job.placilo = extractSalary(placilo);
+    job.maximumPlacilo = extractMaximuNumber(placilo);
     job.lokacija = lokacija;
     job.zahteve = zahteve;
     job.kontakt = kontakt;
@@ -262,7 +280,28 @@ const fs = require("fs");
   }
   const data = JSON.stringify(jobs.reverse());
 
+  function compare(a, b) {
+    if (a.maximumPlacilo < b.maximumPlacilo) {
+      return -1;
+    }
+    if (a.maximumPlacilo > b.maximumPlacilo) {
+      return 1;
+    }
+    return 0;
+  }
+
+  const sortbyPlacilo = (array) => {
+    const yeaa = array.sort(compare);
+    return yeaa;
+  };
+  const data2 = JSON.stringify(sortbyPlacilo(jobs));
   // write JSON string to a file
+  fs.writeFile("jobsSorted.json", data2, (err) => {
+    if (err) {
+      throw err;
+    }
+    console.log("JSON data is saved.");
+  });
   fs.writeFile("jobs.json", data, (err) => {
     if (err) {
       throw err;
