@@ -12,18 +12,11 @@ export default function MainContainer() {
     setJobs(JobsData);
   };
 
-  function compare(a, b) {
-    if (a.maximumPlacilo < b.maximumPlacilo) {
-      return -1;
-    }
-    if (a.maximumPlacilo > b.maximumPlacilo) {
-      return 1;
-    }
-    return 0;
-  }
-
   const sortbyPlacilo = () => {
     setJobs(jobsDataSorted);
+  };
+  const sortbyDate = () => {
+    setJobs(JobsData);
   };
   useEffect(() => {
     console.log("yeaa");
@@ -33,6 +26,7 @@ export default function MainContainer() {
   return (
     <div className={styles.mainContainerDiv}>
       <button onClick={sortbyPlacilo}> sort by placilo</button>
+      <button onClick={sortbyDate}> sort by date</button>
       {jobs.map((el) => (
         <div className={styles.Job}>
           <div className={styles.basicDetails_Job}>
