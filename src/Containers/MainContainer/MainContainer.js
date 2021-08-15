@@ -25,8 +25,16 @@ export default function MainContainer() {
 
   return (
     <div className={styles.mainContainerDiv}>
-      <button onClick={sortbyPlacilo}> sort by placilo</button>
-      <button onClick={sortbyDate}> sort by date</button>
+      <div className={styles.sortedDiv}>
+        <button className={styles.buttonSort} onClick={sortbyPlacilo}>
+          {" "}
+          sort by placilo
+        </button>
+        <button className={styles.buttonSort} onClick={sortbyDate}>
+          {" "}
+          sort by date
+        </button>
+      </div>
       {jobs.map((el) => (
         <div className={styles.Job}>
           <div className={styles.basicDetails_Job}>

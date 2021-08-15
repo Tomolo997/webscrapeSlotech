@@ -282,17 +282,17 @@ const fs = require("fs");
 
   function compare(a, b) {
     if (a.maximumPlacilo < b.maximumPlacilo) {
-      return -1;
+      return 1;
     }
     if (a.maximumPlacilo > b.maximumPlacilo) {
-      return 1;
+      return -1;
     }
     return 0;
   }
 
   const sortbyPlacilo = (array) => {
-    const yeaa = array.sort(compare);
-    return yeaa;
+    const sortedArray = array.sort(compare);
+    return sortedArray;
   };
   const data2 = JSON.stringify(sortbyPlacilo(jobs));
   // write JSON string to a file
