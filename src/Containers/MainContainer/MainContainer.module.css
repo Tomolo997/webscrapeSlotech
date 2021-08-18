@@ -8,7 +8,7 @@
 }
 .Job {
   width: 1100px;
-  height: 120px;
+  height: 140px;
   background-color: white;
   margin: 0.4rem;
   box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
@@ -19,6 +19,9 @@
 }
 .Job:hover {
   background-color: #ddd;
+}
+.Job:focus {
+  height: 200px;
 }
 .applyButton {
   width: 150px;
@@ -94,7 +97,7 @@
 }
 
 .sortedDiv {
-  height: 100px;
+  height: 40px;
   width: 70%;
   margin: 1rem;
   display: flex;
@@ -106,9 +109,19 @@
 .buttonSort {
   padding: 1rem;
   font-size: 1rem;
-  margin: 1rem;
+  margin: 0.1rem;
   background-color: white;
   border: none;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
   border-radius: 10px;
   cursor: pointer;
+}
+
+.buttonSort:hover {
+  transform: translateY(-2px);
+  box-shadow: 1px 4px 4px rgb(0 0 0 / 3%);
+}
+.buttonSort:active {
+  transform: translateY(2px);
+  box-shadow: 0px 0px 0px rgb(0 0 0 / 3%);
 }

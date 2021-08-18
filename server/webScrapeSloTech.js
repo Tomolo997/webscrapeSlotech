@@ -235,7 +235,6 @@ const fs = require("fs");
     }
     const employer = fullTitle.split("@")[1];
     if (datePosted.includes("danes")) {
-      console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
       const date = new Date();
       const [month, day, year] = [
         date.getMonth(),

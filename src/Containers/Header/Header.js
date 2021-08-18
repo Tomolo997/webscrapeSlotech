@@ -15,6 +15,7 @@ export default function Header() {
             <br></br>
             <br></br> Filter through bullshit!
           </h1>
+          {/* comment here
           <div className={styles.mainHeadingSearchDiv}>
             <button className={styles.searchButton}>
               <img
@@ -24,6 +25,7 @@ export default function Header() {
             </button>
             <input className={styles.searchInputJob} />
           </div>
+          */}
         </div>
       </div>
     </div>

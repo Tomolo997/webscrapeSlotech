@@ -23,6 +23,12 @@ export default function MainContainer() {
     loadJobs();
   }, []);
 
+  const expandMe = (e) => {
+    console.log("EXPANDED");
+    console.log(e.target.stlye);
+
+    e.target.style.height = "1000px";
+  };
   return (
     <div className={styles.mainContainerDiv}>
       <div className={styles.sortedDiv}>
@@ -35,25 +41,36 @@ export default function MainContainer() {
           sort by date
         </button>
       </div>
-      {jobs.map((el) => (
-        <div className={styles.Job}>
+      {jobs.map((el, i) => (
+        <div
+          onClick={expandMe}
+          expanded="false"
+          id={i}
+          key={i}
+          className={styles.Job}
+        >
           <div className={styles.basicDetails_Job}>
-            <div>{el.employer}</div>
-            <div>{el.title}</div>
+            <div> 🏢 {el.employer}</div>
+            <div> 🧑‍💻 {el.title}</div>
             <div className={styles.placiloInLokacija}>
               <div className={styles.lokacija}>📍 {el.lokacija}</div>
               <div className={styles.placilo}>💶 {el.placilo}</div>
             </div>
           </div>
           <div className={styles.programmingLanguages}>
-            {el.programmingLanguages.map((el2) => (
-              <div className={styles.language}>{el2}</div>
+            {el.programmingLanguages.map((el2, j) => (
+              <div key={j} className={styles.language}>
+                {el2}
+              </div>
             ))}
           </div>
           <div className={styles.jobPostedDate}>⏰ {el.dateFrom}</div>
           <div>
             {" "}
-            <a className={styles.linkButton} href={el.email}>
+            <a
+              className={styles.linkButton}
+              href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
+            >
               Apply
             </a>
           </div>
