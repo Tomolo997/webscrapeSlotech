@@ -20,9 +20,22 @@
 .Job:hover {
   background-color: #ddd;
 }
-.Job:focus {
-  height: 200px;
+
+.JobExpanded {
+  width: 1100px;
+  height: 1000px;
+  background-color: white;
+  margin: 0.4rem;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: 0.2s all;
 }
+.Job:hover {
+  background-color: #ddd;
+}
+
 .applyButton {
   width: 150px;
   height: 60px;

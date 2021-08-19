@@ -1,5 +1,33 @@
 const puppeteer = require("puppeteer");
+
 const fs = require("fs");
+//server.js
+const express = require("express");
+const path = require("path");
+const mongoose = require("mongoose");
+const axios = require("axios");
+const port = process.env.PORT || 8000;
+require("dotenv").config();
+const Jobs = require("./JobsModel");
+const { async } = require("regenerator-runtime");
+const { pathToFileURL } = require("url");
+
+//connection to the DB
+const DB = process.env.DATABASE;
+mongoose
+  .connect(
+    "mongodb+srv://tomaz:tomaz@nobullshit.g3lx5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true,
+    }
+  )
+  .then(() => {
+    console.log("DB collection succesfull");
+  });
+
 (async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -92,7 +120,6 @@ const fs = require("fs");
 
   function extractSalary(text) {
     let salary = "";
-    console.log("TEXTTTT ==> " + text);
     salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
     let array = [salary.slice(0, 4), salary.slice(4, 8)];
     if (array[1] === "") {
@@ -108,7 +135,6 @@ const fs = require("fs");
   }
   function extractMaximuNumber(text) {
     let maximumPay = "";
-    console.log("TEXTTTT ==> " + text);
     maximumPay = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
     let array = [maximumPay.slice(0, 4), maximumPay.slice(4, 8)];
     if (array[1] === "") {
@@ -277,35 +303,42 @@ const fs = require("fs");
     job.yeaProgrammingLanguages = progggggggramingLang;
     jobs.push(job);
   }
-  const data = JSON.stringify(jobs.reverse());
 
-  function compare(a, b) {
-    if (a.maximumPlacilo < b.maximumPlacilo) {
-      return 1;
-    }
-    if (a.maximumPlacilo > b.maximumPlacilo) {
-      return -1;
-    }
-    return 0;
+  // function compare(a, b) {
+  //   if (a.numberOfJob < b.numberOfJob) {
+  //     return 1;
+  //   }
+  //   if (a.numberOfJob > b.numberOfJob) {
+  //     return -1;
+  //   }
+  //   return 0;
+  // }
+  // const sortbyPlacilo = (array) => {
+  //   const sortedArray = array.sort(compare);
+  //   return sortedArray;
+  // };
+  jobs.reverse();
+  await Jobs.remove();
+  for (let i = 0; i < jobs.length; i++) {
+    const element = jobs[i];
+    await Jobs.create(element);
   }
 
-  const sortbyPlacilo = (array) => {
-    const sortedArray = array.sort(compare);
-    return sortedArray;
-  };
-  const data2 = JSON.stringify(sortbyPlacilo(jobs));
+  //const data = JSON.stringify(jobs.reverse());
+
   // write JSON string to a file
-  fs.writeFile("jobsSorted.json", data2, (err) => {
-    if (err) {
-      throw err;
-    }
-    console.log("JSON data is saved.");
-  });
-  fs.writeFile("jobs.json", data, (err) => {
-    if (err) {
-      throw err;
-    }
-    console.log("JSON data is saved.");
-  });
+  // fs.writeFile("jobsSorted.json", data2, (err) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log("JSON data is saved.");
+  // });
+  // fs.writeFile("jobs.json", data, (err) => {
+  //   if (err) {
+  //     throw err;
+  //   }
+  //   console.log("JSON data is saved.");
+  // });con
   await browser.close();
+  process.exit(1);
 })();

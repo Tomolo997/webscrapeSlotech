@@ -25,16 +25,14 @@ export default function MainContainer() {
 
   const expandMe = (e) => {
     console.log("EXPANDED");
-    console.log(e.target.stlye);
-
-    e.target.style.height = "1000px";
+    console.log(e.target.id);
   };
   return (
     <div className={styles.mainContainerDiv}>
       <div className={styles.sortedDiv}>
         <button className={styles.buttonSort} onClick={sortbyPlacilo}>
           {" "}
-          sort by placilo
+          sort by pay
         </button>
         <button className={styles.buttonSort} onClick={sortbyDate}>
           {" "}
@@ -42,19 +40,16 @@ export default function MainContainer() {
         </button>
       </div>
       {jobs.map((el, i) => (
-        <div
-          onClick={expandMe}
-          expanded="false"
-          id={i}
-          key={i}
-          className={styles.Job}
-        >
+        <div onClick={expandMe} id={i} key={i} className={styles.Job}>
           <div className={styles.basicDetails_Job}>
             <div> 🏢 {el.employer}</div>
             <div> 🧑‍💻 {el.title}</div>
             <div className={styles.placiloInLokacija}>
               <div className={styles.lokacija}>📍 {el.lokacija}</div>
-              <div className={styles.placilo}>💶 {el.placilo}</div>
+              <div className={styles.placilo}>
+                {" "}
+                💶 {/* */} {el.placilo}
+              </div>
             </div>
           </div>
           <div className={styles.programmingLanguages}>
