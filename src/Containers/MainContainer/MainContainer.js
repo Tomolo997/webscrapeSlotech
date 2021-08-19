@@ -1,25 +1,29 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import logo from "../../logo.svg";
-import JobsData from "./jobs.json";
-import jobsDataSorted from "./jobsSorted.json";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
 
   //load jobs as inital
 
-  const loadJobs = () => {
-    setJobs(JobsData);
+  const loadJobs = async () => {
+    const jobbs = await axios.get("http://localhost:8000/api/v1/jobs");
+    console.log(jobbs.data.jobs);
+    setJobs(jobbs.data.jobs);
   };
 
-  const sortbyPlacilo = () => {
-    setJobs(jobsDataSorted);
+  const sortbyPlacilo = async () => {
+    const jobbs = await axios.get(
+      "http://localhost:8000/api/v1/jobs-sorted-by-pay"
+    );
+    console.log(jobbs.data.jobs);
+    setJobs(jobbs.data.jobs);
   };
   const sortbyDate = () => {
-    setJobs(JobsData);
+    loadJobs();
   };
   useEffect(() => {
-    console.log("yeaa");
     loadJobs();
   }, []);
 
