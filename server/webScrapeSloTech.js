@@ -2,7 +2,8 @@ const puppeteer = require("puppeteer");
 
 const fs = require("fs");
 //server.js
-const express = require("express");
+var cron = require("node-cron");
+
 const path = require("path");
 const mongoose = require("mongoose");
 const axios = require("axios");
@@ -14,21 +15,22 @@ const { pathToFileURL } = require("url");
 
 //connection to the DB
 const DB = process.env.DATABASE;
-mongoose
-  .connect(
-    "mongodb+srv://tomaz:tomaz@nobullshit.g3lx5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-    }
-  )
-  .then(() => {
-    console.log("DB collection succesfull");
-  });
 
-(async () => {
+const yea = async () => {
+  mongoose
+    .connect(
+      "mongodb+srv://tomaz:tomaz@nobullshit.g3lx5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+      {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true,
+      }
+    )
+    .then(() => {
+      console.log("DB collection succesfull");
+    });
+
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
@@ -340,5 +342,8 @@ mongoose
   //   console.log("JSON data is saved.");
   // });con
   await browser.close();
-  process.exit(1);
-})();
+  console.log("done with the task at " + Date.now());
+};
+cron.schedule("*/2 * * * *", () => {
+  yea();
+});
