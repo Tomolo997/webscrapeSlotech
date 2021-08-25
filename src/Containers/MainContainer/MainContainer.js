@@ -46,8 +46,8 @@ export default function MainContainer() {
       {jobs.map((el, i) => (
         <div onClick={expandMe} id={i} key={i} className={styles.Job}>
           <div className={styles.basicDetails_Job}>
-            <div> 🏢 {el.employer}</div>
-            <div> 🧑‍💻 {el.title}</div>
+            <div> 🏢  {" "} {el.employer}</div>
+            <div> 🧑‍💻  {" "} {el.title}</div>
             <div className={styles.placiloInLokacija}>
               <div className={styles.lokacija}>📍 {el.lokacija}</div>
               <div className={styles.placilo}>
@@ -67,7 +67,7 @@ export default function MainContainer() {
           <div>
             {" "}
             <a
-              className={styles.linkButton}
+              className={styles.linkButton} target={"_blank"}
               href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
             >
               Apply
