@@ -46,13 +46,14 @@ export default function MainContainer() {
       {jobs.map((el, i) => (
         <div onClick={expandMe} id={i} key={i} className={styles.Job}>
           <div className={styles.basicDetails_Job}>
-            <div> 🏢  {" "} {el.employer}</div>
-            <div> 🧑‍💻  {" "} {el.title}</div>
+            <div> 🏢 &nbsp; {el.employer}</div>
+            <div> 🧑‍💻 &nbsp; {el.title}</div>
             <div className={styles.placiloInLokacija}>
-              <div className={styles.lokacija}>📍 {el.lokacija}</div>
+              <div className={styles.lokacija}>📍 &nbsp; {el.lokacija}</div>
               <div className={styles.placilo}>
                 {" "}
-                💶 {/* */} {el.placilo}
+                💶 &nbsp;{/* */}
+                {el.placilo}
               </div>
             </div>
           </div>
@@ -63,11 +64,12 @@ export default function MainContainer() {
               </div>
             ))}
           </div>
-          <div className={styles.jobPostedDate}>⏰ {el.dateFrom}</div>
+          <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
           <div>
             {" "}
             <a
-              className={styles.linkButton} target={"_blank"}
+              className={styles.linkButton}
+              target={"_blank"}
               href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
             >
               Apply

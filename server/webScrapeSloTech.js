@@ -342,8 +342,8 @@ const yea = async () => {
   //   console.log("JSON data is saved.");
   // });con
   await browser.close();
-  console.log("done with the task at " + Date.now());
+  console.log("done with the task at " + new Date());
 };
-cron.schedule("*/2 * * * *", () => {
+// cron.schedule("*/2 * * * *", () => {
   yea();
-});
+// });
