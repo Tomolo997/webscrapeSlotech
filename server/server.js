@@ -5,7 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const app = express();
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 4001;
 //connection to the DB
 function compare(a, b) {
   if (a.maximumPlacilo < b.maximumPlacilo) {

@@ -345,5 +345,5 @@ const yea = async () => {
   console.log("done with the task at " + new Date());
 };
 // cron.schedule("*/2 * * * *", () => {
-  yea();
+yea();
 // });
