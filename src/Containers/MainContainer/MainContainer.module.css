@@ -32,9 +32,6 @@
   align-items: center;
   transition: 0.2s all;
 }
-.Job:hover {
-  background-color: #ddd;
-}
 
 .applyButton {
   width: 150px;
@@ -137,4 +134,143 @@
 .buttonSort:active {
   transform: translateY(2px);
   box-shadow: 0px 0px 0px rgb(0 0 0 / 3%);
+}
+
+@media only screen and (max-width: 900px) {
+  .Job {
+    width: 92%;
+    height: 200px;
+    background-color: white;
+    margin: 0.4rem;
+    box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2s all;
+  }
+  .linkButton {
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    padding: 1rem 1rem 1rem 1rem;
+    text-decoration: none;
+  }
+  .basicDetails_Job {
+    height: 80%;
+    display: flex;
+    width: 300px;
+    margin-left: 2rem;
+
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .buttonSort {
+    padding: 2rem;
+    font-size: 2rem;
+    margin: 0.1rem;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+    border-radius: 10px;
+  }
+  .sortedDiv {
+    height: 100px;
+    width: 70%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Job {
+    width: 92%;
+    height: 400px;
+    background-color: white;
+    margin: 0.4rem;
+    box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.2s all;
+  }
+  .linkButton {
+    color: white;
+    border-radius: 10px;
+    background-color: red;
+    font-size: 1.4rem;
+    margin-right: 2rem;
+    padding: 1rem 1rem 1rem 1rem;
+    text-decoration: none;
+  }
+  .basicDetails_Job {
+    height: 80%;
+    display: flex;
+    width: 400px;
+    margin-left: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .buttonSort {
+    padding: 2rem;
+    font-size: 2rem;
+    margin: 0.1rem;
+    background-color: white;
+    border: none;
+    box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
+    border-radius: 10px;
+  }
+  .sortedDiv {
+    height: 100px;
+    width: 70%;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .placiloInLokacija {
+    display: flex;
+    flex-direction: row;
+  }
+  .lokacija {
+    padding: 0.2rem;
+    font-size: 1.6rem;
+    border-radius: 4px;
+    background-color: #ddd;
+  }
+  .placilo {
+    padding: 0.3rem;
+    font-size: 1.6rem;
+
+    border-radius: 4px;
+    margin-left: 1rem;
+    background-color: #ddd;
+  }
+  .programmingLanguages {
+    display: flex;
+    height: 90%;
+    width: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .language {
+    padding: 0.4rem;
+    font-size: 1rem;
+    margin: 0.3rem;
+    border: 3px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+  }
 }

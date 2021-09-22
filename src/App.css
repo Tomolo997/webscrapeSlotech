@@ -14,7 +14,7 @@ html {
 }
 
 .App {
-  width: 100vw;
+  width: 100%;
   min-height: 100vh;
   display: grid;
   grid-template-rows: 200px 1fr;
@@ -27,5 +27,22 @@ html {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .App {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 700px 1fr;
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .App {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 300px 1fr;
+    grid-template-columns: 1fr;
   }
 }
