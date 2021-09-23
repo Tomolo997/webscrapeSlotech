@@ -37,7 +37,7 @@
   position: relative;
 }
 .searchInputJob {
-  color: #0f1115;
+  /* color: #0f1115;
   font-weight: 700;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -68,10 +68,10 @@
   border-radius: 100px;
   border: none;
   box-shadow: 0 0 0 1px var(--input-border-color), 0 2px 4px 0 rgb(0 0 0/7%),
-    0 1px 1.5px 0 rgb(0 0 0/5%) !important;
+    0 1px 1.5px 0 rgb(0 0 0/5%) !important; */
 }
 .searchButton {
-  background-color: transparent;
+  /* background-color: transparent;
   position: absolute;
   border: none;
   height: 80%;
@@ -79,7 +79,7 @@
   top: 50%;
   cursor: pointer;
   left: 8%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 .searchPicture {
   transition: 0.2s all;
@@ -96,7 +96,7 @@
 @media only screen and (max-width: 600px) {
   .MainDiv {
     background-color: rgb(218, 216, 216);
-    width: 100%;
+    max-width: 100%;
     height: 700px;
     display: flex;
     flex-direction: row;
@@ -104,7 +104,7 @@
     align-items: center;
   }
   .mainHeadingH1 {
-    font-size: 5rem;
+    font-size: rem;
     text-align: center;
     font-weight: 200;
   }
@@ -121,19 +121,20 @@
   .MainDiv {
     background-color: rgb(218, 216, 216);
     height: 300px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
   .mainHeadingH1 {
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     font-weight: 200;
   }
   .mainHeadingH2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1rem;
     margin-top: 1rem;
     text-align: center;
     font-weight: 300;

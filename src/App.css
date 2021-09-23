@@ -7,7 +7,6 @@ body {
   box-sizing: inherit;
 }
 html {
-  font-size: 100%;
   box-sizing: border-box;
 
   font-family: nunito, helvetica, Arial, sans-serif;
@@ -16,8 +15,9 @@ html {
 .App {
   min-height: 100vh;
   display: grid;
+  position: absolute;
   grid-template-rows: 200px 1fr;
-  grid-template-columns: 1fr;
+  grid-template-columns: 100vw;
 }
 
 @keyframes App-logo-spin {
@@ -33,15 +33,17 @@ html {
   .App {
     min-height: 100vh;
     display: grid;
-    grid-template-rows: 700px 1fr;
-    grid-template-columns: 1fr;
+    max-width: 100%;
+    grid-template-rows: 300px 1fr;
+    grid-template-columns: 100vw;
   }
 }
 @media only screen and (max-width: 900px) {
   .App {
     min-height: 100vh;
+    max-width: 100%;
     display: grid;
     grid-template-rows: 300px 1fr;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100vw;
   }
 }

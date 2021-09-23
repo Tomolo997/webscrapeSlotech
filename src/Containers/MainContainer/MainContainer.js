@@ -10,13 +10,15 @@ export default function MainContainer() {
 
   const loadJobs = async () => {
     //dev  => http://localhost:4001
-    const jobbs = await axios.get("/api/v1/jobs");
+    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs");
     console.log(jobbs.data.jobs);
     setJobs(jobbs.data.jobs);
   };
 
   const sortbyPlacilo = async () => {
-    const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
+    const jobbs = await axios.get(
+      "http://localhost:4001/api/v1/jobs-sorted-by-pay"
+    );
     console.log(jobbs.data.jobs);
     setJobs(jobbs.data.jobs);
   };
@@ -96,16 +98,18 @@ export default function MainContainer() {
               </div>
             ))}
           </div>
-          <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
-          <div>
-            {" "}
-            <a
-              className={styles.linkButton}
-              target={"_blank"}
-              href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
-            >
-              Apply
-            </a>
+          <div className={styles.jobsDivApplyAndDate}>
+            <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
+            <div className={styles.linkButtonDiv}>
+              {" "}
+              <a
+                className={styles.linkButton}
+                target={"_blank"}
+                href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
+              >
+                Apply
+              </a>
+            </div>
           </div>
         </div>
       ))}

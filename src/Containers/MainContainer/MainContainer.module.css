@@ -7,6 +7,7 @@
   align-items: center;
 }
 .Job {
+  position: relative;
   width: 1100px;
   height: 140px;
   background-color: white;
@@ -57,6 +58,7 @@
 .placiloInLokacija {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 .lokacija {
   padding: 0.3rem;
@@ -65,8 +67,8 @@
 }
 .placilo {
   padding: 0.3rem;
+  height: auto;
   border-radius: 4px;
-  margin-left: 1rem;
   background-color: #ddd;
 }
 .programmingLanguages {
@@ -90,16 +92,30 @@
   background-color: black;
   border: 3px solid #ddd;
 }
+.jobsDivApplyAndDate {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.linkButtonDiv {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
 .jobPostedDate {
   font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 .linkButton {
   color: white;
-  border-radius: 10px;
   background-color: red;
   font-size: 1.4rem;
-  padding: 1rem 2rem 1rem 2rem;
+  border-radius: 10px;
+  margin-left: 1rem;
   text-decoration: none;
+  width: 100%;
+  padding: 1rem 1rem 1rem 1rem;
 }
 .linkButton:hover {
   background-color: white;
@@ -136,14 +152,17 @@
   box-shadow: 0px 0px 0px rgb(0 0 0 / 3%);
 }
 .AddedByUser {
+  position: absolute;
   align-self: flex-start;
   margin-left: -1.7rem;
+  left: 1rem;
   margin-top: -0.8rem;
 }
 
 @media only screen and (max-width: 900px) {
   .Job {
     width: 92%;
+    padding: 1rem;
     height: 200px;
     background-color: white;
     margin: 0.4rem;
@@ -153,21 +172,20 @@
     align-items: center;
     transition: 0.2s all;
   }
+  .linkButtonDiv {
+    display: flex;
+    text-align: center;
+  }
   .linkButton {
     color: white;
+    text-align: center;
     border-radius: 10px;
-    background-color: red;
-    font-size: 1.4rem;
-    margin-right: 1rem;
-    padding: 1rem 1rem 1rem 1rem;
     text-decoration: none;
   }
   .basicDetails_Job {
     height: 80%;
     display: flex;
     width: 300px;
-    margin-left: 2rem;
-
     text-align: center;
     flex-direction: column;
     justify-content: space-around;
@@ -175,7 +193,7 @@
   }
   .buttonSort {
     padding: 2rem;
-    font-size: 2rem;
+    font-size: 1.2rem;
     margin: 0.1rem;
     background-color: white;
     border: none;
@@ -184,7 +202,7 @@
   }
   .sortedDiv {
     height: 100px;
-    width: 70%;
+    width: 80%;
     margin: 1rem;
     display: flex;
     flex-direction: row;
@@ -192,60 +210,62 @@
     align-items: center;
   }
   .AddedByUser {
-    align-self: flex-start;
-    margin-left: -0.5rem;
-    margin-top: -0.9rem;
     font-size: 1.5rem;
+    position: absolute;
+    align-self: flex-start;
+    margin-left: -1.7rem;
+    left: 1rem;
+    top: 0;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .mainContainerDiv {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .jobPostedDate {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     text-align: center;
-    margin-right: 1rem;
+    margin-bottom: 1rem;
   }
   .Job {
-    width: 92%;
-    height: 400px;
+    width: 80%;
+    padding: 1.2rem;
+    height: 500px;
     background-color: white;
     margin: 0.4rem;
     box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     transition: 0.2s all;
   }
   .linkButton {
     color: white;
-    border-radius: 10px;
-    background-color: red;
-    font-size: 1.4rem;
-    margin-right: 2rem;
-    padding: 1rem 1rem 1rem 1rem;
     text-decoration: none;
+    width: auto;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
   }
   .basicDetails_Job {
     height: 80%;
     display: flex;
-    width: 400px;
-    margin-left: 2rem;
-    font-size: 2rem;
+    width: 100%;
+    font-size: 1.2rem;
     text-align: center;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
+    flex-direction: column;
   }
   .buttonSort {
-    padding: 2rem;
-    font-size: 2rem;
+    padding: 1rem;
+    font-size: 1.2rem;
     margin: 0.1rem;
     background-color: white;
     border: none;
@@ -263,43 +283,55 @@
   }
   .placiloInLokacija {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .lokacija {
     padding: 0.2rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     border-radius: 4px;
+    width: 100%;
+    margin-bottom: 0.2rem;
     background-color: #ddd;
   }
-  .placilo {
-    padding: 0.3rem;
-    font-size: 1.6rem;
+  .jobsDivApplyAndDate {
+    height: 200px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 
+  .placilo {
+    width: 100%;
+    font-size: 1.4rem;
     border-radius: 4px;
-    margin-left: 1rem;
     background-color: #ddd;
   }
   .programmingLanguages {
     display: flex;
-    height: 90%;
-    width: 300px;
-    flex-direction: column;
+    width: 90%;
+    height: 400px;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
   }
   .language {
     padding: 0.4rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin: 0.3rem;
     border: 3px solid black;
     border-radius: 10px;
     cursor: pointer;
   }
   .AddedByUser {
-    align-self: flex-start;
-    margin-left: -0.5rem;
-    margin-top: -0.9rem;
     font-size: 3rem;
+    position: absolute;
+    align-self: flex-start;
+    margin-left: -1.7rem;
+    left: 1rem;
+    top: 0;
   }
 }

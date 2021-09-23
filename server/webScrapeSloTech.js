@@ -10,6 +10,7 @@ const axios = require("axios");
 const port = process.env.PORT || 8000;
 require("dotenv").config();
 const Jobs = require("./JobsModel");
+const JobsCopy = require("./jobsModelCopy");
 const { async } = require("regenerator-runtime");
 const { pathToFileURL } = require("url");
 
@@ -40,15 +41,12 @@ const yea = async () => {
     "python",
     "javascript",
     "/\bjs\b/",
-    "javaScript",
-    "JAVASCRIPT",
     "Python",
     "C++",
     "c++",
     "Java",
     "java",
     "angular",
-    "ANGULAR",
     "Microsoft 365",
     "Angular",
     "typeScript",
@@ -57,6 +55,7 @@ const yea = async () => {
     "C#",
     "c#",
     "VueJS",
+    ".NET",
     "Vue",
     "vue",
     "React",
@@ -65,10 +64,9 @@ const yea = async () => {
     "SQL",
     "Sql",
     "jQuery",
+    "C #",
     "REACT native",
-    "node.js",
     "node",
-    "Node",
     "HTML",
     "CSS",
     "GO",
@@ -125,9 +123,35 @@ const yea = async () => {
     salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
     let array = [salary.slice(0, 4), salary.slice(4, 8)];
     if (array[1] === "") {
-      salary = array[0] + " Eur/mon";
+      if (
+        text.toLowerCase().includes("bruto") ||
+        text.toLowerCase().includes("gross")
+      ) {
+        salary = array[0] + " €/m Bruto";
+      } else if (
+        text.toLowerCase().includes("neto") ||
+        text.toLowerCase().includes("neto")
+      ) {
+        salary = array[0] + " €/m Neto";
+      } else if (text.includes("uro")) {
+        salary = array[0] + " €/uro Bruto";
+      } else {
+        salary = array[0] + " €/m Bruto";
+      }
     } else {
-      salary = array[0] + " - " + array[1] + " Eur/mon";
+      if (
+        text.toLowerCase().includes("bruto") ||
+        text.toLowerCase().includes("gross")
+      ) {
+        salary = array[0] + " - " + array[1] + " €/m Bruto";
+      } else if (
+        text.toLowerCase().includes("neto") ||
+        text.toLowerCase().includes("neto")
+      ) {
+        salary = array[0] + " - " + array[1] + " €/m Neto";
+      } else {
+        salary = array[0] + " - " + array[1] + " €/m ";
+      }
     }
     if (text.includes("dogovor")) {
       salary = "Po dogovoru";
@@ -151,7 +175,7 @@ const yea = async () => {
     return maximumPay;
   }
 
-  for (var i = 100 - 1; i >= 0; i--) {
+  for (var i = 50 - 1; i >= 0; i--) {
     //current job number
     let delo = jobNumberToStartWith;
     let job = {
@@ -293,6 +317,17 @@ const yea = async () => {
     }
     //const employer = await page.evaluate(name => name.textContent, employerXpath);
 
+    for (let i = 0; i < programmingLanguages.length; i++) {
+      const element = programmingLanguages[i];
+      if (
+        title.includes(element) &&
+        !job.programmingLanguages.includes(element.toLowerCase())
+      ) {
+        console.log(element);
+        job.programmingLanguages.push(element);
+      }
+    }
+
     job.title = title;
     job.employer = employer;
     job.placilo = extractSalary(placilo);
@@ -320,10 +355,24 @@ const yea = async () => {
   //   return sortedArray;
   // };
   jobs.reverse();
-  await Jobs.remove();
+  await JobsCopy.remove();
+  const JobsAdded = await Jobs.find({ AddedByUser: true });
+  //await JobsCopy.create(JobsAdded);
+  console.log(JobsAdded);
+  // for (let i = 0; i < 10; i++) {
+  //   //nove jobe iscemo
+  //   const job = jobs[i];
+  //   //ce v trenutnem job filu ni novekag
+  //   if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
+  //     console.log(job);
+  //     jobsAwaited.push(job);
+  //     await JobsCopy.create(job);
+  //   }
+  // }
+
   for (let i = 0; i < jobs.length; i++) {
     const element = jobs[i];
-    await Jobs.create(element);
+    await JobsCopy.create(element);
   }
 
   //const data = JSON.stringify(jobs.reverse());
@@ -333,7 +382,7 @@ const yea = async () => {
   //   if (err) {
   //     throw err;
   //   }
-  //   console.log("JSON data is saved.");
+  //   console.log("JSON data is saved.");w
   // });
   // fs.writeFile("jobs.json", data, (err) => {
   //   if (err) {
@@ -342,6 +391,7 @@ const yea = async () => {
   //   console.log("JSON data is saved.");
   // });con
   await browser.close();
+
   console.log("done with the task at " + new Date());
 };
 // cron.schedule("*/2 * * * *", () => {
