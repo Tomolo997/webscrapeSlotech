@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
 const app = express();
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8082;
 //connection to the DB
 
 function compare(a, b) {
