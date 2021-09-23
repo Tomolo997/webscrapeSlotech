@@ -4,19 +4,19 @@ import logo from "../../logo.svg";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
+  const [fileteredBy, setFileteredBy] = useState([]);
 
   //load jobs as inital
 
   const loadJobs = async () => {
-    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs");
+    //dev  => http://localhost:4001
+    const jobbs = await axios.get("/api/v1/jobs");
     console.log(jobbs.data.jobs);
     setJobs(jobbs.data.jobs);
   };
 
   const sortbyPlacilo = async () => {
-    const jobbs = await axios.get(
-      "http://localhost:4001/api/v1/jobs-sorted-by-pay"
-    );
+    const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
     console.log(jobbs.data.jobs);
     setJobs(jobbs.data.jobs);
   };
@@ -27,10 +27,26 @@ export default function MainContainer() {
     loadJobs();
   }, []);
 
-  const expandMe = (e) => {
-    console.log("EXPANDED");
-    console.log(e.target.id);
-  };
+  // const FilterByProgramingLang = async (e) => {
+  //   try {
+  //     let filters = fileteredBy;
+  //     if (!filters.includes(e.target.textContent)) {
+  //       filters.push(e.target.textContent);
+  //     }
+
+  //     const jobbs = await axios.get(
+  //       `http://localhost:4001/api/v1/sort/${filters.join("&")}`
+  //     );
+  //     if (!filters.includes(e.target.textContent)) {
+  //       filters.push(e.target.textContent);
+  //     }
+  //     setFileteredBy(filters);
+  //     console.log();
+  //     setJobs(jobbs.data.jobs);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   return (
     <div className={styles.mainContainerDiv}>
       <div className={styles.sortedDiv}>
@@ -43,8 +59,20 @@ export default function MainContainer() {
           sort by date
         </button>
       </div>
+      {/* <div className="filteredBy">
+        {" "}
+        filtered By:
+        {fileteredBy.map((el, i) => {
+          return <div>{el}</div>;
+        })}
+      </div> */}
       {jobs.map((el, i) => (
-        <div onClick={expandMe} id={i} key={i} className={styles.Job}>
+        <div id={i} key={i} className={styles.Job}>
+          {el.AddedByUser ? (
+            <div title="Added by Company" className={styles.AddedByUser}>
+              ✅
+            </div>
+          ) : null}
           <div className={styles.basicDetails_Job}>
             <div> 🏢 &nbsp; {el.employer}</div>
             <div> 🧑‍💻 &nbsp; {el.title}</div>
@@ -59,7 +87,11 @@ export default function MainContainer() {
           </div>
           <div className={styles.programmingLanguages}>
             {el.programmingLanguages.map((el2, j) => (
-              <div key={j} className={styles.language}>
+              <div
+                // onClick={FilterByProgramingLang}
+                key={j}
+                className={styles.language}
+              >
                 {el2}
               </div>
             ))}

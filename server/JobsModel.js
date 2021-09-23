@@ -9,6 +9,10 @@ const JobsSchema = mongoose.Schema(
     lokacija: String,
     zahteve: String,
     kontakt: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
     maximumPlacilo: Number,
     opisDelovnegaMesta: String,
     programmingLanguages: [],
