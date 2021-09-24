@@ -7,7 +7,7 @@ const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
 const { SlowBuffer } = require("buffer");
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 8082;
 //connection to the DB
 
 function compare(a, b) {
@@ -69,17 +69,11 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      let jobs = await Jobs.find();
-      res.status(200).json({
-        status: "success",
-      });
-      res.json({ jobs: sortbyPlacilo(jobs) });
-    } else {
-      res.status(400).json({
-        status: "error",
-      });
-    }
+    let jobs = await Jobs.find();
+    res.status(200).json({
+      status: "success",
+      jobs: sortbyPlacilo(jobs),
+    });
   } catch (error) {
     console.log(error);
   }

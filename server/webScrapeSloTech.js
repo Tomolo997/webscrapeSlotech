@@ -175,7 +175,7 @@ const yea = async () => {
     return maximumPay;
   }
 
-  for (var i = 50 - 1; i >= 0; i--) {
+  for (var i = 70 - 1; i >= 0; i--) {
     //current job number
     let delo = jobNumberToStartWith;
     let job = {

@@ -5,17 +5,15 @@ import styles from "./MainContainer.module.css"; // Import css modules styleshee
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
   const [fileteredBy, setFileteredBy] = useState([]);
-
   //load jobs as inital
 
   const loadJobs = async () => {
-    //dev  => http://localhost:4001
+    //dev  =>http://localhost:4001
     const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
       },
     });
-    console.log(jobbs);
     setJobs(jobbs.data.jobs);
   };
 
@@ -30,25 +28,57 @@ export default function MainContainer() {
     loadJobs();
   }, []);
 
-  // const FilterByProgramingLang = async (e) => {
-  //   try {
-  //     let filters = fileteredBy;
-  //     if (!filters.includes(e.target.textContent)) {
-  //       filters.push(e.target.textContent);
-  //     }
+  const removeFilter = async (e) => {
+    // try {
+    let filters = fileteredBy;
+    if (filters.length === 1) {
+      console.log(filters, "THIS SIS THE 0 length  ");
+      filters = [];
+      setFileteredBy(filters);
+      const jobbs = await axios.get(`/api/v1/jobs`, {
+        headers: {
+          Authorization: `token thisisforyourbest123`,
+        },
+      });
+      setJobs(jobbs.data.jobs);
+    } else {
+      filters.splice(filters.indexOf(e.target.attributes.filter.value), 1);
+      const jobbs = await axios.get(`/api/v1/sort/${filters.join("&")}`);
+      setJobs(jobbs.data.jobs);
+    }
+    //remove the filter and then call the api
 
-  //     const jobbs = await axios.get(
-  //       `http://localhost:4001/api/v1/sort/${filters.join("&")}`
-  //     );
-  //     if (!filters.includes(e.target.textContent)) {
-  //       filters.push(e.target.textContent);
-  //     }
-  //     setFileteredBy(filters);
-  //     setJobs(jobbs.data.jobs);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+    //   if (!filters.includes(e.target.textContent)) {
+    //     filters.push(e.target.textContent);
+    //   }
+
+    //   if (!filters.includes(e.target.textContent)) {
+    //     filters.push(e.target.textContent);
+    //   }
+    //   setFileteredBy(filters);
+    //   setJobs(jobbs.data.jobs);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  };
+
+  const FilterByProgramingLang = async (e) => {
+    try {
+      let filters = fileteredBy;
+      if (!filters.includes(e.target.textContent)) {
+        filters.push(e.target.textContent);
+      }
+
+      const jobbs = await axios.get(`/api/v1/sort/${filters.join("&")}`);
+      if (!filters.includes(e.target.textContent)) {
+        filters.push(e.target.textContent);
+      }
+      setFileteredBy(filters);
+      setJobs(jobbs.data.jobs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className={styles.mainContainerDiv}>
       <div className={styles.sortedDiv}>
@@ -61,18 +91,24 @@ export default function MainContainer() {
           sort by date
         </button>
       </div>
-      {/* <div className={styles.fillterDiv}>
+      <div className={styles.fillterDiv}>
         {" "}
-        <span className={styles.filteredBySpan}> Add filter: </span>
+        <span className={styles.filteredBySpan}> Filter: </span>
         {fileteredBy.map((el, i) => {
           return (
-            <div className={styles.filter}>
+            <div filter={el} className={styles.filter}>
               {el} &nbsp;
-              <span className={styles.deleteFilter}>❌</span>
+              <span
+                filter={el}
+                onClick={removeFilter}
+                className={styles.deleteFilter}
+              >
+                ❌
+              </span>
             </div>
           );
         })}
-      </div> */}
+      </div>
       {jobs.map((el, i) => (
         <div id={i} key={i} className={styles.Job}>
           {el.AddedByUser ? (
@@ -95,7 +131,7 @@ export default function MainContainer() {
           <div className={styles.programmingLanguages}>
             {el.programmingLanguages.map((el2, j) => (
               <div
-                // onClick={FilterByProgramingLang}
+                onClick={FilterByProgramingLang}
                 key={j}
                 className={styles.language}
               >
