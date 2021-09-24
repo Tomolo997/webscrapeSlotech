@@ -10,7 +10,7 @@ export default function MainContainer() {
 
   const loadJobs = async () => {
     //dev  => http://localhost:4001
-    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs", {
+    const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
       },
@@ -19,7 +19,11 @@ export default function MainContainer() {
   };
 
   const sortbyPlacilo = async () => {
-    const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
+    const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay", {
+      headers: {
+        Authorization: `token thisisforyourbest123`,
+      },
+    });
     setJobs(jobbs.data.jobs);
   };
   const sortbyDate = () => {

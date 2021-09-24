@@ -69,11 +69,17 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await Jobs.find();
-    res.status(200).json({
-      status: "success",
-      jobs: sortbyPlacilo(jobs),
-    });
+    if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
+      let jobs = await Jobs.find();
+      res.status(200).json({
+        status: "success",
+        jobs: sortbyPlacilo(jobs),
+      });
+    } else {
+      res.status(400).json({
+        status: "error",
+      });
+    }
   } catch (error) {
     console.log(error);
   }
