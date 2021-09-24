@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
+const { SlowBuffer } = require("buffer");
 const app = express();
 const port = process.env.PORT || 8082;
 //connection to the DB
@@ -50,12 +51,18 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 
 app.get("/api/v1/jobs", async (req, res) => {
   try {
-    const jobs = await JobsCopy.find();
-    jobs.sort(ComparenumberOfJob);
-    res.status(200).json({
-      status: "success",
-      jobs: jobs,
-    });
+    if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
+      const jobs = await JobsCopy.find();
+      jobs.sort(ComparenumberOfJob);
+      res.status(200).json({
+        status: "success",
+        jobs: jobs,
+      });
+    } else {
+      res.status(400).json({
+        status: "error",
+      });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -73,25 +80,49 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
 });
 
 const sortByLanguage = async (array) => {
-  let sendJobs = [];
+  // let jobs = await JobsCopy.find([
+  //   {
+  //     $match: {
+  //       programmingLanguages: {
+  //         $in: array,
+  //       },
+  //     },
+  //   },
+  // ]);
+  var filter = {};
+  for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    filter[`lang${i}`] = element;
+  }
+  console.log(filter);
+  // let jobs = await JobsCopy.find({
+  //   $and: [
+  //     { programmingLanguages: "some id 1" },
+  //     { programmingLanguages: "some id 2" },
+  //   ],
+  // });
+  let jobs = await JobsCopy.find();
 
-  let jobs = await Jobs.aggregate([
-    {
-      $match: {
-        programmingLanguages: {
-          $in: array,
-        },
-      },
-    },
-  ]);
+  let jobs2 = jobs.filter(function (item) {
+    for (var key in filter) {
+      console.log(key);
 
-  return jobs;
+      if (!item.programmingLanguages.includes(filter[key])) return false;
+      // if (item[key] === undefined || item[key] != filter[key]) return false;
+    }
+    return true;
+  });
+  return jobs2;
 };
 
 app.get("/api/v1/sort/:text", async (req, res) => {
   try {
     console.log(req.params.text);
     let arrayOfLang = req.params.text.split("&");
+    const arrayOfJobs = await JobsCopy.find();
+    //   $and: [{ programmingLanugages: "some id 1" }, { members: "some id 2" }],
+    // });
+    sortByLanguage(arrayOfLang);
     res.status(200).json({
       status: "success",
       jobs: await sortByLanguage(arrayOfLang),

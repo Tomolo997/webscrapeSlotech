@@ -10,14 +10,16 @@ export default function MainContainer() {
 
   const loadJobs = async () => {
     //dev  => http://localhost:4001
-    const jobbs = await axios.get("/api/v1/jobs");
-    console.log(jobbs.data.jobs);
+    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs", {
+      headers: {
+        Authorization: `token thisisforyourbest123`,
+      },
+    });
     setJobs(jobbs.data.jobs);
   };
 
   const sortbyPlacilo = async () => {
     const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
-    console.log(jobbs.data.jobs);
     setJobs(jobbs.data.jobs);
   };
   const sortbyDate = () => {
@@ -41,7 +43,6 @@ export default function MainContainer() {
   //       filters.push(e.target.textContent);
   //     }
   //     setFileteredBy(filters);
-  //     console.log();
   //     setJobs(jobbs.data.jobs);
   //   } catch (error) {
   //     console.log(error);
@@ -59,11 +60,16 @@ export default function MainContainer() {
           sort by date
         </button>
       </div>
-      {/* <div className="filteredBy">
+      {/* <div className={styles.fillterDiv}>
         {" "}
-        filtered By:
+        <span className={styles.filteredBySpan}> Add filter: </span>
         {fileteredBy.map((el, i) => {
-          return <div>{el}</div>;
+          return (
+            <div className={styles.filter}>
+              {el} &nbsp;
+              <span className={styles.deleteFilter}>❌</span>
+            </div>
+          );
         })}
       </div> */}
       {jobs.map((el, i) => (
