@@ -56,8 +56,8 @@ app.get("/api/v1/jobs", async (req, res) => {
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
         status: "success",
-        jobs: jobs,
       });
+      res.json({ jobs: jobs });
     } else {
       res.status(400).json({
         status: "error",
@@ -73,8 +73,8 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
       let jobs = await Jobs.find();
       res.status(200).json({
         status: "success",
-        jobs: sortbyPlacilo(jobs),
       });
+      res.json({ jobs: sortbyPlacilo(jobs) });
     } else {
       res.status(400).json({
         status: "error",
