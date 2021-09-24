@@ -10,7 +10,7 @@ export default function MainContainer() {
 
   const loadJobs = async () => {
     //dev  => http://localhost:4001
-    const jobbs = await axios.get("/api/v1/jobss", {
+    const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
       },
