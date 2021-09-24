@@ -49,15 +49,15 @@ app.use(express.json());
 
 app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 
-app.get("/api/v1/jobs", async (req, res) => {
+app.get("/api/v1/jobss", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
       const jobs = await JobsCopy.find();
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
         status: "success",
+        jobs: jobs,
       });
-      res.json({ jobs: jobs });
     } else {
       res.status(400).json({
         status: "error",
