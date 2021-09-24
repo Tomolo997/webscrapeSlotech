@@ -58,6 +58,8 @@
 .placiloInLokacija {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100%;
 }
 .lokacija {
@@ -68,6 +70,7 @@
 .placilo {
   padding: 0.3rem;
   height: auto;
+  margin-left: 1rem;
   border-radius: 4px;
   background-color: #ddd;
 }
@@ -307,6 +310,7 @@
     width: 100%;
     font-size: 1.4rem;
     border-radius: 4px;
+    margin-left: 0;
     background-color: #ddd;
   }
   .programmingLanguages {
