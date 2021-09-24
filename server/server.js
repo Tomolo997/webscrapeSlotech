@@ -69,7 +69,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await Jobs.find();
+    let jobs = await JobsCopy.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
