@@ -14,11 +14,13 @@ export default function MainContainer() {
         Authorization: `token thisisforyourbest123`,
       },
     });
+    setFileteredBy([]);
     setJobs(jobbs.data.jobs);
   };
 
   const sortbyPlacilo = async () => {
     const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
+    setFileteredBy([]);
     setJobs(jobbs.data.jobs);
   };
   const sortbyDate = () => {
