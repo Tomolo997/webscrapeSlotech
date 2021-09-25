@@ -30,6 +30,26 @@ export default function MainContainer() {
     loadJobs();
   }, []);
 
+  const showTitle = (e) => {
+    const documentElement = e.target.childNodes;
+    if (documentElement[1] === undefined || documentElement[2] === undefined) {
+      return;
+    }
+    documentElement[1].style.display = "block";
+    documentElement[2].style.display = "block";
+  };
+
+  const hideTitle = (e) => {
+    const documentElement = e.target.childNodes;
+    if (documentElement[1] === undefined || documentElement[2] === undefined) {
+      e.target.style.display = "none";
+      e.target.parentNode.childNodes[1].style.display = "none";
+      return;
+    }
+    documentElement[1].style.display = "none";
+    documentElement[2].style.display = "none";
+  };
+
   const removeFilter = async (e) => {
     // try {
     let filters = fileteredBy;
@@ -114,10 +134,17 @@ export default function MainContainer() {
       {jobs.map((el, i) => (
         <div id={i} key={i} className={styles.Job}>
           {el.AddedByUser ? (
-            <div title="Added by Company" className={styles.AddedByUser}>
-              ✅
+            <div
+              title="Added by Company"
+              onMouseOver={showTitle}
+              onMouseLeave={hideTitle}
+              className={styles.AddedByUser}
+            >
+              ✅<div className={styles.arrowUp}></div>
+              <div className={styles.AddedByUserPopDown}>original post</div>
             </div>
           ) : null}
+
           <div className={styles.basicDetails_Job}>
             <div> 🏢 &nbsp; {el.employer}</div>
             <div> 🧑‍💻 &nbsp; {el.title}</div>
