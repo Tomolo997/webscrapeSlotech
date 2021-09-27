@@ -165,11 +165,23 @@ export default function MainContainer() {
             <div> 🏢 &nbsp; {el.employer}</div>
             <div> 🧑‍💻 &nbsp; {el.title}</div>
             <div className={styles.placiloInLokacija}>
-              <div className={styles.lokacija}>📍 &nbsp; {el.lokacija}</div>
+              <div className={styles.lokacija}>
+                <span>📍</span>
+                <span>
+                  {el.lokacija}
+                  {el.isRemote ? (
+                    <span className={styles.remotePosition}>
+                      {el.lokacija.length !== 0 ? <span>, </span> : null}
+                      Remote
+                    </span>
+                  ) : null}
+                </span>{" "}
+              </div>
               <div className={styles.placilo}>
                 {" "}
                 💶 &nbsp;{/* */}
                 {el.placilo}
+                {el.isBruto == "bruto" ? <span>bruto</span> : <span>neto</span>}
               </div>
             </div>
           </div>
@@ -196,6 +208,7 @@ export default function MainContainer() {
                 Apply
               </a>
             </div>
+            {/* {el.isRemote ? <div>Is remote </div> : null} */}
           </div>
         </div>
       ))}

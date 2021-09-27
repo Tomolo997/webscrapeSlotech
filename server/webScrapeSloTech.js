@@ -126,28 +126,28 @@ const yea = async () => {
         text.toLowerCase().includes("bruto") ||
         text.toLowerCase().includes("gross")
       ) {
-        salary = array[0] + " €/m bruto";
+        salary = array[0] + ` €/m`;
       } else if (
         text.toLowerCase().includes("neto") ||
         text.toLowerCase().includes("neto")
       ) {
-        salary = array[0] + " €/m Neto";
+        salary = array[0] + " €/m ";
       } else if (text.includes("uro")) {
-        salary = array[0] + " €/uro bruto";
+        salary = array[0] + " €/uro ";
       } else {
-        salary = array[0] + " €/m bruto";
+        salary = array[0] + " €/m ";
       }
     } else {
       if (
         text.toLowerCase().includes("bruto") ||
         text.toLowerCase().includes("gross")
       ) {
-        salary = array[0] + " - " + array[1] + " €/m bruto";
+        salary = array[0] + " - " + array[1] + " €/m ";
       } else if (
         text.toLowerCase().includes("neto") ||
         text.toLowerCase().includes("neto")
       ) {
-        salary = array[0] + " - " + array[1] + " €/m neto";
+        salary = array[0] + " - " + array[1] + " €/m ";
       } else {
         salary = array[0] + " - " + array[1] + " €/m ";
       }
@@ -158,6 +158,31 @@ const yea = async () => {
 
     return salary;
   }
+
+  const extractBruto = (text) => {
+    let salary = "";
+    // salary = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
+    // let array = [salary.slice(0, 4), salary.slice(4, 8)];
+    if (
+      text.toLowerCase().includes("bruto") ||
+      text.toLowerCase().includes("BRUTO") ||
+      text.toLowerCase().includes("gross")
+    ) {
+      salary = `bruto`;
+    } else if (
+      text.toLowerCase().includes("neto") ||
+      text.toLowerCase().includes("Neto") ||
+      text.toLowerCase().includes("NETO")
+    ) {
+      salary = "neto";
+    } else if (text.includes("uro")) {
+      salary = "bruto";
+    } else {
+      salary = "bruto";
+    }
+
+    return salary;
+  };
   function extractMaximuNumber(text) {
     let maximumPay = "";
     maximumPay = text.replace(/[^0-9]/g, ""); // replace all leading non-digits with nothing
@@ -185,12 +210,15 @@ const yea = async () => {
       placilo: "",
       lokacija: "",
       zahteve: "",
+      isBruto: "",
       kontakt: "",
       maximumPlacilo: "",
       opisDelovnegaMesta: "",
       programmingLanguages: [],
       email: "",
       yeaProgrammingLanguages: [],
+      isRemote: false,
+      AddedByUser: false,
     };
     await page.goto(`https://slo-tech.com/delo/${delo - i}`);
 
@@ -327,53 +355,147 @@ const yea = async () => {
       }
     }
 
+    if (
+      lokacija.includes("remote") ||
+      lokacija.includes("Remote") ||
+      lokacija.includes("doma")
+    ) {
+      job.isRemote = true;
+    }
+
+    let locationOfTheJob = [];
+    if (
+      lokacija.includes("LJ") ||
+      lokacija.includes("lj") ||
+      lokacija.includes("Ljubljana") ||
+      lokacija.includes("LJUBLJANA") ||
+      lokacija.includes("Lj")
+    ) {
+      locationOfTheJob.push("Lj");
+    }
+
+    if (
+      lokacija.includes("MB") ||
+      lokacija.includes("Mb") ||
+      lokacija.includes("Maribor") ||
+      lokacija.includes("MARIBOR")
+    ) {
+      locationOfTheJob.push("Mb");
+    }
+
+    if (
+      lokacija.includes("CE") ||
+      lokacija.includes("Celje") ||
+      lokacija.includes("CELJE") ||
+      lokacija.includes("Ce")
+    ) {
+      locationOfTheJob.push("Ce");
+    }
+
+    if (
+      lokacija.includes("Novo Mesto") ||
+      lokacija.includes("NOVO MESTO") ||
+      lokacija.includes("NM") ||
+      lokacija.includes("Nm")
+    ) {
+      locationOfTheJob.push("Nm");
+    }
+    if (lokacija.includes("Ptuj") || lokacija.includes("ptuj")) {
+      locationOfTheJob.push("Ptuj");
+    }
+
     job.title = title;
     job.employer = employer;
     job.placilo = extractSalary(placilo);
     job.maximumPlacilo = extractMaximuNumber(placilo);
-    job.lokacija = lokacija;
+    job.lokacija =
+      locationOfTheJob.length > 0 ? locationOfTheJob.join(",") : lokacija;
     job.zahteve = zahteve;
     job.kontakt = kontakt;
     job.opisDelovnegaMesta = opisDelovnegaMesta;
     job.email = extractEmails(kontakt);
     job.yeaProgrammingLanguages = progggggggramingLang;
+    job.isBruto = extractBruto(placilo);
     jobs.push(job);
   }
 
-  // function compare(a, b) {
-  //   if (a.numberOfJob < b.numberOfJob) {
-  //     return 1;
-  //   }
-  //   if (a.numberOfJob > b.numberOfJob) {
-  //     return -1;
-  //   }
-  //   return 0;
-  // }
-  // const sortbyPlacilo = (array) => {
-  //   const sortedArray = array.sort(compare);
-  //   return sortedArray;
-  // };
   jobs.reverse();
-  // await JobsCopy.remove();
-  // const JobsAdded = await JobsCopy.find({ AddedByUser: true });
-  //await JobsCopy.create(JobsAdded);
-
-  let jobsAwaited = await JobsCopy.find();
-
+  const JobsAdded = await JobsCopy.find({ AddedByUser: true });
+  JobsCopy.create(JobsAdded);
+  let jobsAdded = await Jobs.find({});
+  let jobsAwaited = await Jobs.find();
+  await Jobs.remove();
   for (let i = 0; i < 10; i++) {
     //nove jobe iscemo
     const job = jobs[i];
     //ce v trenutnem job filu ni novekag
     if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
-      console.log(job);
-      jobsAwaited.push(job);
-      await JobsCopy.create(job);
+      await Jobs.create(job);
     }
   }
 
+  // Jobs copy
+  // await Jobs.remove();
   // for (let i = 0; i < jobs.length; i++) {
   //   const element = jobs[i];
-  //   await JobsCopy.create(element);
+  //   let job = {
+  //     title: element.title,
+  //     numberOfJob: element.numberOfJob,
+  //     employer: element.employer,
+  //     dateFrom: element.dateFrom,
+  //     placilo: element.placilo,
+  //     lokacija: element.lokacija,
+  //     zahteve: element.zahteve,
+  //     kontakt: element.kontakt,
+  //     // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
+  //     maximumPlacilo: element.maximumPlacilo,
+  //     opisDelovnegaMesta: element.opisDelovnegaMesta,
+  //     programmingLanguages: element.programmingLanguages,
+  //     email: element.email,
+  //     isBruto: element.isBruto,
+  //     isRemote: element.isRemote,
+  //     AddedByUser: element.AddedByUser,
+  //   };
+
+  //   await Jobs.create(job);
+  // }
+
+  // Jobs copy
+  // for (let i = 0; i < JobsAdded.length; i++) {
+  //   const element = JobsAdded[i];
+  //   let remote = false;
+  //   if (
+  //     element.lokacija.includes("remote") ||
+  //     element.lokacija.includes("Remote") ||
+  //     element.lokacija.includes("doma")
+  //   ) {
+  //     remote = true;
+  //   }
+  //   let job = {
+  //     title: element.title,
+  //     numberOfJob: element.numberOfJob,
+  //     employer: element.employer,
+  //     dateFrom: element.dateFrom,
+  //     placilo: element.placilo,
+  //     lokacija: element.lokacija,
+  //     zahteve: element.zahteve,
+  //     kontakt: element.kontakt,
+  //     // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
+  //     maximumPlacilo: element.maximumPlacilo,
+  //     opisDelovnegaMesta: element.opisDelovnegaMesta,
+  //     programmingLanguages: element.programmingLanguages,
+  //     email: element.email,
+  //     isRemote: remote,
+  //     isBruto: "bruto",
+  //     AddedByUser: true,
+  //   };
+
+  //   await Jobs.create(job);
+  // }
+  // await Jobs.create(jobsAwaited);
+  // for (let i = 0; i < jobsAwaited.length; i++) {
+  //   const element = jobsAwaited[i];
+  //   await Jobs.create(element);
   // }
 
   //const data = JSON.stringify(jobs.reverse());
@@ -391,6 +513,20 @@ const yea = async () => {
   //   }
   //   console.log("JSON data is saved.");
   // });con
+
+  // function compare(a, b) {
+  //   if (a.numberOfJob < b.numberOfJob) {
+  //     return 1;
+  //   }
+  //   if (a.numberOfJob > b.numberOfJob) {
+  //     return -1;
+  //   }
+  //   return 0;
+  // }
+  // const sortbyPlacilo = (array) => {
+  //   const sortedArray = array.sort(compare);
+  //   return sortedArray;
+  // };
   await browser.close();
 
   console.log("done with the task at " + new Date());

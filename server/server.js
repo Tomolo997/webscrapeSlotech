@@ -5,7 +5,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
-const { SlowBuffer } = require("buffer");
 const app = express();
 const port = process.env.PORT || 8082;
 //connection to the DB
@@ -52,7 +51,7 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 app.get("/api/v1/jobs", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      const jobs = await JobsCopy.find();
+      const jobs = await Jobs.find();
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
         status: "success",
@@ -69,7 +68,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await JobsCopy.find();
+    let jobs = await Jobs.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
@@ -80,7 +79,7 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
 });
 
 const sortByLanguage = async (array) => {
-  // let jobs = await JobsCopy.find([
+  // let jobs = await Jobs.find([
   //   {
   //     $match: {
   //       programmingLanguages: {
@@ -95,13 +94,13 @@ const sortByLanguage = async (array) => {
     filter[`lang${i}`] = element;
   }
 
-  // let jobs = await JobsCopy.find({
+  // let jobs = await Jobs.find({
   //   $and: [
   //     { programmingLanguages: "some id 1" },
   //     { programmingLanguages: "some id 2" },
   //   ],
   // });
-  let jobs = await JobsCopy.find();
+  let jobs = await Jobs.find();
 
   let jobs2 = jobs.filter(function (item) {
     for (var key in filter) {
@@ -119,7 +118,7 @@ app.get("/api/v1/sort/:text", async (req, res) => {
     if (arrayOfLang.includes("chashtag")) {
       arrayOfLang.splice(arrayOfLang.indexOf("chashtag"), 1, "c#");
     }
-    const arrayOfJobs = await JobsCopy.find();
+    // const arrayOfJobs = await Jobs.find();
     //   $and: [{ programmingLanugages: "some id 1" }, { members: "some id 2" }],
     // });
     sortByLanguage(arrayOfLang);
