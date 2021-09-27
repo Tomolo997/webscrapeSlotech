@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { findAllInRenderedTree } from "react-dom/cjs/react-dom-test-utils.production.min";
 import logo from "../../logo.svg";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
@@ -54,7 +55,6 @@ export default function MainContainer() {
     // try {
     let filters = fileteredBy;
     if (filters.length === 1) {
-      console.log(filters, "THIS SIS THE 0 length  ");
       filters = [];
       setFileteredBy(filters);
       const jobbs = await axios.get(`/api/v1/jobs`, {
@@ -65,7 +65,14 @@ export default function MainContainer() {
       setJobs(jobbs.data.jobs);
     } else {
       filters.splice(filters.indexOf(e.target.attributes.filter.value), 1);
-      const jobbs = await axios.get(`/api/v1/sort/${filters.join("&")}`);
+      let filterDeep = [...filters];
+      if (filterDeep.some((el) => el === "c#")) {
+        filterDeep.splice(filterDeep.indexOf("c#"), 1, "chashtag");
+      }
+
+      console.log(filterDeep);
+
+      const jobbs = await axios.get(`/api/v1/sort/${filterDeep.join("&")}`);
       setJobs(jobbs.data.jobs);
     }
     //remove the filter and then call the api
@@ -87,14 +94,23 @@ export default function MainContainer() {
   const FilterByProgramingLang = async (e) => {
     try {
       let filters = fileteredBy;
+      console.log(e.target.textContent);
       if (!filters.includes(e.target.textContent)) {
-        filters.push(e.target.textContent);
+        filters.push(e.target.textContent.toLowerCase());
       }
 
-      const jobbs = await axios.get(`/api/v1/sort/${filters.join("&")}`);
-      if (!filters.includes(e.target.textContent)) {
-        filters.push(e.target.textContent);
+      let filterDeep = [...filters];
+      if (
+        filterDeep.includes("c#") ||
+        filterDeep.includes("C#") ||
+        filterDeep.includes("c #")
+      ) {
+        filterDeep.splice(filterDeep.indexOf("c#"), 1, "chashtag");
       }
+
+      console.log(filterDeep);
+      const jobbs = await axios.get(`/api/v1/sort/${filterDeep.join("&")}`);
+
       setFileteredBy(filters);
       setJobs(jobbs.data.jobs);
     } catch (error) {

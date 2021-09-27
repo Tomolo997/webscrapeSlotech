@@ -64,7 +64,6 @@ const yea = async () => {
     "SQL",
     "Sql",
     "jQuery",
-    "C #",
     "REACT native",
     "node",
     "HTML",
@@ -127,28 +126,28 @@ const yea = async () => {
         text.toLowerCase().includes("bruto") ||
         text.toLowerCase().includes("gross")
       ) {
-        salary = array[0] + " €/m Bruto";
+        salary = array[0] + " €/m bruto";
       } else if (
         text.toLowerCase().includes("neto") ||
         text.toLowerCase().includes("neto")
       ) {
         salary = array[0] + " €/m Neto";
       } else if (text.includes("uro")) {
-        salary = array[0] + " €/uro Bruto";
+        salary = array[0] + " €/uro bruto";
       } else {
-        salary = array[0] + " €/m Bruto";
+        salary = array[0] + " €/m bruto";
       }
     } else {
       if (
         text.toLowerCase().includes("bruto") ||
         text.toLowerCase().includes("gross")
       ) {
-        salary = array[0] + " - " + array[1] + " €/m Bruto";
+        salary = array[0] + " - " + array[1] + " €/m bruto";
       } else if (
         text.toLowerCase().includes("neto") ||
         text.toLowerCase().includes("neto")
       ) {
-        salary = array[0] + " - " + array[1] + " €/m Neto";
+        salary = array[0] + " - " + array[1] + " €/m neto";
       } else {
         salary = array[0] + " - " + array[1] + " €/m ";
       }
@@ -355,25 +354,27 @@ const yea = async () => {
   //   return sortedArray;
   // };
   jobs.reverse();
-  await JobsCopy.remove();
-  const JobsAdded = await Jobs.find({ AddedByUser: true });
+  // await JobsCopy.remove();
+  // const JobsAdded = await JobsCopy.find({ AddedByUser: true });
   //await JobsCopy.create(JobsAdded);
-  console.log(JobsAdded);
-  // for (let i = 0; i < 10; i++) {
-  //   //nove jobe iscemo
-  //   const job = jobs[i];
-  //   //ce v trenutnem job filu ni novekag
-  //   if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
-  //     console.log(job);
-  //     jobsAwaited.push(job);
-  //     await JobsCopy.create(job);
-  //   }
-  // }
 
-  for (let i = 0; i < jobs.length; i++) {
-    const element = jobs[i];
-    await JobsCopy.create(element);
+  let jobsAwaited = await JobsCopy.find();
+
+  for (let i = 0; i < 10; i++) {
+    //nove jobe iscemo
+    const job = jobs[i];
+    //ce v trenutnem job filu ni novekag
+    if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
+      console.log(job);
+      jobsAwaited.push(job);
+      await JobsCopy.create(job);
+    }
   }
+
+  // for (let i = 0; i < jobs.length; i++) {
+  //   const element = jobs[i];
+  //   await JobsCopy.create(element);
+  // }
 
   //const data = JSON.stringify(jobs.reverse());
 

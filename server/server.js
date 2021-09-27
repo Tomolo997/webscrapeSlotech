@@ -94,7 +94,7 @@ const sortByLanguage = async (array) => {
     const element = array[i];
     filter[`lang${i}`] = element;
   }
-  console.log(filter);
+
   // let jobs = await JobsCopy.find({
   //   $and: [
   //     { programmingLanguages: "some id 1" },
@@ -105,8 +105,6 @@ const sortByLanguage = async (array) => {
 
   let jobs2 = jobs.filter(function (item) {
     for (var key in filter) {
-      console.log(key);
-
       if (!item.programmingLanguages.includes(filter[key])) return false;
       // if (item[key] === undefined || item[key] != filter[key]) return false;
     }
@@ -117,8 +115,10 @@ const sortByLanguage = async (array) => {
 
 app.get("/api/v1/sort/:text", async (req, res) => {
   try {
-    console.log(req.params.text);
     let arrayOfLang = req.params.text.split("&");
+    if (arrayOfLang.includes("chashtag")) {
+      arrayOfLang.splice(arrayOfLang.indexOf("chashtag"), 1, "c#");
+    }
     const arrayOfJobs = await JobsCopy.find();
     //   $and: [{ programmingLanugages: "some id 1" }, { members: "some id 2" }],
     // });
