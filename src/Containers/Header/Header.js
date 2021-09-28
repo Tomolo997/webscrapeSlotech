@@ -13,7 +13,6 @@ export default function Header() {
           <h1 className={styles.mainHeadingH2}>
             Salary, Programming language and employment level
             <br></br>
-            <br></br> Filter through bullshit!
           </h1>
           {/* comment here
           <div className={styles.mainHeadingSearchDiv}>

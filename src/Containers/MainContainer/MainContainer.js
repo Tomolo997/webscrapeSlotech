@@ -11,7 +11,7 @@ export default function MainContainer() {
   //load jobs as inital
 
   const loadJobs = async () => {
-    //dev  =>http://localhost:4001
+    //dev  =>
     const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
@@ -272,6 +272,7 @@ export default function MainContainer() {
           })}
         </div>
       </div>
+      <div>{jobs.length} jobs found </div>
       {jobs.map((el, i) => (
         <div id={i} key={i} className={styles.Job}>
           {el.AddedByUser ? (
