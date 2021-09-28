@@ -420,78 +420,78 @@ const yea = async () => {
   }
 
   jobs.reverse();
-  const JobsAdded = await JobsCopy.find({ AddedByUser: true });
-  JobsCopy.create(JobsAdded);
-  let jobsAdded = await Jobs.find({});
-  let jobsAwaited = await Jobs.find();
-  await Jobs.remove();
-  for (let i = 0; i < 10; i++) {
-    //nove jobe iscemo
-    const job = jobs[i];
-    //ce v trenutnem job filu ni novekag
-    if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
-      await Jobs.create(job);
-    }
+  const JobsAdded = await Jobs.find({ AddedByUser: true });
+  // JobsCopy.create(JobsAdded);
+  // let jobsAdded = await Jobs.find({});
+  // let jobsAwaited = await Jobs.find();
+  await JobsCopy.remove();
+  // for (let i = 0; i < 10; i++) {
+  //   //nove jobe iscemo
+  //   const job = jobs[i];
+  //   //ce v trenutnem job filu ni novekag
+  //   if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
+  //     await Jobs.create(job);
+  //   }
+  // }
+
+  // Jobs copy
+  // await JobsCopy.remove();
+  for (let i = 0; i < jobs.length; i++) {
+    const element = jobs[i];
+    let job = {
+      title: element.title,
+      numberOfJob: element.numberOfJob,
+      employer: element.employer,
+      dateFrom: element.dateFrom,
+      placilo: element.placilo,
+      lokacija: element.lokacija,
+      zahteve: element.zahteve,
+      kontakt: element.kontakt,
+      // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
+      maximumPlacilo: element.maximumPlacilo,
+      opisDelovnegaMesta: element.opisDelovnegaMesta,
+      programmingLanguages: element.programmingLanguages,
+      email: element.email,
+      isBruto: element.isBruto,
+      isRemote: element.isRemote,
+      AddedByUser: element.AddedByUser,
+    };
+
+    await JobsCopy.create(job);
   }
 
   // Jobs copy
-  // await Jobs.remove();
-  // for (let i = 0; i < jobs.length; i++) {
-  //   const element = jobs[i];
-  //   let job = {
-  //     title: element.title,
-  //     numberOfJob: element.numberOfJob,
-  //     employer: element.employer,
-  //     dateFrom: element.dateFrom,
-  //     placilo: element.placilo,
-  //     lokacija: element.lokacija,
-  //     zahteve: element.zahteve,
-  //     kontakt: element.kontakt,
-  //     // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
-  //     maximumPlacilo: element.maximumPlacilo,
-  //     opisDelovnegaMesta: element.opisDelovnegaMesta,
-  //     programmingLanguages: element.programmingLanguages,
-  //     email: element.email,
-  //     isBruto: element.isBruto,
-  //     isRemote: element.isRemote,
-  //     AddedByUser: element.AddedByUser,
-  //   };
+  for (let i = 0; i < JobsAdded.length; i++) {
+    const element = JobsAdded[i];
+    let remote = false;
+    if (
+      element.lokacija.includes("remote") ||
+      element.lokacija.includes("Remote") ||
+      element.lokacija.includes("doma")
+    ) {
+      remote = true;
+    }
+    let job = {
+      title: element.title,
+      numberOfJob: element.numberOfJob,
+      employer: element.employer,
+      dateFrom: element.dateFrom,
+      placilo: element.placilo,
+      lokacija: element.lokacija,
+      zahteve: element.zahteve,
+      kontakt: element.kontakt,
+      // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
+      maximumPlacilo: element.maximumPlacilo,
+      opisDelovnegaMesta: element.opisDelovnegaMesta,
+      programmingLanguages: element.programmingLanguages,
+      email: element.email,
+      isRemote: remote,
+      isBruto: "bruto",
+      AddedByUser: true,
+    };
 
-  //   await Jobs.create(job);
-  // }
-
-  // Jobs copy
-  // for (let i = 0; i < JobsAdded.length; i++) {
-  //   const element = JobsAdded[i];
-  //   let remote = false;
-  //   if (
-  //     element.lokacija.includes("remote") ||
-  //     element.lokacija.includes("Remote") ||
-  //     element.lokacija.includes("doma")
-  //   ) {
-  //     remote = true;
-  //   }
-  //   let job = {
-  //     title: element.title,
-  //     numberOfJob: element.numberOfJob,
-  //     employer: element.employer,
-  //     dateFrom: element.dateFrom,
-  //     placilo: element.placilo,
-  //     lokacija: element.lokacija,
-  //     zahteve: element.zahteve,
-  //     kontakt: element.kontakt,
-  //     // AddedByUser: element.AddedByUser ? element.AddedByUser : false,
-  //     maximumPlacilo: element.maximumPlacilo,
-  //     opisDelovnegaMesta: element.opisDelovnegaMesta,
-  //     programmingLanguages: element.programmingLanguages,
-  //     email: element.email,
-  //     isRemote: remote,
-  //     isBruto: "bruto",
-  //     AddedByUser: true,
-  //   };
-
-  //   await Jobs.create(job);
-  // }
+    await JobsCopy.create(job);
+  }
   // await Jobs.create(jobsAwaited);
   // for (let i = 0; i < jobsAwaited.length; i++) {
   //   const element = jobsAwaited[i];

@@ -5,7 +5,9 @@ import logo from "../../logo.svg";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
+  const [sorting, setSorting] = useState(false);
   const [fileteredBy, setFileteredBy] = useState([]);
+  const [addingRemote, setAddingRemote] = useState("false");
   //load jobs as inital
 
   const loadJobs = async () => {
@@ -16,6 +18,19 @@ export default function MainContainer() {
       },
     });
     setFileteredBy([]);
+    document.querySelector("#divremote").checked = false;
+    setJobs(jobbs.data.jobs);
+  };
+
+  const loadAllJobs = async () => {
+    //dev  =>
+    const jobbs = await axios.get("/api/v1/jobs", {
+      headers: {
+        Authorization: `token thisisforyourbest123`,
+      },
+    });
+    setFileteredBy([]);
+    document.querySelector("#divremote").checked = false;
     setJobs(jobbs.data.jobs);
   };
 
@@ -57,13 +72,9 @@ export default function MainContainer() {
     if (filters.length === 1) {
       filters = [];
       setFileteredBy(filters);
-      const jobbs = await axios.get(`/api/v1/jobs`, {
-        headers: {
-          Authorization: `token thisisforyourbest123`,
-        },
-      });
-      setJobs(jobbs.data.jobs);
+      loadJobs();
     } else {
+      console.log(e.target.attributes);
       filters.splice(filters.indexOf(e.target.attributes.filter.value), 1);
       let filterDeep = [...filters];
       if (filterDeep.some((el) => el === "c#")) {
@@ -71,8 +82,9 @@ export default function MainContainer() {
       }
 
       console.log(filterDeep);
-
-      const jobbs = await axios.get(`/api/v1/sort/${filterDeep.join("&")}`);
+      const jobbs = await axios.get(
+        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+      );
       setJobs(jobbs.data.jobs);
     }
     //remove the filter and then call the api
@@ -94,9 +106,15 @@ export default function MainContainer() {
   const FilterByProgramingLang = async (e) => {
     try {
       let filters = fileteredBy;
-      console.log(e.target.textContent);
-      if (!filters.includes(e.target.textContent)) {
-        filters.push(e.target.textContent.toLowerCase());
+      // if (
+      //   e.target.textContext === "Office" ||
+      //   e.target.textContext === "remote"
+      // ) {
+      //   return;
+      // }
+      console.log(filters);
+      if (!filters.includes(e.target.outerText)) {
+        filters.push(e.target.outerText.toLowerCase());
       }
 
       let filterDeep = [...filters];
@@ -109,7 +127,9 @@ export default function MainContainer() {
       }
 
       console.log(filterDeep);
-      const jobbs = await axios.get(`/api/v1/sort/${filterDeep.join("&")}`);
+      const jobbs = await axios.get(
+        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+      );
 
       setFileteredBy(filters);
       setJobs(jobbs.data.jobs);
@@ -117,9 +137,71 @@ export default function MainContainer() {
       console.log(error);
     }
   };
+
+  const addLangFilter = async (e) => {
+    try {
+      let filters = fileteredBy;
+      if (e.target.value === "office" || e.target.value === "remote") {
+        return;
+      }
+      if (!filters.includes(e.target.value)) {
+        filters.push(e.target.value.toLowerCase());
+      }
+
+      let filterDeep = [...filters];
+      if (
+        filterDeep.includes("c#") ||
+        filterDeep.includes("C#") ||
+        filterDeep.includes("c #")
+      ) {
+        filterDeep.splice(filterDeep.indexOf("c#"), 1, "chashtag");
+      }
+
+      console.log(filterDeep);
+      console.log("addingRemote", addingRemote);
+      console.log("addingRemote", document.querySelector("#divremote").value);
+
+      if (
+        document.querySelector("#divremote").value === "remote" ||
+        document.querySelector("#divremote").value === undefined
+      ) {
+        setAddingRemote("true");
+      } else if (document.querySelector("#divremote").value === "office") {
+        setAddingRemote("false");
+      }
+      const jobbs = await axios.get(
+        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+      );
+
+      setFileteredBy(filters);
+      setJobs(jobbs.data.jobs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const AddRemoteFilter = async (e) => {
+    setAddingRemote(e.target.checked);
+    let filters = fileteredBy;
+
+    let filterDeep = [...filters];
+    if (
+      filterDeep.includes("c#") ||
+      filterDeep.includes("C#") ||
+      filterDeep.includes("c #")
+    ) {
+      filterDeep.splice(filterDeep.indexOf("c#"), 1, "chashtag");
+    }
+    const jobbs = await axios.get(
+      `/api/v1/sort/text=${filterDeep.join("-")}&remote=${e.target.checked}`
+    );
+
+    setJobs(jobbs.data.jobs);
+  };
+
   return (
     <div className={styles.mainContainerDiv}>
-      <div className={styles.sortedDiv}>
+      {/* <div className={styles.sortedDiv}>
         <button className={styles.buttonSort} onClick={sortbyPlacilo}>
           {" "}
           sort by pay
@@ -128,24 +210,67 @@ export default function MainContainer() {
           {" "}
           sort by date
         </button>
-      </div>
+      </div> */}
       <div className={styles.fillterDiv}>
         {" "}
-        <span className={styles.filteredBySpan}> Filter: </span>
-        {fileteredBy.map((el, i) => {
-          return (
-            <div filter={el} className={styles.filter}>
-              {el} &nbsp;
-              <span
-                filter={el}
-                onClick={removeFilter}
-                className={styles.deleteFilter}
-              >
-                ❌
-              </span>
-            </div>
-          );
-        })}
+        <div onChange={addLangFilter} className={styles.filteredDivOne}>
+          <select placeholder="language" className={styles.selectDiv}>
+            <option value="javascript">javascript</option>
+            <option value="css">css</option>
+            <option value="c#">c#</option>
+            <option value="c++">c++</option>
+            <option value="html">html</option>
+            <option value="vue">vue</option>
+            <option value="react">react</option>
+            <option value="python">python</option>
+            <option value="node">node</option>
+            <option value="django">django</option>
+            <option value="ios">ios</option>
+            <option value="android">android</option>
+            <option value="java">java</option>
+            <option value="sql">sql</option>
+            <option value=".net">.net</option>
+            <option value="typescript">typescript</option>
+            <option value="php">php</option>
+            <option value="jquery">jquery</option>
+            <option value="AWS">aws</option>
+          </select>
+          <div className={styles.selectDivremote}>
+            <input
+              id="divremote"
+              value="office"
+              type="checkbox"
+              onClick={AddRemoteFilter}
+            />{" "}
+            <label for="divremote">Remote</label>
+          </div>
+          {/* <button
+            value="paysort"
+            onClick={sortbyPlacilo}
+            className={styles.buttonByPay}
+          >
+            By Pay
+          </button> */}
+          <button onClick={loadAllJobs} className={styles.getAlldiv}>
+            All Jobs
+          </button>
+        </div>
+        <div className={styles.filteredDivTwo}>
+          {fileteredBy.map((el, i) => {
+            return (
+              <div filter={el} className={styles.filter}>
+                {el} &nbsp;
+                <span
+                  filter={el}
+                  onClick={removeFilter}
+                  className={styles.deleteFilter}
+                >
+                  ❌
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
       {jobs.map((el, i) => (
         <div id={i} key={i} className={styles.Job}>
@@ -188,6 +313,7 @@ export default function MainContainer() {
           <div className={styles.programmingLanguages}>
             {el.programmingLanguages.map((el2, j) => (
               <div
+                value={el2}
                 onClick={FilterByProgramingLang}
                 key={j}
                 className={styles.language}

@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
+const { type } = require("os");
 const app = express();
 const port = process.env.PORT || 8082;
 //connection to the DB
@@ -51,7 +52,8 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 app.get("/api/v1/jobs", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      const jobs = await Jobs.find();
+      const jobs = await JobsCopy.find();
+      console.log(jobs.length);
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
         status: "success",
@@ -68,7 +70,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await Jobs.find();
+    let jobs = await JobsCopy.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
@@ -78,7 +80,7 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   }
 });
 
-const sortByLanguage = async (array) => {
+const sortByLanguage = async (array, remote) => {
   // let jobs = await Jobs.find([
   //   {
   //     $match: {
@@ -88,6 +90,18 @@ const sortByLanguage = async (array) => {
   //     },
   //   },
   // ]);
+  console.log(typeof remote);
+  console.log("remote", remote);
+  let jobs = [];
+
+  if (remote == "true" || remote == undefined) {
+    jobs = await JobsCopy.find({ isRemote: true });
+  } else if (remote == "false") {
+    jobs = await JobsCopy.find();
+  }
+  if (array[0] == "") {
+    return jobs.sort(ComparenumberOfJob);
+  }
   var filter = {};
   for (let i = 0; i < array.length; i++) {
     const element = array[i];
@@ -100,7 +114,6 @@ const sortByLanguage = async (array) => {
   //     { programmingLanguages: "some id 2" },
   //   ],
   // });
-  let jobs = await Jobs.find();
 
   let jobs2 = jobs.filter(function (item) {
     for (var key in filter) {
@@ -109,22 +122,29 @@ const sortByLanguage = async (array) => {
     }
     return true;
   });
-  return jobs2;
+  return jobs2.sort(ComparenumberOfJob);
 };
 
 app.get("/api/v1/sort/:text", async (req, res) => {
   try {
-    let arrayOfLang = req.params.text.split("&");
+    let arrayOfparameters = req.params.text.split("&");
+    let arrayOfLangParamers = arrayOfparameters[0].split("=");
+    let arrayOfLang = arrayOfLangParamers[1].split("-");
+
+    let remote = arrayOfparameters[1].split("=")[1];
+
+    console.log("remote", remote);
+    console.log("array of lang ", arrayOfLang);
+
     if (arrayOfLang.includes("chashtag")) {
       arrayOfLang.splice(arrayOfLang.indexOf("chashtag"), 1, "c#");
     }
     // const arrayOfJobs = await Jobs.find();
     //   $and: [{ programmingLanugages: "some id 1" }, { members: "some id 2" }],
     // });
-    sortByLanguage(arrayOfLang);
     res.status(200).json({
       status: "success",
-      jobs: await sortByLanguage(arrayOfLang),
+      jobs: await sortByLanguage(arrayOfLang, remote),
     });
   } catch (error) {
     console.log(error);

@@ -9,6 +9,13 @@ const JobsCopySchema = mongoose.Schema(
     lokacija: String,
     zahteve: String,
     kontakt: String,
+    isBruto: String,
+    createdAt: {
+      type: Date,
+      default: Date.now,
+    },
+    AddedByUser: Boolean,
+    isRemote: Boolean,
     maximumPlacilo: Number,
     opisDelovnegaMesta: String,
     programmingLanguages: [],
