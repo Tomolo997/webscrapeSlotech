@@ -6,14 +6,12 @@ import Header from "./Containers/Header/Header";
 import PostAJob from "./Containers/PostAJob/PostAJob";
 function App() {
   return (
-    <BrowserRouter>
+    <Switch>
       <div className="App">
-        <Switch>
-          <Route path="/" exact component={mainApp} />
-          <Route path="/post-a-job" exact component={PostAJob} />
-        </Switch>
+        <Route path="/" exact component={mainApp} />
+        <Route path="/post-a-job" exact component={PostAJob} />
       </div>
-    </BrowserRouter>
+    </Switch>
   );
 }
 
