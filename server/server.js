@@ -7,7 +7,7 @@ const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
 const { type } = require("os");
 const app = express();
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 8082;
 //connection to the DB
 
 function compare(a, b) {
@@ -52,7 +52,7 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 app.get("/api/v1/jobs", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      const jobs = await JobsCopy.find();
+      const jobs = await Jobs.find();
       console.log(jobs.length);
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
@@ -70,7 +70,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await JobsCopy.find();
+    let jobs = await Jobs.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
@@ -95,9 +95,9 @@ const sortByLanguage = async (array, remote) => {
   let jobs = [];
 
   if (remote == "true" || remote == undefined) {
-    jobs = await JobsCopy.find({ isRemote: true });
+    jobs = await Jobs.find({ isRemote: true });
   } else if (remote == "false") {
-    jobs = await JobsCopy.find();
+    jobs = await Jobs.find();
   }
   if (array[0] == "") {
     return jobs.sort(ComparenumberOfJob);
