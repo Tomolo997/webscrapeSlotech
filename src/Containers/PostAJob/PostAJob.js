@@ -1,7 +1,7 @@
 import React from "react";
 
 function PostAJob() {
-  return <div>posting</div>;
+  return <div>postig</div>;
 }
 
 export default PostAJob;
