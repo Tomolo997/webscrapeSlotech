@@ -2,20 +2,21 @@
   background-color: rgb(218, 216, 216);
   width: 100%;
   height: 200px;
-  display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 .mainNav {
   display: flex;
   height: 250px;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 100%;
 }
 .mainHeadingDiv {
   display: flex;
   height: 200px;
+  margin-top: 2rem;
   flex-direction: column;
   align-items: center;
 }
@@ -89,6 +90,22 @@
 }
 .searchPicture:active {
   transform: translateY(2px);
+}
+
+.addAJobButton {
+  background-color: red;
+  position: absolute;
+  padding: 1rem;
+  color: white;
+  border: none;
+  top: 70px;
+  right: 100px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  text-decoration: none;
+  outline: none;
+  box-shadow: 1px 3px 4px rgb(0 0 0 / 10%);
 }
 
 /* header  mobile version */

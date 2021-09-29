@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { findAllInRenderedTree } from "react-dom/cjs/react-dom-test-utils.production.min";
 import logo from "../../logo.svg";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import styles from "./MainContainer.module.css"; // Import css modules stylesheet as styles
 export default function MainContainer() {
   const [jobs, setJobs] = useState([]);
@@ -11,8 +12,8 @@ export default function MainContainer() {
   //load jobs as inital
 
   const loadJobs = async () => {
-    //dev  =>
-    const jobbs = await axios.get("/api/v1/jobs", {
+    //dev  =>http://localhost:4001/
+    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
       },
@@ -24,7 +25,7 @@ export default function MainContainer() {
 
   const loadAllJobs = async () => {
     //dev  =>
-    const jobbs = await axios.get("/api/v1/jobs", {
+    const jobbs = await axios.get("http://localhost:4001/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
       },
@@ -35,7 +36,9 @@ export default function MainContainer() {
   };
 
   const sortbyPlacilo = async () => {
-    const jobbs = await axios.get("/api/v1/jobs-sorted-by-pay");
+    const jobbs = await axios.get(
+      "http://localhost:4001/api/v1/jobs-sorted-by-pay"
+    );
     setFileteredBy([]);
     setJobs(jobbs.data.jobs);
   };
@@ -83,7 +86,9 @@ export default function MainContainer() {
 
       console.log(filterDeep);
       const jobbs = await axios.get(
-        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+        `http://localhost:4001/api/v1/sort/langfilter=${filterDeep.join(
+          "-"
+        )}&remote=${addingRemote}`
       );
       setJobs(jobbs.data.jobs);
     }
@@ -128,7 +133,9 @@ export default function MainContainer() {
 
       console.log(filterDeep);
       const jobbs = await axios.get(
-        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+        `http://localhost:4001/api/v1/sort/langfilter=${filterDeep.join(
+          "-"
+        )}&remote=${addingRemote}`
       );
 
       setFileteredBy(filters);
@@ -170,7 +177,9 @@ export default function MainContainer() {
         setAddingRemote("false");
       }
       const jobbs = await axios.get(
-        `/api/v1/sort/langfilter=${filterDeep.join("-")}&remote=${addingRemote}`
+        `http://localhost:4001/api/v1/sort/langfilter=${filterDeep.join(
+          "-"
+        )}&remote=${addingRemote}`
       );
 
       setFileteredBy(filters);
@@ -193,14 +202,25 @@ export default function MainContainer() {
       filterDeep.splice(filterDeep.indexOf("c#"), 1, "chashtag");
     }
     const jobbs = await axios.get(
-      `/api/v1/sort/text=${filterDeep.join("-")}&remote=${e.target.checked}`
+      `http://localhost:4001/api/v1/sort/text=${filterDeep.join("-")}&remote=${
+        e.target.checked
+      }`
     );
 
     setJobs(jobbs.data.jobs);
   };
-
+  const addJoblink = async (e) => {
+    console.log("a");
+  };
   return (
     <div className={styles.mainContainerDiv}>
+      {/* <a
+        href="/post-a-job"
+        onClick={addJoblink}
+        className={styles.addAJobButton}
+      >
+        Post a job
+      </a> */}
       {/* <div className={styles.sortedDiv}>
         <button className={styles.buttonSort} onClick={sortbyPlacilo}>
           {" "}
@@ -242,7 +262,7 @@ export default function MainContainer() {
               type="checkbox"
               onClick={AddRemoteFilter}
             />{" "}
-            <label for="divremote">Remote</label>
+            <label htmlFor="divremote">Remote</label>
           </div>
           {/* <button
             value="paysort"
