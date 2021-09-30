@@ -1,6 +1,6 @@
 .main {
   width: 100vw;
-  height: 250vh;
+  height: 285vh;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr 150px;
@@ -123,6 +123,7 @@ textarea {
   margin-bottom: 0.4rem;
   border-radius: 5px;
   align-self: flex-end;
+  margin-left: 1rem;
   justify-self: flex-start;
 }
 .salaryOutDiv {
@@ -320,4 +321,14 @@ textarea {
 }
 .spanLocation {
   display: flex;
+}
+.filterLang {
+  font-size: 1rem;
+  padding: 0.5rem;
+  height: 20px;
+  display: flex;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: white;
+  margin-left: 0.4rem;
 }

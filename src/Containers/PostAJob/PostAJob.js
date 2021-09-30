@@ -4,17 +4,28 @@ import styles from "./PostAJob.module.css"; // Import css modules stylesheet as 
 function PostAJob() {
   const [companyName, setCompanyName] = useState("");
   const [salary, setSalary] = useState([]);
+  const [salaryFrom, setSalaryFrom] = useState(null);
+  const [salaryTo, setSalaryTo] = useState(null);
   const [location, setLocation] = useState([]);
   const [position, setPosition] = useState("");
   const [progLang, setProgLang] = useState([]);
   const [applyLink, setApplyLink] = useState("");
+  const [euroToMonth, setEuroToMonth] = useState("€/m");
   const [applyEmail, setApplyEmail] = useState("");
+  const [bruto, setBruto] = useState("bruto");
+  const [remote, setRemote] = useState(false);
 
   const changeCompanyName = (e) => {
     setCompanyName(e.target.value);
   };
   const changePosition = (e) => {
     setPosition(e.target.value);
+  };
+  const changeEuroToMonth = (e) => {
+    setEuroToMonth(e.target.value);
+  };
+  const setBrutoFunction = (e) => {
+    setBruto(e.target.value);
   };
   const addLocation = (e) => {
     console.log(e.target.value);
@@ -27,6 +38,27 @@ function PostAJob() {
       console.log(locationArray);
       setLocation(locationArray);
     }
+  };
+  const changeSalaryFrom = (e) => {
+    setSalaryFrom(e.target.value);
+  };
+  const changeSalaryTo = (e) => {
+    setSalaryTo(e.target.value);
+  };
+  const addProgrammingLanguage = (e) => {
+    console.log(e.target.value);
+    let progArray = [...progLang];
+    if (progArray.includes(e.target.value)) {
+      console.log("includes");
+      return;
+    } else {
+      progArray.push(e.target.value);
+      console.log(progArray);
+      setProgLang(progArray);
+    }
+  };
+  const isRemote = (e) => {
+    setRemote(e.target.checked);
   };
   return (
     <main className={styles.main}>
@@ -88,7 +120,9 @@ function PostAJob() {
                   <option value="Nm">Novo Mesto</option>
                   <option value="Ms">Murska Sobota</option>
                   <option value="Kop">Koper</option>
-                  <option value="Kr">Kranj</option>
+                  <option selected value="Kr">
+                    Kranj
+                  </option>
                 </select>
                 <div className={styles.LocationInDiv}>
                   <label className={styles.inputLabelLocation} for="location">
@@ -106,6 +140,7 @@ function PostAJob() {
                     name="companyName"
                     id="companyId"
                     type="checkbox"
+                    onChange={isRemote}
                   />
                   <label
                     className={styles.inputLabelLocationRemote}
@@ -121,8 +156,11 @@ function PostAJob() {
                 id="progLang"
               >
                 {location.map((el) => (
-                  <div className={styles.filter}>{el}</div>
+                  <div key={el} className={styles.filter}>
+                    {el}
+                  </div>
                 ))}
+                {remote ? <div className={styles.filter}>Remote</div> : null}
               </div>
               <p className={styles.textInputDiv}>Location of the job</p>
             </div>
@@ -130,7 +168,11 @@ function PostAJob() {
               <label className={styles.inputLabel} for="language">
                 PROGRAMMING LANGUAGES
               </label>
-              <select placeholder="language" className={styles.selectDiv}>
+              <select
+                onChange={addProgrammingLanguage}
+                placeholder="language"
+                className={styles.selectDiv}
+              >
                 <option slected disabled value="">
                   Language
                 </option>
@@ -140,6 +182,7 @@ function PostAJob() {
                 <option value="c++">c++</option>
                 <option value="html">html</option>
                 <option value="vue">vue</option>
+                <option value="angular">angular</option>
                 <option value="react">react</option>
                 <option value="python">python</option>
                 <option value="node">node</option>
@@ -158,7 +201,13 @@ function PostAJob() {
                 className={styles.inputFieldProgrammingLanguages}
                 name="progLang"
                 id="progLang"
-              ></div>
+              >
+                {progLang.map((el) => (
+                  <div key={el} className={styles.filter}>
+                    {el}
+                  </div>
+                ))}
+              </div>
               <p className={styles.textInputDiv}>
                 Select all of the programming lanugages that your job requires
               </p>
@@ -173,6 +222,7 @@ function PostAJob() {
                     From
                   </label>
                   <input
+                    onChange={changeSalaryFrom}
                     type="number"
                     className={styles.inputSalary}
                     name="fromSalary"
@@ -183,20 +233,33 @@ function PostAJob() {
                     To
                   </label>
                   <input
+                    onChange={changeSalaryTo}
                     type="number"
                     className={styles.inputSalary}
                     name="toSalary"
                   />
                 </div>
                 <select
+                  onChange={changeEuroToMonth}
                   placeholder="language"
                   className={styles.selectDivSalary}
                 >
                   <option slected disabled value="">
                     Salary
                   </option>
-                  <option value="mesec">€/m</option>
-                  <option value="uro">€/uro</option>
+                  <option value="€/m">€/m</option>
+                  <option value="€/uro">€/uro</option>
+                </select>
+                <select
+                  onChange={setBrutoFunction}
+                  placeholder="language"
+                  className={styles.selectDivSalary}
+                >
+                  <option slected disabled value="">
+                    Vrsta placila
+                  </option>
+                  <option value="bruto">bruto</option>
+                  <option value="neto">neto</option>
                 </select>
               </div>
 
@@ -217,6 +280,21 @@ function PostAJob() {
               ></textarea>
               <p className={styles.textInputDiv}>
                 Write about your company, What is it about, what do you do etc.
+              </p>
+            </div>
+            <div className={styles.inputDiv}>
+              <label className={styles.inputLabel} for="companyName">
+                JOB REQUIREMENTS (coming soon)
+              </label>
+              <textarea
+                maxlength="50"
+                className={styles.inputFieldJobDescription}
+                name="companyName"
+                id="companyId"
+              ></textarea>
+              <p className={styles.textInputDiv}>
+                Write in short what do you need, who are you looking for and so
+                on.
               </p>
             </div>
             <div className={styles.inputDiv}>
@@ -245,7 +323,8 @@ function PostAJob() {
                 id="companyId"
               />
               <p className={styles.textInputDiv}>
-                Write only the company name inside, without d.o.o, s.p. etc.
+                Write the company email, to let the people know how to contact
+                you if everything else fails
               </p>
             </div>
             {/* <div className={styles.inputDiv}>
@@ -268,7 +347,7 @@ function PostAJob() {
       <div className={styles.footer}>
         <div className={styles.Job}>
           <div className={styles.basicDetails_Job}>
-            <div> 🏢 &nbsp; {companyName} 42 lenght max</div>
+            <div> 🏢 &nbsp; {companyName}</div>
             <div> 🧑‍💻 &nbsp; {position}</div>
             <div className={styles.placiloInLokacija}>
               <div className={styles.lokacija}>
@@ -277,6 +356,7 @@ function PostAJob() {
                   {location.map((el) => (
                     <div>{el},</div>
                   ))}
+                  {remote ? <div> Remote</div> : null}
                   {/* {el.isRemote ? (
                     <span className={styles.remotePosition}>
                       {el.lokacija.length !== 0 ? <span>, </span> : null}
@@ -289,22 +369,22 @@ function PostAJob() {
                 {" "}
                 💶 &nbsp;{/* */}
                 {/* {el.placilo}21 */}
-                placilo
+                {salaryFrom ? salaryFrom + " - " : null}
+                {salaryTo}
+                &nbsp;
+                {euroToMonth}
+                <br />
+                {bruto}
                 {/* {el.isBruto == "bruto" ? <span>bruto</span> : <span>neto</span>} */}
               </div>
             </div>
           </div>
           <div className={styles.programmingLanguages}>
-            {/* {el.programmingLanguages.map((el2, j) => (
-              <div
-                value={el2}
-                onClick={FilterByProgramingLang}
-                key={j}
-                className={styles.language}
-              >
-                {el2}
+            {progLang.map((el) => (
+              <div key={el} className={styles.filterLang}>
+                {el}
               </div>
-            ))} */}
+            ))}
           </div>
           <div className={styles.jobsDivApplyAndDate}>
             <div className={styles.jobPostedDate}>⏰ &nbsp; Created at</div>
