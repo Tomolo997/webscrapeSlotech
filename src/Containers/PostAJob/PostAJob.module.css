@@ -1,0 +1,323 @@
+.main {
+  width: 100vw;
+  height: 250vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 1fr 150px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: 1px solid #f9f9f9;
+  background-color: white;
+}
+.h1MainHeader {
+  font-size: 3rem;
+  font-weight: 200;
+}
+.mainDiv {
+  background-color: white;
+  display: flex;
+  grid-row: 2/3;
+  justify-content: center;
+  align-items: center;
+}
+.outerLayer {
+  width: 90%;
+  background-color: #f9f9f9;
+  min-height: 100%;
+  margin-top: 2rem;
+  border-radius: 10px;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 7%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+textarea {
+  resize: none;
+}
+.innerLayer {
+  margin: 1rem;
+  height: 100%;
+  width: 90%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputDiv {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin: 2rem;
+}
+.inputLabel {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.inputLabelSalary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-left: 0.1rem;
+}
+.yea {
+  margin-left: 0.2rem;
+}
+.inputField {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 1rem;
+  background-color: #fbfbfb;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+}
+
+.textInputDiv {
+  margin-top: 0.4rem;
+  color: rgb(185, 185, 185);
+}
+
+.inputFieldProgrammingLanguages {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  height: 20px;
+  outline: none;
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 1rem;
+  display: flex;
+  background-color: #fbfbfb;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+}
+.selectDiv {
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  background-color: #fbfbfb;
+  padding: 0.5rem;
+  max-width: 150px;
+  background-color: white;
+  border: 1px solid rgb(185, 185, 185);
+
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  justify-self: flex-start;
+}
+.selectDivSalary {
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  background-color: #fbfbfb;
+  border: 1px solid rgb(185, 185, 185);
+  width: 100px;
+  padding: 0.6rem;
+  margin-bottom: 0.4rem;
+  border-radius: 5px;
+  align-self: flex-end;
+  justify-self: flex-start;
+}
+.salaryOutDiv {
+  display: flex;
+  margin-top: 0.2rem;
+  height: 70px;
+}
+.salaryInDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem;
+}
+
+.inputSalary {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  background-color: #fbfbfb;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+}
+.outerDivLocation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inputFieldLocation {
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5rem;
+  outline: none;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  background-color: #fbfbfb;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+}
+.inputLabelLocation {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  margin-top: -3rem;
+}
+.LocationInDiv {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.remoteLocation {
+  margin-left: 2rem;
+  margin-top: 0.4rem;
+  width: 100px;
+}
+.inputCheckBoxremote {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+}
+.inputLabelLocationRemote {
+  font-size: 1.4rem;
+  margin-left: 0.7rem;
+}
+
+.InpuTextAreaJob {
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  grid-row: 3/4;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Job {
+  position: relative;
+  width: 70%;
+  height: 130px;
+  background-color: white;
+  margin: 0.4rem;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 20%);
+  display: flex;
+  padding: 0.3rem;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.2s all;
+}
+.placiloInLokacija {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 300px;
+}
+.basicDetails_Job {
+  height: 90%;
+  display: flex;
+  width: 300px;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.lokacija {
+  display: flex;
+  min-width: 100px;
+  min-height: 45px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+.placilo {
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  height: auto;
+  flex-direction: column;
+  min-height: 45px;
+  display: flex;
+  min-width: 120px;
+  font-size: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  border-radius: 4px;
+  background-color: #ddd;
+}
+.programmingLanguages {
+  display: flex;
+  height: 100%;
+  width: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.jobsDivApplyAndDate {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+.jobPostedDate {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.linkButton {
+  color: white;
+  background-color: red;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  margin-left: 1rem;
+  text-decoration: none;
+  width: 100%;
+  cursor: pointer;
+  padding: 1rem 1rem 1rem 1rem;
+}
+.linkButton:hover {
+  background-color: white;
+  color: black;
+}
+.inputFieldJobDescription {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 1rem;
+  background-color: #fbfbfb;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+}
+.filter {
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px rgb(0 0 0 / 15%);
+  border: 1px solid rgb(185, 185, 185);
+  margin-left: 0.3rem;
+  padding: 0.6rem;
+  font-size: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spanLocation {
+  display: flex;
+}
