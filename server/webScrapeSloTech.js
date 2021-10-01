@@ -420,17 +420,17 @@ const yea = async () => {
   }
 
   jobs.reverse();
-  const JobsAdded = await Jobs.find({ AddedByUser: true });
+  const JobsAdded = await JobsCopy.find({ AddedByUser: true });
   // JobsCopy.create(JobsAdded);
   // let jobsAdded = await Jobs.find({});
-  let jobsAwaited = await Jobs.find();
+  let jobsAwaited = await JobsCopy.find();
   // await JobsCopy.remove();
   for (let i = 0; i < 10; i++) {
     //nove jobe iscemo
     const job = jobs[i];
     //ce v trenutnem job filu ni novekag
     if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
-      await Jobs.create(job);
+      await JobsCopy.create(job);
     }
   }
 

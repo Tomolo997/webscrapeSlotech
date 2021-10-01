@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./PostAJob.module.css"; // Import css modules stylesheet as styles
+import axios from "axios";
 
 function PostAJob() {
   const [companyName, setCompanyName] = useState("");
@@ -12,9 +13,39 @@ function PostAJob() {
   const [applyLink, setApplyLink] = useState("");
   const [euroToMonth, setEuroToMonth] = useState("€/m");
   const [applyEmail, setApplyEmail] = useState("");
+  const [fromDifferentLocation, setFromDifferentLocation] = useState("");
   const [bruto, setBruto] = useState("bruto");
   const [remote, setRemote] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [createdAtTIme, setCreatedAtTime] = useState("");
 
+  const changeFromElsewhere = (e) => {
+    setFromDifferentLocation(e.target.value);
+  };
+  const addToLocationFromElsewhere = () => {
+    if (fromDifferentLocation === "") {
+      return;
+    }
+    let locationArray = [...location];
+    locationArray.push(fromDifferentLocation);
+    setLocation(locationArray);
+    setFromDifferentLocation("");
+  };
+
+  //remote
+  const removeLocation = (e) => {
+    let filterLocation = e.target.getAttribute("filter");
+    let locationTemo = [...location];
+    locationTemo.splice(location.indexOf(filterLocation), 1);
+    setLocation(locationTemo);
+  };
+  const removeJob = (e) => {
+    console.log(e.target);
+    let proglangFilter = e.target.getAttribute("filter");
+    let progLangTemp = [...progLang];
+    progLangTemp.splice(progLang.indexOf(proglangFilter), 1);
+    setProgLang(progLangTemp);
+  };
   const changeCompanyName = (e) => {
     setCompanyName(e.target.value);
   };
@@ -26,6 +57,13 @@ function PostAJob() {
   };
   const setBrutoFunction = (e) => {
     setBruto(e.target.value);
+  };
+  const applyEmailTo = (e) => {
+    setApplyEmail(e.target.value);
+  };
+
+  const applyURLlink = (e) => {
+    setApplyLink(e.target.value);
   };
   const addLocation = (e) => {
     console.log(e.target.value);
@@ -60,6 +98,90 @@ function PostAJob() {
   const isRemote = (e) => {
     setRemote(e.target.checked);
   };
+
+  const createTime = () => {
+    var time = new Date();
+    const mothnArray = [
+      "jan",
+      "feb",
+      "mar",
+      "apr",
+      "may",
+      "jun",
+      "jul",
+      "aug",
+      "sep",
+      "oct",
+      "nov",
+      "dec",
+    ];
+    var theyear = time.getFullYear();
+    var themonth = time.getMonth();
+    var thetoday = time.getDate();
+
+    let theSecond = time.getSeconds();
+    let theMinute = time.getMinutes();
+    let theHour = time.getHours();
+    if (theMinute < 9) {
+      theMinute = "0" + theMinute;
+    }
+    if (theSecond < 9) {
+      theSecond = "0" + theSecond;
+    }
+    return (
+      thetoday +
+      " " +
+      mothnArray[themonth] +
+      ". " +
+      theyear +
+      " " +
+      theHour +
+      ":" +
+      theMinute +
+      ":" +
+      theSecond
+    );
+  };
+
+  const postAJob = async (e) => {
+    try {
+      await axios.post(`http://localhost:4001/api/v1/post-job`, {
+        title: position,
+        employer: companyName,
+        numberOfJob: 10000,
+        addedByUser: true,
+        placilo:
+          salaryFrom != ""
+            ? salaryFrom + " - " + salaryTo + " " + euroToMonth
+            : salaryTo + " " + euroToMonth,
+        lokacija: location.length > 1 ? location.join(",") : location[0],
+        email: applyLink !== "" ? applyLink : applyEmail,
+        zahteve: "",
+        kontakt: "",
+        isBruto: bruto,
+        dateFrom: createTime(),
+        isRemote: remote,
+        maximumPlacilo: salaryTo,
+        opisDelovnegaMesta: "",
+        programmingLanguages: progLang,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // const [companyName, setCompanyName] = useState("");
+  // const [salary, setSalary] = useState([]);
+  // const [salaryFrom, setSalaryFrom] = useState(null);
+  // const [salaryTo, setSalaryTo] = useState(null);
+  // const [location, setLocation] = useState([]);
+  // const [position, setPosition] = useState("");
+  // const [progLang, setProgLang] = useState([]);
+  // const [applyLink, setApplyLink] = useState("");
+  // const [euroToMonth, setEuroToMonth] = useState("€/m");
+  // const [applyEmail, setApplyEmail] = useState("");
+  // const [fromDifferentLocation, setFromDifferentLocation] = useState("");
+  // const [remote, setRemote] = useState(false);
+  // const [loading, setLoading] = useState(false);
   return (
     <main className={styles.main}>
       <header className={styles.header}>
@@ -129,11 +251,20 @@ function PostAJob() {
                     From elsewhere
                   </label>
                   <input
+                    onChange={changeFromElsewhere}
                     className={styles.inputFieldLocation}
                     name="companyName"
                     id="companyId"
+                    value={fromDifferentLocation}
                   />
+                  <button
+                    onClick={addToLocationFromElsewhere}
+                    className={styles.addButton}
+                  >
+                    Add
+                  </button>
                 </div>
+
                 <div className={styles.remoteLocation}>
                   <input
                     className={styles.inputCheckBoxremote}
@@ -158,6 +289,13 @@ function PostAJob() {
                 {location.map((el) => (
                   <div key={el} className={styles.filter}>
                     {el}
+                    <span
+                      filter={el}
+                      onClick={removeLocation}
+                      className={styles.deleteFilter}
+                    >
+                      ❌
+                    </span>
                   </div>
                 ))}
                 {remote ? <div className={styles.filter}>Remote</div> : null}
@@ -205,6 +343,13 @@ function PostAJob() {
                 {progLang.map((el) => (
                   <div key={el} className={styles.filter}>
                     {el}
+                    <span
+                      filter={el}
+                      onClick={removeJob}
+                      className={styles.deleteFilter}
+                    >
+                      ❌
+                    </span>
                   </div>
                 ))}
               </div>
@@ -264,8 +409,8 @@ function PostAJob() {
               </div>
 
               <p className={styles.textInputDiv}>
-                Write the position you are looking for. Software engineer,
-                Devops, Frontend developer etc.
+                Select the ranges you are willing to pay the candidates, also
+                select if it is bruto or neto
               </p>
             </div>
             <div className={styles.inputDiv}>
@@ -299,9 +444,25 @@ function PostAJob() {
             </div>
             <div className={styles.inputDiv}>
               <label className={styles.inputLabel} for="companyName">
+                HOW TO APPLY (coming soon)
+              </label>
+              <textarea
+                maxlength="50"
+                className={styles.inputFieldJobDescription}
+                name="companyName"
+                id="companyId"
+              ></textarea>
+              <p className={styles.textInputDiv}>
+                How to apply to the job. Should they send the CV to the mail or
+                should they click on your website and apply there
+              </p>
+            </div>
+            <div className={styles.inputDiv}>
+              <label className={styles.inputLabel} for="companyName">
                 APPLY URL *
               </label>
               <input
+                onChange={applyURLlink}
                 placeholder="https://"
                 className={styles.inputField}
                 name="companyName"
@@ -317,6 +478,7 @@ function PostAJob() {
                 APPLY EMAIL or COMPANY EMAIL *
               </label>
               <input
+                onChange={applyEmailTo}
                 placeholder="example@gmail.com"
                 className={styles.inputField}
                 name="companyName"
@@ -383,6 +545,13 @@ function PostAJob() {
             {progLang.map((el) => (
               <div key={el} className={styles.filterLang}>
                 {el}
+                <span
+                  filter={el}
+                  // onClick={removeFilter}
+                  className={styles.deleteFilter}
+                >
+                  ❌
+                </span>
               </div>
             ))}
           </div>
@@ -398,9 +567,11 @@ function PostAJob() {
                 Apply
               </a>
             </div>
-            {/* {el.isRemote ? <div>Is remote </div> : null} */}
           </div>
         </div>
+        <button onClick={postAJob} className={styles.postJobFooter}>
+          POST JOB
+        </button>
       </div>
     </main>
   );

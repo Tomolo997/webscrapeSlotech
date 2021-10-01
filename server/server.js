@@ -52,7 +52,7 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 app.get("/api/v1/jobs", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      const jobs = await Jobs.find();
+      const jobs = await JobsCopy.find();
       console.log(jobs.length);
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
@@ -70,7 +70,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await Jobs.find();
+    let jobs = await JobsCopy.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
@@ -95,9 +95,9 @@ const sortByLanguage = async (array, remote) => {
   let jobs = [];
 
   if (remote == "true" || remote == undefined) {
-    jobs = await Jobs.find({ isRemote: true });
+    jobs = await JobsCopy.find({ isRemote: true });
   } else if (remote == "false") {
-    jobs = await Jobs.find();
+    jobs = await JobsCopy.find();
   }
   if (array[0] == "") {
     return jobs.sort(ComparenumberOfJob);
@@ -150,6 +150,64 @@ app.get("/api/v1/sort/:text", async (req, res) => {
     console.log(error);
   }
 });
+
+app.post("/api/v1/post-job", async (req, res) => {
+  try {
+    console.log(req.body);
+    const numberOfjob = await JobsCopy.find({ AddedByUser: true });
+    const max = numberOfjob.reduce(function (prev, current) {
+      return prev.numberOfJob > current.numberOfJob ? prev : current;
+    }); //returns object
+    console.log(max.numberOfJob);
+    const job = {
+      title: req.body.title,
+      employer: req.body.employer,
+      dateFrom: req.body.dateFrom,
+      numberOfJob: max.numberOfJob + 1,
+      AddedByUser: true,
+      placilo: req.body.placilo,
+      lokacija: req.body.lokacija,
+      email: req.body.email,
+      zahteve: req.body.zahteve,
+      kontakt: req.body.kontakt,
+      isBruto: req.body.bruto,
+      isRemote: req.body.isRemote,
+      maximumPlacilo: Number(req.body.maximumPlacilo),
+      opisDelovnegaMesta: "",
+      programmingLanguages: req.body.programmingLanguages,
+    };
+    await JobsCopy.create(job);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// {
+//   title: String,
+//   numberOfJob: Number,
+//   employer: String,
+//   dateFrom: String,
+//   placilo: String,
+//   lokacija: String,
+//   zahteve: String,
+//   kontakt: String,
+//   isBruto: String,
+//   createdAt: {
+//     type: Date,
+//     default: Date.now,
+//   },
+//   AddedByUser: Boolean,
+//   isRemote: Boolean,
+//   maximumPlacilo: Number,
+//   opisDelovnegaMesta: String,
+//   programmingLanguages: [],
+//   email: String,
+//   yeaProgrammingLanguages: String,
+// },
+// {
+//   toJSON: { virtuals: true },
+//   toObject: { virtuals: true },
+// }
 
 app.get("/", (req, res) => {
   res.send("Express server is up and running.");
