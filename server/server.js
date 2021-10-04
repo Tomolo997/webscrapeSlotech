@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
 const { type } = require("os");
+const { resolveSoa } = require("dns");
 const app = express();
 const port = process.env.PORT || 4001;
 //connection to the DB
@@ -153,12 +154,14 @@ app.get("/api/v1/sort/:text", async (req, res) => {
 
 app.post("/api/v1/post-job", async (req, res) => {
   try {
-    console.log(req.body);
     const numberOfjob = await JobsCopy.find({ AddedByUser: true });
     const max = numberOfjob.reduce(function (prev, current) {
       return prev.numberOfJob > current.numberOfJob ? prev : current;
     }); //returns object
     console.log(max.numberOfJob);
+    console.log(req.body);
+    //title je position
+
     const job = {
       title: req.body.title,
       employer: req.body.employer,
@@ -168,15 +171,21 @@ app.post("/api/v1/post-job", async (req, res) => {
       placilo: req.body.placilo,
       lokacija: req.body.lokacija,
       email: req.body.email,
+      emailCompany: req.body.emailCompany,
       zahteve: req.body.zahteve,
       kontakt: req.body.kontakt,
-      isBruto: req.body.bruto,
+      isBruto: req.body.isBruto,
       isRemote: req.body.isRemote,
       maximumPlacilo: Number(req.body.maximumPlacilo),
       opisDelovnegaMesta: "",
       programmingLanguages: req.body.programmingLanguages,
     };
     await JobsCopy.create(job);
+    console.log("jobs created");
+    res.status(200).json({
+      status: "success",
+      message: "You have succesfully created a Job",
+    });
   } catch (error) {
     console.log(error);
   }

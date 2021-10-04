@@ -317,7 +317,7 @@ export default function MainContainer() {
                   {el.lokacija}
                   {el.isRemote ? (
                     <span className={styles.remotePosition}>
-                      {el.lokacija.length !== 0 ? <span>, </span> : null}
+                      {el.lokacija !== "" ? <span>, </span> : null}
                       Remote
                     </span>
                   ) : null}

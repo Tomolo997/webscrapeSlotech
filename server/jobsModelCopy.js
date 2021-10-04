@@ -9,6 +9,8 @@ const JobsCopySchema = mongoose.Schema(
     lokacija: String,
     zahteve: String,
     kontakt: String,
+    website: String,
+    emailCompany: String,
     isBruto: String,
     createdAt: {
       type: Date,

@@ -1,0 +1,8 @@
+[ ] - Remote bug with location when adding the job
+[ ] - always shows bruto
+[ ] - 
+[ ] - 
+[ ] - 
+[ ] - 
+[ ] - 
+[ ] - 

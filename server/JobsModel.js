@@ -10,6 +10,8 @@ const JobsSchema = mongoose.Schema(
     zahteve: String,
     kontakt: String,
     isBruto: String,
+    website: String,
+    emailCompany: String,
     createdAt: {
       type: Date,
       default: Date.now,

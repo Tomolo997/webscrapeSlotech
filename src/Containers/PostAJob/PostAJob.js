@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./PostAJob.module.css"; // Import css modules stylesheet as styles
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 function PostAJob() {
   const [companyName, setCompanyName] = useState("");
   const [salary, setSalary] = useState([]);
-  const [salaryFrom, setSalaryFrom] = useState(null);
-  const [salaryTo, setSalaryTo] = useState(null);
+  const [salaryFrom, setSalaryFrom] = useState("");
+  const [salaryTo, setSalaryTo] = useState("");
   const [location, setLocation] = useState([]);
   const [position, setPosition] = useState("");
   const [progLang, setProgLang] = useState([]);
@@ -18,7 +19,13 @@ function PostAJob() {
   const [remote, setRemote] = useState(false);
   const [loading, setLoading] = useState(false);
   const [createdAtTIme, setCreatedAtTime] = useState("");
+  const [salaryError, setSalaryError] = useState(false);
+  const [employerError, setEmployerError] = useState(false);
+  const [positionError, setPositionError] = useState(false);
+  const [locationError, setLocationError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
+  const history = useHistory();
   const changeFromElsewhere = (e) => {
     setFromDifferentLocation(e.target.value);
   };
@@ -47,9 +54,15 @@ function PostAJob() {
     setProgLang(progLangTemp);
   };
   const changeCompanyName = (e) => {
+    if (e.target.value.length > 0) {
+      setEmployerError(false);
+    }
     setCompanyName(e.target.value);
   };
   const changePosition = (e) => {
+    if (e.target.value.length > 0) {
+      setPositionError(false);
+    }
     setPosition(e.target.value);
   };
   const changeEuroToMonth = (e) => {
@@ -59,6 +72,9 @@ function PostAJob() {
     setBruto(e.target.value);
   };
   const applyEmailTo = (e) => {
+    if (e.target.value.length > 0) {
+      setEmailError(false);
+    }
     setApplyEmail(e.target.value);
   };
 
@@ -73,8 +89,10 @@ function PostAJob() {
       return;
     } else {
       locationArray.push(e.target.value);
-      console.log(locationArray);
       setLocation(locationArray);
+      if (locationArray.length > 0) {
+        setLocationError(false);
+      }
     }
   };
   const changeSalaryFrom = (e) => {
@@ -82,6 +100,9 @@ function PostAJob() {
   };
   const changeSalaryTo = (e) => {
     setSalaryTo(e.target.value);
+    if (e.target.value !== "") {
+      setSalaryError(false);
+    }
   };
   const addProgrammingLanguage = (e) => {
     console.log(e.target.value);
@@ -96,6 +117,21 @@ function PostAJob() {
     }
   };
   const isRemote = (e) => {
+    if (e.target.checked) {
+      setLocationError(false);
+      console.log(location);
+      // let locationArray = [...location];
+      // if (locationArray.includes(e.target.value)) {
+      //   console.log("includes");
+      //   return;
+      // } else {
+      //   locationArray.push(e.target.value);
+      //   setLocation(locationArray);
+      //   if (locationArray.length > 0) {
+      //     setLocationError(false);
+      //   }
+      // }
+    }
     setRemote(e.target.checked);
   };
 
@@ -122,11 +158,14 @@ function PostAJob() {
     let theSecond = time.getSeconds();
     let theMinute = time.getMinutes();
     let theHour = time.getHours();
-    if (theMinute < 9) {
+    if (theMinute < 10) {
       theMinute = "0" + theMinute;
     }
-    if (theSecond < 9) {
+    if (theSecond < 10) {
       theSecond = "0" + theSecond;
+    }
+    if (theHour < 10) {
+      theHour = "0" + theHour;
     }
     return (
       thetoday +
@@ -145,26 +184,116 @@ function PostAJob() {
 
   const postAJob = async (e) => {
     try {
-      await axios.post(`http://localhost:4001/api/v1/post-job`, {
-        title: position,
-        employer: companyName,
-        numberOfJob: 10000,
-        addedByUser: true,
-        placilo:
-          salaryFrom != ""
-            ? salaryFrom + " - " + salaryTo + " " + euroToMonth
-            : salaryTo + " " + euroToMonth,
-        lokacija: location.length > 1 ? location.join(",") : location[0],
-        email: applyLink !== "" ? applyLink : applyEmail,
-        zahteve: "",
-        kontakt: "",
-        isBruto: bruto,
-        dateFrom: createTime(),
-        isRemote: remote,
-        maximumPlacilo: salaryTo,
-        opisDelovnegaMesta: "",
-        programmingLanguages: progLang,
-      });
+      if (
+        position === "" ||
+        companyName === "" ||
+        (location.length === 0 && !remote) ||
+        salaryTo === "" ||
+        applyEmail === ""
+      ) {
+        if (position === "") {
+          setPositionError(true);
+        }
+        if (companyName === "") {
+          setEmployerError(true);
+        }
+        if (location.length === 0 && !remote) {
+          setLocationError(true);
+        }
+        if (salaryTo === "") {
+          setSalaryError(true);
+        }
+        if (applyEmail === "") {
+          setEmailError(true);
+        }
+        return;
+      }
+
+      if (!applyEmail.includes("@")) {
+        setEmailError(true);
+        return;
+      }
+      // if (
+      //   position === "" &&
+      //   companyName === "" &&
+      //   location.length === 0 &&
+      //   !remote &&
+      //   salaryTo === ""
+      // ) {
+      //   setPositionError(true);
+      //   setEmployerError(true);
+      //   setLocationError(true);
+      //   setSalaryError(true);
+      // }
+      // if (position === "") {
+      //   setPositionError(true);
+      //   return;
+      // }
+      // if (companyName === "") {
+      //   setEmployerError(true);
+      //   return;
+      // }
+      // if (location.length === 0 && !remote) {
+      //   setLocationError(true);
+      //   return;
+      // }
+      // if (applyEmail === "" && applyEmail.includes("@")) {
+      //   if (applyLink !== "") {
+      //     setEmailError(false);
+      //   } else {
+      //     setEmailError(true);
+      //   }
+      // }
+      // if (salaryTo === "") {
+      //   console.log(salaryTo);
+      //   console.log(location);
+      //   setSalaryError(true);
+      //   return;
+      // }
+
+      const applyJob = await axios.post(
+        `http://localhost:4001/api/v1/post-job`,
+        {
+          title: position,
+          employer: companyName,
+          numberOfJob: 10000,
+          addedByUser: true,
+          placilo:
+            salaryFrom != ""
+              ? salaryFrom + " - " + salaryTo + " " + euroToMonth
+              : salaryTo + " " + euroToMonth,
+          lokacija: location.join(","),
+          email: applyLink !== "" ? applyLink : applyEmail,
+          zahteve: "",
+          emailCompany: applyEmail,
+          kontakt: "",
+          isBruto: bruto,
+          dateFrom: createTime(),
+          isRemote: remote,
+          maximumPlacilo: salaryTo,
+          opisDelovnegaMesta: "",
+          programmingLanguages: progLang,
+        }
+      );
+      if (applyJob.data.type == "position") {
+        // add position error
+        setPositionError(true);
+      }
+      if (applyJob.data.type == "employer") {
+        //add employer error
+        setEmployerError(true);
+      }
+      if (applyJob.data.type == "lokacija") {
+        //add error "there should be an location"
+        setLocationError(true);
+      }
+      if (applyJob.data.type == "email") {
+        //add error for email or link
+      }
+      if (applyJob.data.status == "success") {
+        //set succesfully added job and reload back to the page
+        history.push("/");
+      }
     } catch (error) {
       console.log(error);
     }
@@ -198,12 +327,20 @@ function PostAJob() {
               <label className={styles.inputLabel} for="companyName">
                 COMPANY NAME *
               </label>
+
               <input
                 onChange={changeCompanyName}
                 className={styles.inputField}
                 name="companyName"
                 id="companyId"
               />
+              {employerError ? (
+                <div className={styles.errorDiv}>
+                  Please fill out the required field
+                </div>
+              ) : (
+                <div>&nbsp;</div>
+              )}
               <p className={styles.textInputDiv}>
                 Write only the company name inside, without d.o.o, s.p. etc.
               </p>
@@ -218,6 +355,13 @@ function PostAJob() {
                 id="position"
                 onChange={changePosition}
               />
+              {positionError ? (
+                <div className={styles.errorDiv}>
+                  Please fill out the required field
+                </div>
+              ) : (
+                <div>&nbsp;</div>
+              )}
               <p className={styles.textInputDiv}>
                 Write the position you are looking for. Software engineer,
                 Devops, Frontend developer etc.
@@ -281,6 +425,7 @@ function PostAJob() {
                   </label>
                 </div>
               </div>
+
               <div
                 className={styles.inputFieldProgrammingLanguages}
                 name="progLang"
@@ -300,6 +445,13 @@ function PostAJob() {
                 ))}
                 {remote ? <div className={styles.filter}>Remote</div> : null}
               </div>
+              {locationError ? (
+                <div className={styles.errorDiv}>
+                  There should be atleast one location
+                </div>
+              ) : (
+                <div>&nbsp; </div>
+              )}
               <p className={styles.textInputDiv}>Location of the job</p>
             </div>
             <div className={styles.inputDiv}>
@@ -407,7 +559,14 @@ function PostAJob() {
                   <option value="neto">neto</option>
                 </select>
               </div>
-
+              {salaryError ? (
+                <div className={styles.errorDiv}>
+                  Salary section "TO" is missing, if you want to field only one
+                  number as salary please fill out only section "TO".
+                </div>
+              ) : (
+                <div></div>
+              )}
               <p className={styles.textInputDiv}>
                 Select the ranges you are willing to pay the candidates, also
                 select if it is bruto or neto
@@ -459,7 +618,7 @@ function PostAJob() {
             </div>
             <div className={styles.inputDiv}>
               <label className={styles.inputLabel} for="companyName">
-                APPLY URL *
+                APPLY URL
               </label>
               <input
                 onChange={applyURLlink}
@@ -468,6 +627,7 @@ function PostAJob() {
                 name="companyName"
                 id="companyId"
               />
+
               <p className={styles.textInputDiv}>
                 Give URL for the users to click on it and apply to your job, its
                 more effiecient then the email
@@ -483,10 +643,19 @@ function PostAJob() {
                 className={styles.inputField}
                 name="companyName"
                 id="companyId"
+                type="email"
               />
+              {emailError ? (
+                <div className={styles.errorDiv}>
+                  Please provide correct email of your company email or email
+                  that the candidates can apply to.
+                </div>
+              ) : (
+                <div></div>
+              )}
               <p className={styles.textInputDiv}>
                 Write the company email, to let the people know how to contact
-                you if everything else fails
+                you.
               </p>
             </div>
             {/* <div className={styles.inputDiv}>

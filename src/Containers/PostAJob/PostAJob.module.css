@@ -1,6 +1,6 @@
 .main {
   width: 100vw;
-  height: 2200px;
+  height: 2350px;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 1fr 150px;
@@ -372,4 +372,8 @@ textarea {
 }
 .postJobFooter:active {
   transform: translateY(1px);
+}
+.errorDiv {
+  margin-top: 0.5rem;
+  color: red;
 }
