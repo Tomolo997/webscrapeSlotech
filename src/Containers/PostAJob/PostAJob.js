@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./PostAJob.module.css"; // Import css modules stylesheet as styles
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+//DEV http://localhost:4001
 function PostAJob() {
   const [companyName, setCompanyName] = useState("");
   const [salary, setSalary] = useState([]);
@@ -267,30 +267,27 @@ function PostAJob() {
       //   return;
       // }
 
-      const applyJob = await axios.post(
-        `http://localhost:4001/api/v1/post-job`,
-        {
-          title: position,
-          employer: companyName,
-          numberOfJob: 10000,
-          addedByUser: true,
-          placilo:
-            salaryFrom != ""
-              ? salaryFrom + " - " + salaryTo + " " + euroToMonth
-              : salaryTo + " " + euroToMonth,
-          lokacija: location.join(","),
-          email: applyLink !== "" ? applyLink : applyEmail,
-          zahteve: jobRequirements,
-          emailCompany: applyEmail,
-          howToApply: howToApply,
-          isBruto: bruto,
-          dateFrom: createTime(),
-          isRemote: remote,
-          maximumPlacilo: salaryTo,
-          opisDelovnegaMesta: jobDescription,
-          programmingLanguages: progLang,
-        }
-      );
+      const applyJob = await axios.post(`/api/v1/post-job`, {
+        title: position,
+        employer: companyName,
+        numberOfJob: 10000,
+        addedByUser: true,
+        placilo:
+          salaryFrom != ""
+            ? salaryFrom + " - " + salaryTo + " " + euroToMonth
+            : salaryTo + " " + euroToMonth,
+        lokacija: location.join(","),
+        email: applyLink !== "" ? applyLink : applyEmail,
+        zahteve: jobRequirements,
+        emailCompany: applyEmail,
+        howToApply: howToApply,
+        isBruto: bruto,
+        dateFrom: createTime(),
+        isRemote: remote,
+        maximumPlacilo: salaryTo,
+        opisDelovnegaMesta: jobDescription,
+        programmingLanguages: progLang,
+      });
       if (applyJob.data.type == "position") {
         // add position error
         setPositionError(true);
