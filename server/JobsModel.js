@@ -11,6 +11,7 @@ const JobsSchema = mongoose.Schema(
     kontakt: String,
     isBruto: String,
     website: String,
+    howToApply: String,
     emailCompany: String,
     createdAt: {
       type: Date,

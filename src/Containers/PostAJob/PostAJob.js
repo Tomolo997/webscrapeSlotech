@@ -25,7 +25,23 @@ function PostAJob() {
   const [locationError, setLocationError] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
+  const [jobDescription, setJobDescription] = useState("");
+
+  const [jobRequirements, setJobRequirements] = useState("");
+
+  const [howToApply, setHowToApply] = useState("");
+
   const history = useHistory();
+
+  const changeJobDescription = (e) => {
+    setJobDescription(e.target.value);
+  };
+  const changeJobRequirements = (e) => {
+    setJobRequirements(e.target.value);
+  };
+  const changeHowToApply = (e) => {
+    setHowToApply(e.target.value);
+  };
   const changeFromElsewhere = (e) => {
     setFromDifferentLocation(e.target.value);
   };
@@ -264,14 +280,14 @@ function PostAJob() {
               : salaryTo + " " + euroToMonth,
           lokacija: location.join(","),
           email: applyLink !== "" ? applyLink : applyEmail,
-          zahteve: "",
+          zahteve: jobRequirements,
           emailCompany: applyEmail,
-          kontakt: "",
+          howToApply: howToApply,
           isBruto: bruto,
           dateFrom: createTime(),
           isRemote: remote,
           maximumPlacilo: salaryTo,
-          opisDelovnegaMesta: "",
+          opisDelovnegaMesta: jobDescription,
           programmingLanguages: progLang,
         }
       );
@@ -577,7 +593,7 @@ function PostAJob() {
                 JOB DESCRIPTION (coming soon)
               </label>
               <textarea
-                maxlength="50"
+                onChange={changeJobDescription}
                 className={styles.inputFieldJobDescription}
                 name="companyName"
                 id="companyId"
@@ -591,7 +607,7 @@ function PostAJob() {
                 JOB REQUIREMENTS (coming soon)
               </label>
               <textarea
-                maxlength="50"
+                onChange={changeJobRequirements}
                 className={styles.inputFieldJobDescription}
                 name="companyName"
                 id="companyId"
@@ -606,7 +622,7 @@ function PostAJob() {
                 HOW TO APPLY (coming soon)
               </label>
               <textarea
-                maxlength="50"
+                onChange={changeHowToApply}
                 className={styles.inputFieldJobDescription}
                 name="companyName"
                 id="companyId"

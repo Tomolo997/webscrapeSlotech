@@ -12,6 +12,7 @@ const JobsCopySchema = mongoose.Schema(
     website: String,
     emailCompany: String,
     isBruto: String,
+    howToApply: String,
     createdAt: {
       type: Date,
       default: Date.now,

@@ -53,7 +53,7 @@ app.listen(port, (_) => console.log(`The server is listening on port ${port}`));
 app.get("/api/v1/jobs", async (req, res) => {
   try {
     if (req.headers.authorization.split(" ")[1] === "thisisforyourbest123") {
-      const jobs = await JobsCopy.find();
+      const jobs = await Jobs.find();
       console.log(jobs.length);
       jobs.sort(ComparenumberOfJob);
       res.status(200).json({
@@ -71,7 +71,7 @@ app.get("/api/v1/jobs", async (req, res) => {
 });
 app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
   try {
-    let jobs = await JobsCopy.find();
+    let jobs = await Jobs.find();
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
@@ -96,9 +96,9 @@ const sortByLanguage = async (array, remote) => {
   let jobs = [];
 
   if (remote == "true" || remote == undefined) {
-    jobs = await JobsCopy.find({ isRemote: true });
+    jobs = await Jobs.find({ isRemote: true });
   } else if (remote == "false") {
-    jobs = await JobsCopy.find();
+    jobs = await Jobs.find();
   }
   if (array[0] == "") {
     return jobs.sort(ComparenumberOfJob);
@@ -154,7 +154,7 @@ app.get("/api/v1/sort/:text", async (req, res) => {
 
 app.post("/api/v1/post-job", async (req, res) => {
   try {
-    const numberOfjob = await JobsCopy.find({ AddedByUser: true });
+    const numberOfjob = await Jobs.find({ AddedByUser: true });
     const max = numberOfjob.reduce(function (prev, current) {
       return prev.numberOfJob > current.numberOfJob ? prev : current;
     }); //returns object
@@ -171,16 +171,17 @@ app.post("/api/v1/post-job", async (req, res) => {
       placilo: req.body.placilo,
       lokacija: req.body.lokacija,
       email: req.body.email,
+      howToApply: req.body.howToApply,
       emailCompany: req.body.emailCompany,
       zahteve: req.body.zahteve,
       kontakt: req.body.kontakt,
       isBruto: req.body.isBruto,
       isRemote: req.body.isRemote,
       maximumPlacilo: Number(req.body.maximumPlacilo),
-      opisDelovnegaMesta: "",
+      opisDelovnegaMesta: req.body.opisDelovnegaMesta,
       programmingLanguages: req.body.programmingLanguages,
     };
-    await JobsCopy.create(job);
+    await Jobs.create(job);
     console.log("jobs created");
     res.status(200).json({
       status: "success",
