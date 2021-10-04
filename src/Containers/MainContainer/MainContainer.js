@@ -204,13 +204,13 @@ export default function MainContainer() {
   };
   return (
     <div className={styles.mainContainerDiv}>
-      {/* <a
+      <a
         href="/post-a-job"
         onClick={addJoblink}
         className={styles.addAJobButton}
       >
         Post a job
-      </a> */}
+      </a>
       {/* <div className={styles.sortedDiv}>
         <button className={styles.buttonSort} onClick={sortbyPlacilo}>
           {" "}
