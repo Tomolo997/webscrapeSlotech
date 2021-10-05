@@ -12,7 +12,7 @@ export default function MainContainer() {
   //load jobs as inital
 
   const loadJobs = async () => {
-    //dev  =>http://localhost:4001
+    //dev  =>http://localhost:400
     const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
@@ -20,7 +20,60 @@ export default function MainContainer() {
     });
     setFileteredBy([]);
     document.querySelector("#divremote").checked = false;
+    console.log(jobbs.data.jobs[0]);
     setJobs(jobbs.data.jobs);
+  };
+
+  const getJobDetails = async (e) => {
+    console.log(e.target.parentElement.parentElement);
+
+    //če je odprti, torej je height 500px
+
+    if (Number(window.screen.width) > 900) {
+      if (e.target.parentElement.parentElement.style.height === "800px") {
+        //spremeni height v 140px
+        e.target.parentElement.parentElement.style.height = "140px";
+        console.log(e.target.parentElement.parentElement.classList);
+        //selectaj job description in ga odstarni AKA display:none
+        document.querySelectorAll(
+          `[data-jobdescription-id="${e.target.id}"]`
+        )[0].style.display = "none";
+        e.target.textContent = "Click here to show more";
+      } else {
+        e.target.parentElement.parentElement.style.height = "800px";
+
+        document.querySelectorAll(
+          `[data-jobdescription-id="${e.target.id}"]`
+        )[0].style.display = "block";
+        e.target.textContent = "Click here to show less";
+      }
+    } else if (Number(window.screen.width) < 600) {
+      if (e.target.parentElement.parentElement.style.height === "800px") {
+        //spremeni height v 500px
+        e.target.parentElement.parentElement.style.height = "500px";
+        //selectaj job description in ga odstarni AKA display:none
+        document.querySelectorAll(
+          `[data-jobdiv-id="${e.target.id}"]`
+        )[0].style.display = "flex";
+        document.querySelectorAll(
+          `[data-jobdescription-id="${e.target.id}"]`
+        )[0].style.display = "none";
+        e.target.textContent = "Click here to show less";
+      } else {
+        e.target.parentElement.parentElement.style.height = "800px";
+
+        document.querySelectorAll(
+          `[data-jobdiv-id="${e.target.id}"]`
+        )[0].style.display = "none";
+        document.querySelectorAll(
+          `[data-jobdescription-id="${e.target.id}"]`
+        )[0].style.display = "block";
+        e.target.textContent = "Click here to show more";
+      }
+    }
+
+    // const id = e.target.id;
+    // const job = await axios.get(`/api/v1/job/${id}`);
   };
 
   const loadAllJobs = async () => {
@@ -74,7 +127,54 @@ export default function MainContainer() {
       filters = [];
       setFileteredBy(filters);
       loadJobs();
+      for (
+        let index = 0;
+        index < document.querySelectorAll(`[data-expandable="yes"]`).length;
+        index++
+      ) {
+        const element = document.querySelectorAll(`[data-expandable="yes"]`)[
+          index
+        ];
+        const element2 = document.querySelectorAll(
+          `[data-job-expandable="yes"]`
+        )[index];
+        const element3JobDiv = document.querySelectorAll(
+          `[data-jobdiv-expandable="yes"]`
+        )[index];
+        if (Number(window.screen.width) > 900) {
+          element2.style.height = "140px";
+          element.style.display = "none";
+        } else if (Number(window.screen.width) < 600) {
+          element2.style.height = "500px";
+          element.style.display = "none";
+          element3JobDiv.style.display = "flex";
+        }
+      }
     } else {
+      for (
+        let index = 0;
+        index < document.querySelectorAll(`[data-expandable="yes"]`).length;
+        index++
+      ) {
+        const element = document.querySelectorAll(`[data-expandable="yes"]`)[
+          index
+        ];
+        const element2 = document.querySelectorAll(
+          `[data-job-expandable="yes"]`
+        )[index];
+        const element3JobDiv = document.querySelectorAll(
+          `[data-jobdiv-expandable="yes"]`
+        )[index];
+        if (Number(window.screen.width) > 900) {
+          element2.style.height = "140px";
+          element.style.display = "none";
+        } else if (Number(window.screen.width) < 600) {
+          element2.style.height = "500px";
+          element.style.display = "none";
+          element3JobDiv.style.display = "flex";
+        }
+      }
+
       console.log(e.target.attributes);
       filters.splice(filters.indexOf(e.target.attributes.filter.value), 1);
       let filterDeep = [...filters];
@@ -118,6 +218,31 @@ export default function MainContainer() {
         filters.push(e.target.outerText.toLowerCase());
       }
 
+      for (
+        let index = 0;
+        index < document.querySelectorAll(`[data-expandable="yes"]`).length;
+        index++
+      ) {
+        const element = document.querySelectorAll(`[data-expandable="yes"]`)[
+          index
+        ];
+        const element2 = document.querySelectorAll(
+          `[data-job-expandable="yes"]`
+        )[index];
+        const element3JobDiv = document.querySelectorAll(
+          `[data-jobdiv-expandable="yes"]`
+        )[index];
+        console.log(window.screen.width);
+        if (Number(window.screen.width) > 900) {
+          element2.style.height = "140px";
+          element.style.display = "none";
+        } else if (Number(window.screen.width) < 600) {
+          element2.style.height = "500px";
+          element.style.display = "none";
+          element3JobDiv.style.display = "flex";
+        }
+      }
+
       let filterDeep = [...filters];
       if (
         filterDeep.includes("c#") ||
@@ -147,6 +272,30 @@ export default function MainContainer() {
       }
       if (!filters.includes(e.target.value)) {
         filters.push(e.target.value.toLowerCase());
+      }
+
+      for (
+        let index = 0;
+        index < document.querySelectorAll(`[data-expandable="yes"]`).length;
+        index++
+      ) {
+        const element = document.querySelectorAll(`[data-expandable="yes"]`)[
+          index
+        ];
+        const element2 = document.querySelectorAll(
+          `[data-job-expandable="yes"]`
+        )[index];
+        const element3JobDiv = document.querySelectorAll(
+          `[data-jobdiv-expandable="yes"]`
+        )[index];
+        if (Number(window.screen.width) > 900) {
+          element2.style.height = "140px";
+          element.style.display = "none";
+        } else if (Number(window.screen.width) < 600) {
+          element2.style.height = "500px";
+          element.style.display = "none";
+          element3JobDiv.style.display = "flex";
+        }
       }
 
       let filterDeep = [...filters];
@@ -184,6 +333,30 @@ export default function MainContainer() {
   const AddRemoteFilter = async (e) => {
     setAddingRemote(e.target.checked);
     let filters = fileteredBy;
+
+    for (
+      let index = 0;
+      index < document.querySelectorAll(`[data-expandable="yes"]`).length;
+      index++
+    ) {
+      const element = document.querySelectorAll(`[data-expandable="yes"]`)[
+        index
+      ];
+      const element2 = document.querySelectorAll(`[data-job-expandable="yes"]`)[
+        index
+      ];
+      const element3JobDiv = document.querySelectorAll(
+        `[data-jobdiv-expandable="yes"]`
+      )[index];
+      if (Number(window.screen.width) > 900) {
+        element2.style.height = "140px";
+        element.style.display = "none";
+      } else if (Number(window.screen.width) < 600) {
+        element2.style.height = "500px";
+        element.style.display = "none";
+        element3JobDiv.style.display = "flex";
+      }
+    }
 
     let filterDeep = [...filters];
     if (
@@ -284,68 +457,126 @@ export default function MainContainer() {
       </div>
       <div>{jobs.length} jobs found </div>
       {jobs.map((el, i) => (
-        <div id={i} key={i} className={styles.Job}>
-          {el.AddedByUser ? (
-            <div
-              title="Added by Company"
-              onMouseOver={showTitle}
-              onMouseLeave={hideTitle}
-              className={styles.AddedByUser}
-            >
-              ✅<div className={styles.arrowUp}></div>
-              <div className={styles.AddedByUserPopDown}>original post</div>
-            </div>
-          ) : null}
-
-          <div className={styles.basicDetails_Job}>
-            <div> 🏢 &nbsp; {el.employer}</div>
-            <div> 🧑‍💻 &nbsp; {el.title}</div>
-            <div className={styles.placiloInLokacija}>
-              <div className={styles.lokacija}>
-                <span>📍</span>
-                <span>
-                  {el.lokacija}
-                  {el.isRemote ? (
-                    <span className={styles.remotePosition}>
-                      {el.lokacija !== "" ? <span>, </span> : null}
-                      Remote
-                    </span>
-                  ) : null}
-                </span>{" "}
-              </div>
-              <div className={styles.placilo}>
-                {" "}
-                💶 &nbsp;{/* */}
-                {el.placilo}
-                {el.isBruto == "bruto" ? <span>bruto</span> : <span>neto</span>}
-              </div>
-            </div>
-          </div>
-          <div className={styles.programmingLanguages}>
-            {el.programmingLanguages.map((el2, j) => (
+        <div
+          data-job-expandable="yes"
+          data-job-id={el.id}
+          id={i}
+          key={i}
+          className={styles.Job}
+        >
+          <div
+            data-jobdiv-id={el.id}
+            data-jobdiv-expandable="yes"
+            className={styles.JobDiv}
+          >
+            {el.AddedByUser ? (
               <div
-                value={el2}
-                onClick={FilterByProgramingLang}
-                key={j}
-                className={styles.language}
+                title="Added by Company"
+                onMouseOver={showTitle}
+                onMouseLeave={hideTitle}
+                className={styles.AddedByUser}
               >
-                {el2}
+                ✅<div className={styles.arrowUp}></div>
+                <div className={styles.AddedByUserPopDown}>original post</div>
               </div>
-            ))}
-          </div>
-          <div className={styles.jobsDivApplyAndDate}>
-            <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
-            <div className={styles.linkButtonDiv}>
-              {" "}
-              <a
-                className={styles.linkButton}
-                target={"_blank"}
-                href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
-              >
-                Apply
-              </a>
+            ) : null}
+            <div className={styles.basicDetails_Job}>
+              <div> 🏢 &nbsp; {el.employer}</div>
+              <div> 🧑‍💻 &nbsp; {el.title}</div>
+              <div className={styles.placiloInLokacija}>
+                <div className={styles.lokacija}>
+                  <span>📍</span>
+                  <span>
+                    {el.lokacija}
+                    {el.isRemote ? (
+                      <span className={styles.remotePosition}>
+                        {el.lokacija !== "" ? <span>, </span> : null}
+                        Remote
+                      </span>
+                    ) : null}
+                  </span>{" "}
+                </div>
+                <div className={styles.placilo}>
+                  {" "}
+                  💶 &nbsp;{/* */}
+                  {el.placilo}
+                  {el.isBruto == "bruto" ? (
+                    <span>bruto</span>
+                  ) : (
+                    <span>neto</span>
+                  )}
+                </div>
+              </div>
             </div>
-            {/* {el.isRemote ? <div>Is remote </div> : null} */}
+            <div className={styles.programmingLanguages}>
+              {el.programmingLanguages.map((el2, j) => (
+                <div
+                  value={el2}
+                  onClick={FilterByProgramingLang}
+                  key={j}
+                  className={styles.language}
+                >
+                  {el2}
+                </div>
+              ))}
+            </div>
+            <div className={styles.jobsDivApplyAndDate}>
+              <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
+              <div className={styles.linkButtonDiv}>
+                {" "}
+                <a
+                  className={styles.linkButton}
+                  target={"_blank"}
+                  href={
+                    el.email.includes("@") ? `mailto:${el.email}` : el.email
+                  }
+                >
+                  Apply
+                </a>
+              </div>
+              {/* {el.isRemote ? <div>Is remote </div> : null} */}
+            </div>
+            <div
+              id={el.id}
+              className={styles.jobDetails}
+              onClick={getJobDetails}
+            >
+              Click here to show more
+            </div>
+          </div>
+          <div
+            data-jobdescription-id={el.id}
+            data-expandable="yes"
+            className={styles.jobDescription}
+          >
+            <div>
+              <h1 className={styles.jobDescriptionHeading}>Job description</h1>
+              <p className={styles.jobDescriptionParagraph}>
+                {el.opisDelovnegaMesta}
+              </p>
+            </div>
+            <div>
+              <h1 className={styles.jobDescriptionHeading}>Job requirements</h1>
+              <p className={styles.jobDescriptionParagraph}>{el.zahteve}</p>
+            </div>
+            <div>
+              <h1 className={styles.jobDescriptionHeading}>How to Apply</h1>
+              <p className={styles.jobDescriptionParagraph}>{el.kontakt}</p>
+            </div>
+            <div
+              id={el.id}
+              className={styles.jobDetailsMobile}
+              onClick={getJobDetails}
+            >
+              Click here to show less
+            </div>
+            <a
+              className={styles.linkButtonJobDescription}
+              target={"_blank"}
+              href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
+            >
+              Apply
+            </a>
           </div>
         </div>
       ))}

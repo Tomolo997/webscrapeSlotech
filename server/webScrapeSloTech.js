@@ -339,6 +339,32 @@ const yea = async () => {
         `${day}. ${mothnArray[month]} ${year} `
       );
       job.dateFrom = dateYposted;
+    } else if (datePosted.includes("včeraj")) {
+      const date = new Date();
+      const [month, day, year] = [
+        date.getMonth(),
+        date.getDate(),
+        date.getFullYear(),
+      ];
+      const mothnArray = [
+        "jan",
+        "feb",
+        "mar",
+        "apr",
+        "may",
+        "jun",
+        "jul",
+        "aug",
+        "sep",
+        "oct",
+        "nov",
+        "dec",
+      ];
+      let dateYposted = datePosted.replace(
+        "včeraj",
+        `${day - 1}. ${mothnArray[month]} ${year} `
+      );
+      job.dateFrom = dateYposted;
     } else {
       job.dateFrom = datePosted;
     }
