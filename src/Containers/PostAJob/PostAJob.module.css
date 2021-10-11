@@ -14,7 +14,7 @@
 }
 .h1MainHeader {
   font-size: 3rem;
-  font-weight: 200;
+  font-weight: 400;
 }
 .mainDiv {
   background-color: white;
@@ -179,7 +179,7 @@ textarea {
 .remoteLocation {
   margin-left: 2rem;
   margin-top: 0.4rem;
-  width: 100px;
+  width: 200px;
 }
 .inputCheckBoxremote {
   /* Double-sized Checkboxes */
