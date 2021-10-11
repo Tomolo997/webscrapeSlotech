@@ -7,9 +7,9 @@ export default function Header() {
     <div className={styles.MainDiv}>
       <div className={styles.mainNav}>
         <div className={styles.mainHeadingDiv}>
-          <h1 className={styles.mainHeadingH1}>Slovenia IT job board</h1>
+          <h1 className={styles.mainHeadingH1}>Slovenia IT jobs</h1>
           <h1 className={styles.mainHeadingH2}>
-            Salary, Programming language and employment level
+            Quick and easy way to checkout the current hottest Slovenia IT jobs.
             <br></br>
           </h1>
           {/* comment here

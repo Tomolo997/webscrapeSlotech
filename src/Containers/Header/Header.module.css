@@ -23,7 +23,8 @@
 .mainHeadingH1 {
   font-size: 4rem;
   text-align: center;
-  font-weight: 200;
+  font-weight: 300;
+  font-family: "Roboto", sans-serif;
 }
 .mainHeadingH2 {
   text-align: center;

@@ -9,7 +9,7 @@
 .JobDiv {
   width: 100%;
   display: flex;
-  min-height: 140px;
+  min-height: 100px;
   position: absolute;
   top: 0;
   padding: 0.3rem;
@@ -41,7 +41,7 @@
   top: 0;
   width: 70%;
 
-  height: 140px;
+  height: 100px;
   background-color: white;
   margin: 0.4rem;
   box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
@@ -99,7 +99,7 @@
   max-width: 150px;
   background-color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   justify-self: flex-start;
 }
 .buttonByPay {
@@ -110,7 +110,7 @@
   padding: 0.5rem;
   max-width: 150px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   justify-self: flex-start;
 }
@@ -128,7 +128,7 @@
   padding: 0.5rem;
   max-width: 150px;
   border: none;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   justify-self: flex-start;
 }
@@ -141,6 +141,7 @@
   text-decoration: none;
   top: 70px;
   right: 100px;
+  font-weight: 400;
   cursor: pointer;
   font-size: 1.2rem;
   border-radius: 5px;
@@ -153,7 +154,7 @@
   padding: 0.5rem;
   background-color: white;
   max-width: 140px;
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
   border: none;
 }
@@ -163,7 +164,7 @@
   height: 20px;
   display: flex;
   border: 2px solid black;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: white;
   margin-left: 0.4rem;
 }
@@ -177,12 +178,13 @@
   background-color: red;
   color: honeydew;
   font-size: 1.4rem;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .basicDetails_Job {
   height: 90%;
   display: flex;
+  font-size: 0.8rem;
   width: 300px;
   text-align: center;
   flex-direction: column;
@@ -199,23 +201,21 @@
 .lokacija {
   display: flex;
   min-width: 120px;
-  min-height: 45px;
+  min-height: 40px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0.2rem;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   border-radius: 4px;
   background-color: #ddd;
 }
 .placilo {
-  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   height: auto;
   flex-direction: column;
-  min-height: 45px;
+  min-height: 40px;
   display: flex;
   min-width: 120px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   justify-content: center;
   align-items: center;
   margin-left: 1rem;
@@ -225,23 +225,27 @@
 .programmingLanguages {
   display: flex;
   height: 100%;
-  width: 300px;
+  width: 40%;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 .language {
-  padding: 0.4rem;
+  padding: 0.3rem;
   font-size: 0.7rem;
   margin-right: 0.7rem;
-  border: 3px solid black;
-  border-radius: 10px;
+  border: 2px solid black;
+  border-radius: 4px;
+  margin-top: 0.2rem;
   cursor: pointer;
+}
+.jobsFound {
+  margin-left: 1rem;
 }
 .language:hover {
   color: white;
   background-color: black;
-  border: 3px solid #ddd;
+  border: 2px solid #ddd;
 }
 .jobsDivApplyAndDate {
   display: flex;
@@ -254,15 +258,18 @@
   text-align: center;
 }
 .jobPostedDate {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   text-align: center;
-  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .linkButton {
   color: white;
   background-color: red;
   font-size: 1.4rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-weight: 400;
   margin-left: 1rem;
   text-decoration: none;
   width: 100%;
@@ -272,7 +279,8 @@
   color: white;
   background-color: red;
   font-size: 1.4rem;
-  border-radius: 10px;
+  border-radius: 5px;
+  font-weight: 400;
   margin-left: 1rem;
   text-decoration: none;
   width: 90%;
@@ -304,7 +312,7 @@
   background-color: white;
   border: none;
   box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
-  border-radius: 10px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -369,7 +377,9 @@
   .linkButton {
     color: white;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-weight: 400;
+
     text-decoration: none;
   }
   .basicDetails_Job {
@@ -388,7 +398,7 @@
     background-color: white;
     border: none;
     box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
-    border-radius: 10px;
+    border-radius: 5px;
   }
   .sortedDiv {
     width: 80%;
@@ -455,6 +465,8 @@
     width: auto;
     width: 100%;
     padding: 1rem;
+    font-weight: 400;
+
     text-align: center;
   }
   .basicDetails_Job {
@@ -473,7 +485,7 @@
     background-color: white;
     border: none;
     box-shadow: 1px 2px 4px rgb(0 0 0 / 3%);
-    border-radius: 10px;
+    border-radius: 5px;
   }
   .sortedDiv {
     margin: 1rem;
@@ -527,7 +539,7 @@
     font-size: 0.8rem;
     margin: 0.3rem;
     border: 3px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
   }
   .AddedByUser {
@@ -549,6 +561,7 @@
     transform: translateX(50%);
     cursor: pointer;
     font-size: 1.2rem;
+    font-weight: 400;
     border-radius: 5px;
     box-shadow: 1px 3px 4px rgb(0 0 0 / 10%);
   }
@@ -590,7 +603,8 @@
     color: white;
     background-color: red;
     font-size: 1.4rem;
-    border-radius: 10px;
+    font-weight: 400;
+    border-radius: 5px;
     margin-left: 1rem;
     text-decoration: none;
     width: 80%;

@@ -12,7 +12,7 @@ export default function MainContainer() {
   //load jobs as inital
 
   const loadJobs = async () => {
-    //dev  =>http://localhost:400
+    //dev  =>http://localhost:4001
     const jobbs = await axios.get("/api/v1/jobs", {
       headers: {
         Authorization: `token thisisforyourbest123`,
@@ -32,7 +32,7 @@ export default function MainContainer() {
     if (Number(window.screen.width) > 900) {
       if (e.target.parentElement.parentElement.style.height === "800px") {
         //spremeni height v 140px
-        e.target.parentElement.parentElement.style.height = "140px";
+        e.target.parentElement.parentElement.style.height = "100px";
         console.log(e.target.parentElement.parentElement.classList);
         //selectaj job description in ga odstarni AKA display:none
         document.querySelectorAll(
@@ -142,7 +142,7 @@ export default function MainContainer() {
           `[data-jobdiv-expandable="yes"]`
         )[index];
         if (Number(window.screen.width) > 900) {
-          element2.style.height = "140px";
+          element2.style.height = "100px";
           element.style.display = "none";
         } else if (Number(window.screen.width) < 600) {
           element2.style.height = "500px";
@@ -166,7 +166,7 @@ export default function MainContainer() {
           `[data-jobdiv-expandable="yes"]`
         )[index];
         if (Number(window.screen.width) > 900) {
-          element2.style.height = "140px";
+          element2.style.height = "100px";
           element.style.display = "none";
         } else if (Number(window.screen.width) < 600) {
           element2.style.height = "500px";
@@ -234,7 +234,7 @@ export default function MainContainer() {
         )[index];
         console.log(window.screen.width);
         if (Number(window.screen.width) > 900) {
-          element2.style.height = "140px";
+          element2.style.height = "100px";
           element.style.display = "none";
         } else if (Number(window.screen.width) < 600) {
           element2.style.height = "500px";
@@ -289,7 +289,7 @@ export default function MainContainer() {
           `[data-jobdiv-expandable="yes"]`
         )[index];
         if (Number(window.screen.width) > 900) {
-          element2.style.height = "140px";
+          element2.style.height = "100px";
           element.style.display = "none";
         } else if (Number(window.screen.width) < 600) {
           element2.style.height = "500px";
@@ -349,7 +349,7 @@ export default function MainContainer() {
         `[data-jobdiv-expandable="yes"]`
       )[index];
       if (Number(window.screen.width) > 900) {
-        element2.style.height = "140px";
+        element2.style.height = "100px";
         element.style.display = "none";
       } else if (Number(window.screen.width) < 600) {
         element2.style.height = "500px";
@@ -398,9 +398,9 @@ export default function MainContainer() {
         {" "}
         <div onChange={addLangFilter} className={styles.filteredDivOne}>
           <select placeholder="language" className={styles.selectDiv}>
-            <option value="javascript">javascript</option>
-            <option value="css">css</option>
             <option value="c#">c#</option>
+            <option value="css">css</option>
+            <option value="javascript">javascript</option>
             <option value="c++">c++</option>
             <option value="html">html</option>
             <option value="vue">vue</option>
@@ -455,7 +455,7 @@ export default function MainContainer() {
           })}
         </div>
       </div>
-      <div>{jobs.length} jobs found </div>
+      <div className={styles.jobsFound}>{jobs.length} jobs found </div>
       {jobs.map((el, i) => (
         <div
           data-job-expandable="yes"
