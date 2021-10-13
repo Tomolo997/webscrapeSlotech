@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "mongoose": "^5.13.7",
     "node-cron": "^3.0.0",
+    "node-mailjet": "^3.3.4",
     "nodemon": "^2.0.12",
     "pg": "^8.7.1",
     "puppeteer": "^10.1.0",

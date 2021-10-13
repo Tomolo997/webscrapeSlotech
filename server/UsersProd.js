@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const UserSchema = mongoose.Schema(
+const UserProdSchema = mongoose.Schema(
   {
     email: String,
     createdAt: {
@@ -14,6 +14,6 @@ const UserSchema = mongoose.Schema(
     toObject: { virtuals: true },
   }
 );
-const Users = mongoose.model("Users", UserSchema);
+const UsersProd = mongoose.model("UsersProd", UserProdSchema);
 
-module.exports = Users;
+module.exports = UsersProd;

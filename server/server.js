@@ -5,10 +5,13 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
+const Users = require("./UserModel");
+const UsersProd = require("./UsersProd");
+const { sendEmail } = require("./Email");
 const { type } = require("os");
 const { resolveSoa } = require("dns");
 const app = express();
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 4001;
 //connection to the DB =>
 //8081 port for production
 
@@ -76,6 +79,32 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
     res.status(200).json({
       status: "success",
       jobs: sortbyPlacilo(jobs),
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
+app.post("/api/v1/add-email", async (req, res) => {
+  try {
+    const email = req.body.email;
+    sendEmail(email);
+    let foundEmail = await Users.find({ email: email });
+    if (foundEmail.length > 0) {
+      return res.status(200).json({
+        status: "error",
+        message: "User with this email already exits",
+      });
+    } else {
+      await Users.create({
+        email: email,
+        isRemote: req.body.isRemote,
+        filters: req.body.filters,
+      });
+    }
+
+    res.status(200).json({
+      status: "success",
+      message: "Congrats you are ready to receive new job emails 😀",
     });
   } catch (error) {
     console.log(error);

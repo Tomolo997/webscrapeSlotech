@@ -7,8 +7,18 @@ function UserEmail() {
   const [email, setEmail] = useState("");
   const [remote, setRemote] = useState(false);
   const [EmailError, setEmailError] = useState(false);
+  const [successNewUser, setSuccessNewUser] = useState(false);
   const [filters, setFilters] = useState([]);
+  const [includesAfna, setIncludesAfna] = useState(false);
 
+  const history = useHistory();
+  function isValiEmail(val) {
+    let regEmail =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!regEmail.test(val)) {
+      return "Invalid Email Address";
+    }
+  }
   const addFilter = (e) => {
     console.log(e.target.value);
     let filtArray = [...filters];
@@ -22,20 +32,57 @@ function UserEmail() {
     }
   };
   const changeEmail = (e) => {
+    setEmailError(false);
     setEmail(e.target.value);
+    setIncludesAfna(false);
   };
 
-  const addToFilters = (e) => {};
+  const joinEmailList = async (e) => {
+    e.preventDefault();
+    if (isValiEmail(email)) {
+      setIncludesAfna(true);
+    } else {
+      if (!email.includes(".")) {
+        setIncludesAfna(true);
+        return;
+      }
+      const res = await axios.post("http://localhost:4001/api/v1/add-email", {
+        email: email,
+        filters: filters,
+        isRemote: remote,
+      });
+      const status = res.data.status;
+      const message = res.data.message;
+
+      if (status === "error") {
+        setEmailError(true);
+        setIncludesAfna(false);
+      }
+      if (status == "success") {
+        console.log(message);
+        setSuccessNewUser(true);
+        setTimeout(() => {
+          history.push("/");
+        }, 1000);
+      }
+    }
+  };
 
   const removeJob = (e) => {
     console.log(e.target);
+
     let proglangFilter = e.target.getAttribute("filter");
+    if (proglangFilter === "Remote") {
+      document.getElementById("remoteInput").checked = false;
+      setRemote(false);
+    }
     let filtArray = [...filters];
     filtArray.splice(filtArray.indexOf(proglangFilter), 1);
     setFilters(filtArray);
   };
 
   const changeRemote = (e) => {
+    console.log("CHAGNED");
     setRemote(e.target.checked);
     if (e.target.checked) {
       let filtArray = [...filters];
@@ -57,31 +104,46 @@ function UserEmail() {
             Get email for every new job you desire
           </h1>
         </div>
-        <div></div>
       </header>
       <div className={styles.mainDiv}>
-        <div className={styles.outerLayer}>
+        <div className={styles.h2MainHeaderDiv}>
+          {successNewUser ? (
+            <h2 className={styles.h2MainHeader}>
+              {" "}
+              Your welcome Email has been send, get ready to receive jobs 💻.
+            </h2>
+          ) : (
+            ""
+          )}
+        </div>
+        <form className={styles.outerLayer}>
+          <div class={styles.loadingDiv}></div>
           <div className={styles.innerLayer}>
             <div className={styles.inputDiv}>
-              <label className={styles.inputLabel} for="email">
+              <label className={styles.inputLabel} for="textemail">
                 USER EMAIL
               </label>
 
               <input
                 onChange={changeEmail}
                 className={styles.inputField}
-                name="email"
-                id="companyId"
+                name="textemail"
+                id="emailUser"
                 type="email"
+                required
+                placeholder="example@gmail.com"
               />
               {EmailError ? (
                 <div className={styles.errorDiv}>
-                  Please fill out the required field
+                  User with this email already exist
                 </div>
-              ) : (
-                <div>&nbsp;</div>
-              )}
-              <p className={styles.textInputDiv}>Fill out the</p>
+              ) : null}
+              {includesAfna ? (
+                <div className={styles.errorDiv}>Enter correct Email</div>
+              ) : null}
+              <p className={styles.textInputDiv}>
+                Enter your email to receive new awesome jobs.{" "}
+              </p>
             </div>
             <div className={styles.inputDivFilters}>
               <label className={styles.inputLabel} for="language">
@@ -120,7 +182,7 @@ function UserEmail() {
                 <input
                   className={styles.inputCheckBoxremote}
                   name="companyName"
-                  id="companyId"
+                  id="remoteInput"
                   type="checkbox"
                   onChange={changeRemote}
                 />
@@ -154,12 +216,22 @@ function UserEmail() {
               </p>
             </div>
           </div>
-          <button className={styles.newsletterJoinButton}>
+          <button
+            type="submit"
+            onClick={joinEmailList}
+            className={styles.newsletterJoinButton}
+          >
             JOIN EMAIL LIST
           </button>
-        </div>
+        </form>
       </div>
-      <footer>footer</footer>
+      <footer className={styles.footer}>
+        <div>
+          <a class={styles.footerLink} href="/">
+            Sloveniaitjobs.com
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }
