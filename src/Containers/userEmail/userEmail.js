@@ -46,7 +46,7 @@ function UserEmail() {
         setIncludesAfna(true);
         return;
       }
-      const res = await axios.post("http://localhost:4001/api/v1/add-email", {
+      const res = await axios.post("/api/v1/add-email", {
         email: email,
         filters: filters,
         isRemote: remote,
