@@ -1,9 +1,20 @@
+require("dotenv").config({ path: ".env" });
+
 const mailjet = require("node-mailjet").connect(
-  "6d44955f1e826b7a61e95c1b664c8fd0",
-  "cfca376d8e59e027dd9e6538fcd0141b"
+  process.env.MAILJETAPI,
+  process.env.MAILJETAPI2
 );
 
-const sendEmail = (receiver) => {
+const makeHTML = (jobs) => {
+  let html = "";
+  for (let i = 0; i < jobs.length; i++) {
+    const element = jobs[i];
+    html += `<h3>${jobs.title}</h3> </br>`;
+  }
+  return html;
+};
+
+const sendEmail = (receiver, jobs) => {
   const request = mailjet.post("send", { version: "v3.1" }).request({
     Messages: [
       {
@@ -19,7 +30,7 @@ const sendEmail = (receiver) => {
         ],
         Subject: "Great to have you on board",
         TextPart: "From now on you will not miss on the",
-        HTMLPart: "<h3>Welcome to the party</h3> ",
+        HTMLPart: makeHTML(jobs),
         CustomID: "AppGettingStartedTest",
       },
     ],

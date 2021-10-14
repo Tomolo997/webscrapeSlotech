@@ -110,7 +110,7 @@ function UserEmail() {
           {successNewUser ? (
             <h2 className={styles.h2MainHeader}>
               {" "}
-              Your welcome Email has been send, get ready to receive jobs 💻.
+              Your welcome Email has been send, get ready to receive jobs 💻
             </h2>
           ) : (
             ""
