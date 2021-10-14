@@ -13,8 +13,16 @@ const makeHTML = (jobs) => {
   }
   return html;
 };
+const makeHTMLFilters = (filters) => {
+  let html = "";
+  for (let i = 0; i < filters.length; i++) {
+    const element = filters[i];
+    html += `<p>                 - ${element}</p> </br>`;
+  }
+  return html;
+};
 
-const sendEmail = (receiver, jobs) => {
+const sendEmailWelcome = (receiver, filters) => {
   const request = mailjet.post("send", { version: "v3.1" }).request({
     Messages: [
       {
@@ -29,8 +37,12 @@ const sendEmail = (receiver, jobs) => {
           },
         ],
         Subject: "Great to have you on board",
-        TextPart: "From now on you will not miss on the",
-        HTMLPart: makeHTML(jobs),
+        TextPart: "From now on you will not miss on the latest jobs",
+        HTMLPart: `<h3>Welcome to the Slovenia IT jobs email list </h3>
+        <p>You can expect to receive jobs daily, it depends on your filters ofcourse.</p> 
+        <p>Your filters are: ${makeHTMLFilters(filters)}</p>
+        <p>Thanks for applying to this email list</p>
+        <p>BR Slovenia IT jobs team</p>`,
         CustomID: "AppGettingStartedTest",
       },
     ],
@@ -43,4 +55,4 @@ const sendEmail = (receiver, jobs) => {
       console.log(err.statusCode);
     });
 };
-module.exports = { sendEmail };
+module.exports = { sendEmailWelcome };

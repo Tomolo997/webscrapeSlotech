@@ -7,7 +7,7 @@ const Jobs = require("./JobsModel");
 const JobsCopy = require("./jobsModelCopy");
 const Users = require("./UserModel");
 const UsersProd = require("./UsersProd");
-const { sendEmail } = require("./Email");
+const { sendEmailWelcome } = require("./Email");
 const { type } = require("os");
 const { resolveSoa } = require("dns");
 const app = express();
@@ -37,8 +37,7 @@ const sortbyPlacilo = (array) => {
   const sortedArray = array.sort(compare);
   return sortedArray;
 };
-const DB =
-  "mongodb+srv://tomaz:tomaz@nobullshit.g3lx5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const DB = `mongodb+srv://${process.env.MONGODBUSERNAME}:${process.env.MONGODBPASSWORD}@nobullshit.g3lx5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 mongoose
   .connect(DB, {
     useNewUrlParser: true,
@@ -87,7 +86,8 @@ app.get("/api/v1/jobs-sorted-by-pay", async (req, res) => {
 app.post("/api/v1/add-email", async (req, res) => {
   try {
     const email = req.body.email;
-    sendEmail(email);
+    const filters = req.body.filters;
+    sendEmailWelcome(email, filters);
     let foundEmail = await Users.find({ email: email });
     if (foundEmail.length > 0) {
       return res.status(200).json({
