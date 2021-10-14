@@ -203,3 +203,16 @@ textarea {
   text-decoration: none;
   color: black;
 }
+@media only screen and (max-width: 600px) {
+  .h1MainHeader {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-align: center;
+  }
+  .inputField {
+    width: 90%;
+  }
+  .inputFieldProgrammingLanguages {
+    width: 90%;
+  }
+}
