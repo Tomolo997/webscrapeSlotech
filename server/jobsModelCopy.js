@@ -17,6 +17,9 @@ const JobsCopySchema = mongoose.Schema(
       type: Date,
       default: Date.now,
     },
+    expiresIn: {
+      type: Date,
+    },
     AddedByUser: Boolean,
     isRemote: Boolean,
     maximumPlacilo: Number,

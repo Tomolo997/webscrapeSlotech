@@ -438,7 +438,7 @@ export default function MainContainer() {
             By Pay
           </button> */}
           <button onClick={loadAllJobs} className={styles.getAlldiv}>
-            All Jobs
+            No filter
           </button>
         </div>
         <div className={styles.filteredDivTwo}>
@@ -459,130 +459,138 @@ export default function MainContainer() {
         </div>
       </div>
       <div className={styles.jobsFound}>{jobs.length} jobs found </div>
-      {jobs.map((el, i) => (
-        <div
-          data-job-expandable="yes"
-          data-job-id={el.id}
-          id={i}
-          key={i}
-          className={styles.Job}
-        >
+      <div className={styles.JobsDivMain}>
+        {jobs.map((el, i) => (
           <div
-            data-jobdiv-id={el.id}
-            data-jobdiv-expandable="yes"
-            className={styles.JobDiv}
+            data-job-expandable="yes"
+            data-job-id={el.id}
+            id={i}
+            key={i}
+            className={styles.Job}
           >
-            {el.AddedByUser ? (
-              <div
-                title="Added by Company"
-                onMouseOver={showTitle}
-                onMouseLeave={hideTitle}
-                className={styles.AddedByUser}
-              >
-                ✅<div className={styles.arrowUp}></div>
-                <div className={styles.AddedByUserPopDown}>original post</div>
-              </div>
-            ) : null}
-            <div className={styles.basicDetails_Job}>
-              <div> 🏢 &nbsp; {el.employer}</div>
-              <div> 🧑‍💻 &nbsp; {el.title}</div>
-              <div className={styles.placiloInLokacija}>
-                <div className={styles.lokacija}>
-                  <span>📍</span>
-                  <span>
-                    {el.lokacija}
-                    {el.isRemote ? (
-                      <span className={styles.remotePosition}>
-                        {el.lokacija !== "" ? <span>, </span> : null}
-                        Remote
-                      </span>
-                    ) : null}
-                  </span>{" "}
-                </div>
-                <div className={styles.placilo}>
-                  {" "}
-                  💶 &nbsp;{/* */}
-                  {el.placilo}
-                  {el.isBruto == "bruto" ? (
-                    <span>bruto</span>
-                  ) : (
-                    <span>neto</span>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className={styles.programmingLanguages}>
-              {el.programmingLanguages.map((el2, j) => (
+            <div
+              data-jobdiv-id={el.id}
+              data-jobdiv-expandable="yes"
+              className={styles.JobDiv}
+            >
+              {el.AddedByUser ? (
                 <div
-                  value={el2}
-                  onClick={FilterByProgramingLang}
-                  key={j}
-                  className={styles.language}
+                  title="Added by Company"
+                  onMouseOver={showTitle}
+                  onMouseLeave={hideTitle}
+                  className={styles.AddedByUser}
                 >
-                  {el2}
+                  ✅<div className={styles.arrowUp}></div>
+                  <div className={styles.AddedByUserPopDown}>original post</div>
                 </div>
-              ))}
-            </div>
-            <div className={styles.jobsDivApplyAndDate}>
-              <div className={styles.jobPostedDate}>⏰ &nbsp;{el.dateFrom}</div>
-              <div className={styles.linkButtonDiv}>
-                {" "}
-                <a
-                  className={styles.linkButton}
-                  target={"_blank"}
-                  href={
-                    el.email.includes("@") ? `mailto:${el.email}` : el.email
-                  }
-                >
-                  Apply
-                </a>
+              ) : null}
+              <div className={styles.basicDetails_Job}>
+                <div> 🏢 &nbsp; {el.employer}</div>
+                <div> 🧑‍💻 &nbsp; {el.title}</div>
+                <div className={styles.placiloInLokacija}>
+                  <div className={styles.lokacija}>
+                    <span>📍</span>
+                    <span>
+                      {el.lokacija}
+                      {el.isRemote ? (
+                        <span className={styles.remotePosition}>
+                          {el.lokacija !== "" ? <span>, </span> : null}
+                          Remote
+                        </span>
+                      ) : null}
+                    </span>{" "}
+                  </div>
+                  <div className={styles.placilo}>
+                    {" "}
+                    💶 &nbsp;{/* */}
+                    {el.placilo}
+                    {el.isBruto == "bruto" ? (
+                      <span>bruto</span>
+                    ) : (
+                      <span>neto</span>
+                    )}
+                  </div>
+                </div>
               </div>
-              {/* {el.isRemote ? <div>Is remote </div> : null} */}
+              <div className={styles.programmingLanguages}>
+                {el.programmingLanguages.map((el2, j) => (
+                  <div
+                    value={el2}
+                    onClick={FilterByProgramingLang}
+                    key={j}
+                    className={styles.language}
+                  >
+                    {el2}
+                  </div>
+                ))}
+              </div>
+              <div className={styles.jobsDivApplyAndDate}>
+                <div className={styles.jobPostedDate}>
+                  ⏰ &nbsp;{el.dateFrom}
+                </div>
+                <div className={styles.linkButtonDiv}>
+                  {" "}
+                  <a
+                    className={styles.linkButton}
+                    target={"_blank"}
+                    href={
+                      el.email.includes("@") ? `mailto:${el.email}` : el.email
+                    }
+                  >
+                    Apply
+                  </a>
+                </div>
+                {/* {el.isRemote ? <div>Is remote </div> : null} */}
+              </div>
+              <div
+                id={el.id}
+                className={styles.jobDetails}
+                onClick={getJobDetails}
+              >
+                Click here to show more
+              </div>
             </div>
             <div
-              id={el.id}
-              className={styles.jobDetails}
-              onClick={getJobDetails}
+              data-jobdescription-id={el.id}
+              data-expandable="yes"
+              className={styles.jobDescription}
             >
-              Click here to show more
+              <div>
+                <h1 className={styles.jobDescriptionHeading}>
+                  Job description
+                </h1>
+                <p className={styles.jobDescriptionParagraph}>
+                  {el.opisDelovnegaMesta}
+                </p>
+              </div>
+              <div>
+                <h1 className={styles.jobDescriptionHeading}>
+                  Job requirements
+                </h1>
+                <p className={styles.jobDescriptionParagraph}>{el.zahteve}</p>
+              </div>
+              <div>
+                <h1 className={styles.jobDescriptionHeading}>How to Apply</h1>
+                <p className={styles.jobDescriptionParagraph}>{el.kontakt}</p>
+              </div>
+              <div
+                id={el.id}
+                className={styles.jobDetailsMobile}
+                onClick={getJobDetails}
+              >
+                Click here to show less
+              </div>
+              <a
+                className={styles.linkButtonJobDescription}
+                target={"_blank"}
+                href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
+              >
+                Apply
+              </a>
             </div>
           </div>
-          <div
-            data-jobdescription-id={el.id}
-            data-expandable="yes"
-            className={styles.jobDescription}
-          >
-            <div>
-              <h1 className={styles.jobDescriptionHeading}>Job description</h1>
-              <p className={styles.jobDescriptionParagraph}>
-                {el.opisDelovnegaMesta}
-              </p>
-            </div>
-            <div>
-              <h1 className={styles.jobDescriptionHeading}>Job requirements</h1>
-              <p className={styles.jobDescriptionParagraph}>{el.zahteve}</p>
-            </div>
-            <div>
-              <h1 className={styles.jobDescriptionHeading}>How to Apply</h1>
-              <p className={styles.jobDescriptionParagraph}>{el.kontakt}</p>
-            </div>
-            <div
-              id={el.id}
-              className={styles.jobDetailsMobile}
-              onClick={getJobDetails}
-            >
-              Click here to show less
-            </div>
-            <a
-              className={styles.linkButtonJobDescription}
-              target={"_blank"}
-              href={el.email.includes("@") ? `mailto:${el.email}` : el.email}
-            >
-              Apply
-            </a>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
