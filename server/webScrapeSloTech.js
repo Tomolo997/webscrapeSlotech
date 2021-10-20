@@ -1,7 +1,9 @@
 const puppeteer = require("puppeteer");
-
 const fs = require("fs");
 //server.js
+const Users = require("./UserModel");
+const UsersProd = require("./UsersProd");
+const { sendEmailJobs } = require("./Email");
 var cron = require("node-cron");
 
 const path = require("path");
@@ -450,15 +452,36 @@ const yea = async () => {
   // Jobs.create(JobsAdded);
   // let jobsAdded = await Jobs.find({});
   let jobsAwaited = await Jobs.find();
+  const usersEmail = await Users.find();
+
   // await Jobs.remove();
+  let newJobs = [];
   for (let i = 0; i < 10; i++) {
-    //nove jobe iscemo
     const job = jobs[i];
-    //ce v trenutnem job filu ni novekag
     if (!jobsAwaited.some((el) => el.numberOfJob === job.numberOfJob)) {
       await Jobs.create(job);
+      newJobs.push(job);
     }
   }
+
+  for (let j = 0; j < usersEmail.length; j++) {
+    const user = usersEmail[j];
+    let jobsToSend = [];
+    for (let i = 0; i < newJobs.length; i++) {
+      const job = newJobs[i];
+      for (let k = 0; k < job.programmingLanguages.length; k++) {
+        const jobsProgramingLanguage = job.programmingLanguages[k];
+        if (user.filters.includes(jobsProgramingLanguage)) {
+          jobsToSend.push(job);
+        }
+      }
+    }
+    if (jobsToSend.length > 0) {
+      sendEmailJobs(user.email, jobsToSend);
+    }
+  }
+
+  //find the users and theier filters
 
   // Jobs copy
   // await JobsCopy.remove();
