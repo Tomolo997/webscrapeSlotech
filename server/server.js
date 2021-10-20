@@ -11,7 +11,7 @@ const { sendEmailWelcome } = require("./Email");
 const { type } = require("os");
 const { resolveSoa } = require("dns");
 const app = express();
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 4001;
 //connection to the DB =>
 //8081 port for production
 
