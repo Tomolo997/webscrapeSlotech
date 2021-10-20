@@ -395,7 +395,7 @@ export default function MainContainer() {
         Post a job
       </a>
       <a href="/user-email" className={styles.emailJob}>
-        Get email for job of your liking
+        Get new jobs everyday
       </a>
       {/* <div className={styles.sortedDiv}>
         <button className={styles.buttonSort} onClick={sortbyPlacilo}>
@@ -410,35 +410,41 @@ export default function MainContainer() {
       <div className={styles.fillterDiv}>
         {" "}
         <div onChange={addLangFilter} className={styles.filteredDivOne}>
-          <select placeholder="language" className={styles.selectDiv}>
-            <option value="c#">c#</option>
-            <option value="css">css</option>
-            <option value="javascript">javascript</option>
-            <option value="c++">c++</option>
-            <option value="html">html</option>
-            <option value="vue">vue</option>
-            <option value="react">react</option>
-            <option value="python">python</option>
-            <option value="node">node</option>
-            <option value="django">django</option>
-            <option value="ios">ios</option>
-            <option value="android">android</option>
-            <option value="java">java</option>
-            <option value="sql">sql</option>
-            <option value=".net">.net</option>
-            <option value="typescript">typescript</option>
-            <option value="php">php</option>
-            <option value="jquery">jquery</option>
-            <option value="AWS">aws</option>
-          </select>
-          <div className={styles.selectDivremote}>
-            <input
-              id="divremote"
-              value="office"
-              type="checkbox"
-              onClick={AddRemoteFilter}
-            />{" "}
-            <label htmlFor="divremote">Remote</label>
+          <div className={styles.divFilter}>
+            <p className={styles.filterNames}>Language</p>
+            <select placeholder="language" className={styles.selectDiv}>
+              <option value="c#">c#</option>
+              <option value="css">css</option>
+              <option value="javascript">javascript</option>
+              <option value="c++">c++</option>
+              <option value="html">html</option>
+              <option value="vue">vue</option>
+              <option value="react">react</option>
+              <option value="python">python</option>
+              <option value="node">node</option>
+              <option value="django">django</option>
+              <option value="ios">ios</option>
+              <option value="android">android</option>
+              <option value="java">java</option>
+              <option value="sql">sql</option>
+              <option value=".net">.net</option>
+              <option value="typescript">typescript</option>
+              <option value="php">php</option>
+              <option value="jquery">jquery</option>
+              <option value="AWS">aws</option>
+            </select>
+          </div>
+          <div className={styles.divFilter}>
+            <p className={styles.filterNames}>Remote</p>
+            <div className={styles.selectDivremote}>
+              <input
+                id="divremote"
+                value="office"
+                type="checkbox"
+                onClick={AddRemoteFilter}
+              />{" "}
+              <label htmlFor="divremote">Remote</label>
+            </div>
           </div>
           {/* <button
             value="paysort"
@@ -447,9 +453,12 @@ export default function MainContainer() {
           >
             By Pay
           </button> */}
-          <button onClick={loadAllJobs} className={styles.getAlldiv}>
-            No filter
-          </button>
+          <div className={styles.divFilter}>
+            <p className={styles.filterNames}>Clear all filters</p>
+            <button onClick={loadAllJobs} className={styles.getAlldiv}>
+              No filter
+            </button>
+          </div>
         </div>
         <div className={styles.filteredDivTwo}>
           {fileteredBy.map((el, i) => {
@@ -466,9 +475,10 @@ export default function MainContainer() {
               </div>
             );
           })}
+          <div className={styles.jobsFound}>{jobs.length} jobs found </div>
         </div>
       </div>
-      <div className={styles.jobsFound}>{jobs.length} jobs found </div>
+
       <div className={styles.JobsDivMain}>
         {jobs.map((el, i) => (
           <div
